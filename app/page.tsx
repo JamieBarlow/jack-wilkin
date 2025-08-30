@@ -7,7 +7,9 @@ export default function Home() {
       <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start">
         <div className="container mx-auto px-6">
           <h1>Hello World</h1>
-          <Link href="/users">Users</Link>
+          <Link href="/about-me">About Me</Link>
+          <Link href="/helpful-links">Helpful Links</Link>
+          <Link href="/contact">Contact Me</Link>
         </div>
       </main>
       <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]"></footer>
