@@ -5,8 +5,6 @@
   --foreground: #171717;
 }
 
-
-
 @theme {
   /* colors */
   --color-goldie: rgba(194, 165, 76, 1);
@@ -182,7 +180,7 @@
   --color-jaffa-900: rgba(85, 43, 6, 1);
   --color-jaffa-950: rgba(59, 30, 4, 1);
   --color-jaffa-default: rgba(242, 153, 74, 1);
-/* fonts */
+  /* fonts */
   --font-inter: "Inter", sans-serif;
   --font-raleway: "Raleway", sans-serif;
   --font-noto-sans: "Noto Sans", sans-serif;
@@ -190,21 +188,40 @@
   --section-spacing: var(--spacing-20);
 }
 
+@layer base {
+  h1 {
+    @apply font-raleway text-7xl font-semibold;
+  }
+  h2 {
+    @apply font-raleway text-[40px] font-normal;
+  }
+  h3 {
+    @apply font-raleway text-4xl font-semibold;
+  }
+  h4 {
+    @apply font-raleway text-2xl font-semibold;
+  }
+  p {
+    @apply pb-[18px] font-noto-sans text-xl font-normal;
+  }
+}
+
 @layer components {
-  .heading-1 {
-    @apply font-raleway font-semibold text-7xl
+  .heading {
+    @apply mt-0 mb-8;
   }
-  .heading-2 {
-    @apply font-raleway font-normal text-[40px]
-  }
-  .heading-3 {
-    @apply font-raleway font-semibold text-4xl
-  }
-  .heading-4 {
-    @apply font-raleway font-semibold text-2xl
-  }
-  .paragraph {
-    @apply font-noto-sans font-normal text-xl
+  .text-box {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mt-0 mb-8;
+    }
+    p {
+      @apply mt-0 mb-[18px];
+    }
   }
   .section-top {
     padding-bottom: var(--section-spacing);
@@ -216,11 +233,9 @@
     padding-top: var(--section-spacing);
   }
   .container-lg {
-    @apply w-7xl
+    @apply w-7xl;
   }
 }
-
-
 
 @theme inline {
   --color-background: var(--background);

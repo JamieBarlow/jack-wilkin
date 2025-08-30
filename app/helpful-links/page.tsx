@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const helpfulLinks = () => {
-  return (
-    <div>Helpful Links</div>
-  )
-}
+  return <div>Helpful Links</div>;
+};
 
-export default helpfulLinks
+export default helpfulLinks;
