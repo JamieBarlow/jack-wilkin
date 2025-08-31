@@ -7,6 +7,7 @@
 
 @theme {
   /* colors */
+  --color-banner-green: rgba(103, 152, 146, 1);
   --color-goldie: rgba(194, 165, 76, 1);
   --color-cornflower-blue: rgba(117, 139, 253, 1);
   --color-indian-red: rgba(232, 95, 92, 1);
@@ -181,11 +182,13 @@
   --color-jaffa-950: rgba(59, 30, 4, 1);
   --color-jaffa-default: rgba(242, 153, 74, 1);
   /* fonts */
-  --font-inter: "Inter", sans-serif;
-  --font-raleway: "Raleway", sans-serif;
-  --font-noto-sans: "Noto Sans", sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-raleway: var(--font-raleway), sans-serif;
+  --font-noto-sans: var(--font-noto-sans), sans-serif;
   /* spacing */
   --section-spacing: var(--spacing-20);
+  /* bg texture */
+  --texture-url: url("/banner-texture.png");
 }
 
 @layer base {
@@ -202,7 +205,26 @@
     @apply font-raleway text-2xl font-semibold;
   }
   p {
-    @apply pb-[18px] font-noto-sans text-xl font-normal;
+    @apply font-noto-sans text-xl font-normal;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply leading-snug;
+  }
+  p + p {
+    @apply mt-5;
+  }
+  h1 + p,
+  h2 + p,
+  h3 + p,
+  h4 + p,
+  h5 + p,
+  h6 + p {
+    @apply mt-2;
   }
 }
 
@@ -234,6 +256,17 @@
   }
   .container-lg {
     @apply w-7xl;
+  }
+  .navLink {
+    @apply text-peach-cream-50 font-raleway font-semibold;
+  }
+}
+
+@layer utilities {
+  .bg-texture {
+    @apply absolute inset-0 opacity-30;
+    background-image: var(--texture-url);
+    background-repeat: repeat;
   }
 }
 

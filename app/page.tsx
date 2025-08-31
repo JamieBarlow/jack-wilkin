@@ -1,18 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-
 export default function Home() {
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
-      <header>
-        <nav className="m-auto flex flex-row">
-          <Link href="/about-me">About Me</Link>
-          <Link href="/helpful-links">Helpful Links</Link>
-          <Link href="/contact">Contact Me</Link>
-        </nav>
-      </header>
+    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20 text-peach-cream-50">
       <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start">
-        <section id="hero" className="flex flex-col gap-10">
+        <section id="hero" className="flex flex-col gap-8">
           <h1>JFW Oxford Counselling</h1>
           <h2>Inclusive and accessible talking therapy</h2>
           <h2>in Oxford and online</h2>
@@ -53,6 +43,26 @@ export default function Home() {
               it may involve exploring the past or a specific incident,
               examining your relationships with others, or working to develop
               greater self-acceptance.
+            </p>
+          </div>
+        </section>
+        <section id="aboutCounselling">
+          <div>
+            <h3 className="heading">Neurodivergent and LGBTQ+ support</h3>
+            <p>
+              I also have extensive experience supporting neurodivergent
+              individuals and individuals identifying as LGBTQ+, including trans
+              and non-binary individuals.
+            </p>
+            <p>
+              Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+              vulputate libero et velit interdum, ac aliquet odio mattis.
+            </p>
+            <p>
+              Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+              vulputate libero et velit interdum, ac aliquet odio mattis. Class
+              aptent taciti sociosqu ad litora torquent per conubia nostra, per
+              inceptos himenaeos.
             </p>
           </div>
         </section>
