@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import BackgroundTexture from "./BackgroundTexture";
 
 const Navbar = () => {
   return (
-    <header className="relative bg-banner-green w-full">
-      <div className="bg-texture"></div>
+    <BackgroundTexture className="relative bg-banner-green w-full">
       <div className="relative z-10 p-10 text-peach-cream-50">
         <nav
           aria-label="Main navigation"
@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-    </header>
+    </BackgroundTexture>
   );
 };
 
