@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
   --background: #ffffff;
@@ -192,6 +193,9 @@
 }
 
 @layer base {
+  body {
+    margin: 0;
+  }
   h1 {
     @apply font-raleway text-7xl font-semibold;
   }
@@ -259,6 +263,12 @@
   }
   .navLink {
     @apply text-peach-cream-50 font-raleway font-semibold;
+  }
+  .btn-banner-outline {
+    @apply btn btn-outline w-fit rounded-xl
+      hover:bg-peach-cream-50
+      hover:border-peach-cream-50
+      hover:text-banner-green;
   }
 }
 

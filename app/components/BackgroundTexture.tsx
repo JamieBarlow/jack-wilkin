@@ -11,8 +11,8 @@ const BackgroundTexture = ({
 }: BackgroundTextureProps) => {
   return (
     <div className={`relative ${className}`}>
-      <div className="bg-texture" />
-      {children}
+      <div className="bg-texture"></div>
+      <div className="relative z-10">{children}</div>
     </div>
   );
 };
