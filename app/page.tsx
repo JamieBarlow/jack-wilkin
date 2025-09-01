@@ -5,23 +5,32 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start text-peach-cream-50">
-        <section id="intro">
-          <div>
-            <h3 className="heading">Hello, my name is Jack.</h3>
-            <p>
-              I’m a qualified counsellor providing one-to-one therapy for adults
-              over the age of 18. I work face to face in Oxford as well as
-              online via Zoom.
-            </p>
-            <p>
-              My approach to counselling is integrative, meaning that I draw on
-              a range of therapeutic approaches to best fit your specific
-              circumstances and goals.
-            </p>
+      <main className="row-start-2 flex flex-col justify-around items-center gap-20 sm:items-start text-peach-cream-50">
+        <section id="intro" className="bg-edgewater-50 text-off-black w-full">
+          <div className="container flex flex-row flex-wrap justify-center items-center lg:max-xl:justify-start gap-10 lg:gap-16 xl:gap-40 pb-20 px-10 mx-auto">
+            <div className="flex-1/2 w-full xl:max-w-md">
+              <h3 className="heading">Hello, my name is Jack.</h3>
+              <p>
+                I’m a qualified counsellor providing one-to-one therapy for
+                adults over the age of 18. I work face to face in Oxford as well
+                as online via Zoom.
+              </p>
+              <p>
+                My approach to counselling is integrative, meaning that I draw
+                on a range of therapeutic approaches to best fit your specific
+                circumstances and goals.
+              </p>
+            </div>
+            <div className="box-gradient-bg-right p-5">
+              <img
+                className=""
+                src="/jack-cropped2.jpg"
+                alt="Profile photo of Jack"
+              />
+            </div>
           </div>
         </section>
-        <section id="aboutCounselling">
+        <section id="aboutCounselling" className="">
           <div>
             <h3 className="heading">
               Who is counselling for and how does it help?
@@ -44,7 +53,7 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section id="aboutCounselling">
+        <section id="aboutCounselling" className="">
           <div>
             <h3 className="heading">Neurodivergent and LGBTQ+ support</h3>
             <p>

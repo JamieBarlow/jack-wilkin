@@ -8,6 +8,7 @@
 
 @theme {
   /* colors */
+  --color-off-black: rgba(51, 51, 51, 1);
   --color-banner-green: rgba(103, 152, 146, 1);
   --color-goldie: rgba(194, 165, 76, 1);
   --color-cornflower-blue: rgba(117, 139, 253, 1);
@@ -186,10 +187,13 @@
   --font-inter: var(--font-inter), sans-serif;
   --font-raleway: var(--font-raleway), sans-serif;
   --font-noto-sans: var(--font-noto-sans), sans-serif;
-  /* spacing */
-  --section-spacing: var(--spacing-20);
+  /* spacing between sections */
+  --section-spacing: theme(spacing.10);
   /* bg texture */
   --texture-url: url("/banner-texture.png");
+  /* box gradients */
+  --box-gradient-color: var(--color-edgewater-200);
+  --box-gradient-stop: 50%;
 }
 
 @layer base {
@@ -209,7 +213,7 @@
     @apply font-raleway text-2xl font-semibold;
   }
   p {
-    @apply font-noto-sans text-xl font-normal;
+    @apply font-noto-sans text-lg font-normal;
   }
   p,
   h1,
@@ -269,6 +273,20 @@
       hover:bg-peach-cream-50
       hover:border-peach-cream-50
       hover:text-banner-green;
+  }
+  .box-gradient-bg-right {
+    background: linear-gradient(
+      to right,
+      transparent var(--box-gradient-stop),
+      var(--box-gradient-color) var(--box-gradient-stop)
+    );
+  }
+  .box-gradient-bg-left {
+    background: linear-gradient(
+      to left,
+      transparent var(--box-gradient-stop),
+      var(--box-gradient-color) var(--box-gradient-stop)
+    );
   }
 }
 
