@@ -1,14 +1,15 @@
 import BackgroundTexture from "./components/BackgroundTexture";
 import HeroSection from "./components/HeroSection";
+import IssueCard from "./components/IssueCard";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <main className="row-start-2 flex flex-col justify-around items-center gap-20 sm:items-start text-peach-cream-50">
+      <main className="flex flex-col items-center sm:items-start text-peach-cream-50">
         <section id="intro" className="bg-edgewater-50 text-off-black w-full">
-          <div className="container flex flex-row flex-wrap justify-center items-center lg:max-xl:justify-start gap-10 lg:gap-16 xl:gap-40 pb-20 px-10 mx-auto">
-            <div className="flex-1/2 w-full xl:max-w-md">
+          <div className="container flex flex-row flex-wrap justify-center md:justify-start items-center gap-10 lg:gap-16 xl:gap-40 section-top mx-auto">
+            <div className="flex-1/2 w-full xl:max-w-xl">
               <h3 className="heading">Hello, my name is Jack.</h3>
               <p>
                 I’m a qualified counsellor providing one-to-one therapy for
@@ -22,16 +23,15 @@ export default function Home() {
               </p>
             </div>
             <div className="box-gradient-bg-right p-5">
-              <img
-                className=""
-                src="/jack-cropped2.jpg"
-                alt="Profile photo of Jack"
-              />
+              <img src="/jack-cropped2.jpg" alt="Profile photo of Jack" />
             </div>
           </div>
         </section>
-        <section id="aboutCounselling" className="">
-          <div>
+        <section
+          id="aboutCounselling"
+          className="flex flex-col items-start text-off-black bg-peach-cream-200 w-full section-middle"
+        >
+          <div className="container flex flex-col justify-center mx-auto">
             <h3 className="heading">
               Who is counselling for and how does it help?
             </h3>
@@ -40,6 +40,19 @@ export default function Home() {
               experience working with clients experiencing a range of issues
               including:
             </p>
+            <div
+              id="issueIcons"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 py-12"
+            >
+              <IssueCard issue="depression" />
+              <IssueCard issue="anxiety" />
+              <IssueCard issue="confidence" />
+              <IssueCard issue="trauma" />
+              <IssueCard issue="family" />
+              <IssueCard issue="grief" />
+              <IssueCard issue="identity" />
+              <IssueCard issue="work" />
+            </div>
             <p>
               Counselling provides a safe, empathetic, non-judgemental space to
               explore whatever is going on for you, with a qualified
@@ -53,8 +66,11 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section id="aboutCounselling" className="">
-          <div>
+        <section
+          id="neuroSupport"
+          className="text-off-black bg-peach-cream-200 w-full section-middle"
+        >
+          <div className="container flex flex-col justify-center mx-auto">
             <h3 className="heading">Neurodivergent and LGBTQ+ support</h3>
             <p>
               I also have extensive experience supporting neurodivergent
