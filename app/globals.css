@@ -189,11 +189,14 @@
   --font-noto-sans: var(--font-noto-sans), sans-serif;
   /* spacing between sections */
   --section-spacing: theme(spacing.14);
+  --item-spacing: theme(spacing.8);
   /* bg texture */
   --texture-url: url("/banner-texture.png");
   /* box gradients */
   --box-gradient-color: var(--color-edgewater-200);
   --box-gradient-stop: 50%;
+  /* custom breakpoints */
+  --breakpoint-sm: 32rem;
 }
 
 @layer base {
@@ -262,8 +265,11 @@
   .section-bottom {
     padding-top: var(--section-spacing);
   }
-  .container-lg {
-    @apply w-7xl;
+  .container-padded {
+    @apply container mx-auto px-4;
+  }
+  .spaced {
+    @apply py-8;
   }
   .navLink {
     @apply text-peach-cream-50 font-raleway font-semibold;
