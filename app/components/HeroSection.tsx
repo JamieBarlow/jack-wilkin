@@ -3,7 +3,10 @@ import BackgroundTexture from "./BackgroundTexture";
 
 const HeroSection = () => {
   return (
-    <BackgroundTexture className="bg-banner-green w-full flex flex-col">
+    <BackgroundTexture
+      className="bg-banner-green w-full flex flex-col"
+      variation="banner"
+    >
       <section
         id="hero"
         className="flex flex-col gap-8 items-center text-peach-cream-50 text-center mt-20 mb-0"

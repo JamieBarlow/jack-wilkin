@@ -77,7 +77,7 @@ const IssueCard = ({ issue }: IssueCardProps) => {
       data = data;
   }
   return (
-    <div className="card card-lg bg-transparent w-60 shadow-lg">
+    <div className="card card-lg bg-peach-cream-200/80 w-60 shadow-lg">
       <figure className="px-10 pt-10">
         <div className="w-[120px] h-[120px] relative left-4 top-4">
           <svg

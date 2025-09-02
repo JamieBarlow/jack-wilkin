@@ -191,8 +191,8 @@
   --section-spacing: theme(spacing.14);
   --item-spacing: theme(spacing.8);
   /* bg texture */
-  --texture-url: url("/banner-texture.png");
-  /* box gradients */
+  --texture-banner: url("/banner-texture.png");
+  --texture-abstract: url("/abstract-texture-minimal.png"); /* box gradients */
   --box-gradient-color: var(--color-edgewater-200);
   --box-gradient-stop: 50%;
   /* custom breakpoints */
@@ -297,10 +297,16 @@
 }
 
 @layer utilities {
-  .bg-texture {
+  .bg-texture-banner {
     @apply absolute inset-0 opacity-30;
-    background-image: var(--texture-url);
+    background-image: var(--texture-banner);
     background-repeat: repeat;
+  }
+  .bg-texture-abstract {
+    @apply absolute inset-0 opacity-16;
+    background-image: var(--texture-abstract);
+    background-repeat: repeat;
+    background-position: 50% 0%;
   }
 }
 
@@ -315,6 +321,44 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@media (min-width: 32rem) {
+  /* sm */
+  .bg-texture-abstract {
+    background-size: 200%;
+    background-position: 62% 100%;
+    width: 110vw;
+  }
+}
+
+@media (min-width: 48rem) {
+  /* md */
+  .bg-texture-abstract {
+    background-size: 200%;
+    background-position: 60% -20%;
+  }
+}
+@media (min-width: 64rem) {
+  /* lg */
+  .bg-texture-abstract {
+    background-size: 200%;
+    background-position: 60% 400%;
+  }
+}
+@media (min-width: 80rem) {
+  /* xl */
+  .bg-texture-abstract {
+    background-size: 200%;
+    background-position: 60% 70%;
+  }
+}
+@media (min-width: 96rem) {
+  /* 2xl */
+  .bg-texture-abstract {
+    background-size: 160%;
+    background-position: 50% 30%;
   }
 }
 

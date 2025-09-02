@@ -5,7 +5,7 @@ import BackgroundTexture from "./BackgroundTexture";
 
 const Navbar = () => {
   return (
-    <BackgroundTexture className="bg-banner-green w-full">
+    <BackgroundTexture className="bg-banner-green w-full" variation="banner">
       <nav
         aria-label="Main navigation"
         className="m-auto flex flex-row justify-between items-center text-peach-cream-50 p-2"
