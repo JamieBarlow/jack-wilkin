@@ -9,7 +9,7 @@ export default function Home() {
       <HeroSection />
       <main className="flex flex-col items-center sm:items-start text-peach-cream-50">
         <section id="intro" className="bg-edgewater-50 text-off-black w-full">
-          <SideBySideContent className="section-top">
+          <SideBySideContent className="section-top gap-10 lg:gap-16 xl:gap-60">
             <div className="flex-1/2 w-full xl:max-w-xl">
               <h3 className="heading">Hello, my name is Jack.</h3>
               <p>
@@ -74,7 +74,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <SideBySideContent className="items-start section-middle spaced">
+            <SideBySideContent className="items-start section-middle spaced gap-10 lg:gap-16 xl:gap-10">
               <div className="max-w-lg xl:max-w-2xl box-gradient-bg-left p-5">
                 <img src="/fidgetspinner.jpg" alt="Fidget spinner" />
               </div>

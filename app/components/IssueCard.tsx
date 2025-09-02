@@ -61,7 +61,7 @@ const IssueCard = ({ issue }: IssueCardProps) => {
       break;
     case "identity":
       data = {
-        title: "Identy issues",
+        title: "Identity issues",
         icon: "icons/identity.png",
         alt: "Identity issues icon",
       };
