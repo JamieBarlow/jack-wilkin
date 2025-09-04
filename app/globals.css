@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: wilkinTheme --default;
+}
 
 :root {
   --background: #ffffff;
@@ -7,9 +9,15 @@
 }
 
 @theme {
-  /* colors */
-  --color-off-black: rgba(51, 51, 51, 1);
+  /* Colors - semantic */
   --color-banner-green: rgba(103, 152, 146, 1);
+  --color-pageBg: var(--color-peach-cream-100);
+  --color-pageContent: var(--color-off-black);
+  --color-lightBg: var(--color-edgewater-50);
+  --color-midBg: var(--color-edgewater-100);
+  --color-cta: var(--color-indian-red);
+  /* All colours */
+  --color-off-black: rgba(51, 51, 51, 1);
   --color-goldie: rgba(194, 165, 76, 1);
   --color-cornflower-blue: rgba(117, 139, 253, 1);
   --color-indian-red: rgba(232, 95, 92, 1);
@@ -199,6 +207,49 @@
   --breakpoint-sm: 32rem;
 }
 
+@plugin "daisyui/theme" {
+  name: "wilkinTheme";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: var(--color-pageBg);
+  --color-base-200: var(--color-midBg);
+  --color-base-300: var(--color-banner-green);
+  --color-base-content: var(--color-pageContent);
+  --color-primary: var(--color-cta);
+  --color-primary-content: var(--color-pageBg);
+  --color-secondary: var(--color-lightBg);
+  --color-secondary-content: var(--color-pageContent);
+  --color-accent: oklch(65% 0.25 160);
+  --color-accent-content: oklch(98% 0.01 160);
+  --color-neutral: oklch(50% 0.05 240);
+  --color-neutral-content: oklch(98% 0.01 240);
+  --color-info: oklch(70% 0.2 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+
+  /* border radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* border size */
+  --border: 1px;
+
+  /* effects */
+  --depth: 1;
+  --noise: 0;
+}
+
 @layer base {
   body {
     margin: 0;
@@ -224,24 +275,13 @@
   h3,
   h4,
   h5 {
-    @apply leading-snug;
-  }
-  p + p {
-    @apply mt-5;
-  }
-  h1 + p,
-  h2 + p,
-  h3 + p,
-  h4 + p,
-  h5 + p,
-  h6 + p {
-    @apply mt-2;
+    @apply leading-snug my-4;
   }
 }
 
 @layer components {
   .heading {
-    @apply mt-0 mb-8;
+    @apply mb-6;
   }
   .text-box {
     h1,
@@ -279,6 +319,9 @@
       hover:bg-peach-cream-50
       hover:border-peach-cream-50
       hover:text-banner-green;
+  }
+  .btn-cta {
+    @apply btn btn-primary w-fit rounded-xl;
   }
   .box-gradient-bg-right {
     background: linear-gradient(
