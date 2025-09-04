@@ -199,8 +199,10 @@
   --section-spacing: theme(spacing.14);
   --item-spacing: theme(spacing.8);
   /* bg texture */
-  --texture-banner: url("/banner-texture.png");
-  --texture-abstract: url("/abstract-texture-minimal.png"); /* box gradients */
+  --texture-banner: url("/backgrounds/banner-texture.png");
+  --texture-abstract: url("/backgrounds/abstract-texture-minimal.png");
+  --texture-abstract2: url("/backgrounds/abstract-texture2.png");
+  /* box gradients */
   --box-gradient-color: var(--color-edgewater-200);
   --box-gradient-stop: 50%;
   /* custom breakpoints */
@@ -283,19 +285,6 @@
   .heading {
     @apply mb-6;
   }
-  .text-box {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @apply mt-0 mb-8;
-    }
-    p {
-      @apply mt-0 mb-[18px];
-    }
-  }
   .section-top {
     padding-bottom: var(--section-spacing);
   }
@@ -350,6 +339,11 @@
     background-image: var(--texture-abstract);
     background-repeat: repeat;
     background-position: 50% 0%;
+  }
+  .bg-texture-abstract2 {
+    @apply absolute inset-0 opacity-10;
+    background-image: var(--texture-abstract2);
+    background-repeat: repeat;
   }
 }
 

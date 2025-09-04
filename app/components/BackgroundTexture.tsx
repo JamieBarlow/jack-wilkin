@@ -17,7 +17,6 @@ const BackgroundTexture = ({
   style,
   children,
 }: BackgroundTextureProps) => {
-  const test = "border: 2px solid red";
   return (
     <div className={`relative w-full ${className}`} style={style}>
       <div

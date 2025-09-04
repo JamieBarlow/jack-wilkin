@@ -36,7 +36,7 @@ export default function Home() {
         >
           <section
             id="aboutCounselling"
-            className="flex flex-col items-start text-base-content section-middle relative"
+            className="flex flex-col items-start text-base-content section-middle"
           >
             <div className="container-padded flex flex-col justify-center mx-auto">
               <h3 className="heading">
@@ -130,6 +130,52 @@ export default function Home() {
             </button>
           </div>
         </section>
+        <BackgroundTexture
+          className="bg-base-100 w-full"
+          variation="abstract2"
+          size="200%"
+          position="center"
+        >
+          <section
+            id="call-to-action"
+            className="text-base-content w-full section-middle flex flex-col items-start"
+          >
+            <div className="container-padded flex flex-col items-center">
+              <h3 className="heading text-center">Fees and availability</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <div className="">
+                  <h3>Fees</h3>
+                  <p>Initial 30-minute consultation - Free</p>
+                  <p>Ongoing sessions - £60 per 50-minute session</p>
+                  <p>
+                    If cost is a barrier to accessing counselling, please
+                    contact me to discuss a reduced fee.
+                  </p>
+                  <p>
+                    If I am unable to meet your requirements, I will be happy to
+                    signpost you to other low-cost counselling services.
+                  </p>
+                </div>
+                <img src="/fees.png" alt="Fees" className="rounded-3xl" />
+                <img
+                  src="/availability.png"
+                  alt="Fees"
+                  className="rounded-3xl order-2 lg:order-1"
+                />
+                <div className="order-1 lg:order-2">
+                  <h3>Availability</h3>
+                  <p>
+                    I currently work on Tuesday 3-7pm in person, and on
+                    Wednesday evenings online.
+                  </p>
+                  <p>Please contact me for current availability.</p>
+                  <h3>Location</h3>
+                  <p>TBA</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </BackgroundTexture>
       </main>
       <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]"></footer>
     </div>
