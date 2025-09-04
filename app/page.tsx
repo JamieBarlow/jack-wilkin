@@ -142,7 +142,7 @@ export default function Home() {
           >
             <div className="container-padded flex flex-col items-center">
               <h3 className="heading text-center">Fees and availability</h3>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 justify-items-start">
                 <div className="">
                   <h3>Fees</h3>
                   <p>Initial 30-minute consultation - Free</p>
@@ -156,12 +156,16 @@ export default function Home() {
                     signpost you to other low-cost counselling services.
                   </p>
                 </div>
-                <img src="/fees.png" alt="Fees" className="rounded-3xl" />
-                <img
-                  src="/availability.png"
-                  alt="Fees"
-                  className="rounded-3xl order-2 lg:order-1"
-                />
+                <div className="box-gradient-bg-right p-5">
+                  <img src="/fees.png" alt="Fees" className="" />
+                </div>
+                <div className="box-gradient-bg-left p-5 order-2 lg:order-1">
+                  <img
+                    src="/availability.png"
+                    alt="Availability"
+                    className=""
+                  />
+                </div>
                 <div className="order-1 lg:order-2">
                   <h3>Availability</h3>
                   <p>
