@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="testTheme">
       <body
-        className={`${raleway.variable} ${notoSans.variable} ${inter.variable} antialiased`}
+        className={`${raleway.variable} ${notoSans.variable} ${inter.variable} antialiased *:outline`}
       >
         <Navbar />
         {children}

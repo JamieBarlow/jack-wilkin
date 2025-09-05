@@ -18,7 +18,10 @@ const BackgroundTexture = ({
   children,
 }: BackgroundTextureProps) => {
   return (
-    <div className={`relative w-full ${className}`} style={style}>
+    <div
+      className={`relative w-full overflow-hidden ${className}`}
+      style={style}
+    >
       <div
         className={`bg-texture-${variation} bg-size-[${size}] bg-${position}`}
       ></div>
