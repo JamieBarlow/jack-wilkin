@@ -5,10 +5,13 @@ import BackgroundTexture from "./BackgroundTexture";
 
 const Navbar = () => {
   return (
-    <BackgroundTexture className="bg-banner-green w-full" variation="banner">
+    <BackgroundTexture
+      className="bg-base-300 w-full text-base-100"
+      variation="banner"
+    >
       <nav
         aria-label="Main navigation"
-        className="m-auto flex flex-row justify-between items-center text-peach-cream-50 p-2"
+        className="m-auto flex flex-row justify-between items-center p-2"
       >
         <NavLink href="/" className="flex flex-row gap-2.5 items-center">
           <p className="text-3xl font-raleway font-semibold">JFW</p>
@@ -23,7 +26,7 @@ const Navbar = () => {
           <NavLink href="/">FAQ</NavLink>
           <NavLink href="/helpful-links">Helpful Links</NavLink>
           <NavLink href="/contact">
-            <button className="btn btn-soft border-1 bg-peach-cream-50 border-peach-cream-50 text-banner-green rounded-xl hover:text-peach-cream-50 hover:bg-transparent hover:border-peach-cream-50">
+            <button className="btn btn-soft border-1 bg-base-100 border-base-100 text-base-300 rounded-xl hover:text-base-100 hover:bg-transparent hover:border-base-100">
               Contact Me
             </button>
           </NavLink>

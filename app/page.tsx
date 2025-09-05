@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./components/accordion";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -193,14 +194,14 @@ export default function Home() {
           id="faq"
           className="bg-base-100 text-base-content w-full section-middle"
         >
-          <SideBySideContent className="items-center gap-10">
-            <div className="min-w-md">
-              <h3>Frequently Asked Questions</h3>
+          <h3 className="container-padded">Frequently Asked Questions</h3>
+          <SideBySideContent className="gap-10">
+            <div className="min-w-md max-w-[40%] self-start">
               <div className="box-gradient-bg-left p-5">
-                <img src="/faqs.png" alt="FAQs image" />
+                <img src="/question.jpg" alt="FAQs image" />
               </div>
             </div>
-            <div className="flex-1 min-w-md">
+            <div className="flex-1 min-w-md self-end xl:self-start">
               <Accordion type="single" collapsible className="">
                 <AccordionItem value="item-1" className="">
                   <AccordionTrigger className="">
@@ -291,7 +292,6 @@ export default function Home() {
           </SideBySideContent>
         </section>
       </main>
-      <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]"></footer>
     </div>
   );
 }
