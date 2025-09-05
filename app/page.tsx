@@ -2,6 +2,12 @@ import HeroSection from "./components/HeroSection";
 import IssueCard from "./components/IssueCard";
 import SideBySideContent from "./components/SideBySideContent";
 import BackgroundTexture from "./components/BackgroundTexture";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./components/accordion";
 
 export default function Home() {
   return (
@@ -180,6 +186,110 @@ export default function Home() {
             </div>
           </section>
         </BackgroundTexture>
+        <section id="map-banner" className="bg-base-100 w-full">
+          <img src="/map-banner.png" alt="Map image of Oxford"></img>
+        </section>
+        <section
+          id="faq"
+          className="bg-base-100 text-base-content w-full section-middle"
+        >
+          <SideBySideContent className="items-center gap-10">
+            <div className="min-w-md">
+              <h3>Frequently Asked Questions</h3>
+              <div className="box-gradient-bg-left p-5">
+                <img src="/faqs.png" alt="FAQs image" />
+              </div>
+            </div>
+            <div className="flex-1 min-w-md">
+              <Accordion type="single" collapsible className="">
+                <AccordionItem value="item-1" className="">
+                  <AccordionTrigger className="">
+                    <p className="faq faq-header">
+                      Will everything I say be kept confidential?
+                    </p>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="faq">
+                      Yes, everything you share with me will be treated as
+                      strictly confidential. In rare situations I may be
+                      ethically or legally required to share information with
+                      third parties, these situations are explained in the
+                      counselling agreement which we will go through in your
+                      first session.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>
+                    <p className="faq faq-header">
+                      What does the first session involve?
+                    </p>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="faq">
+                      During your initial session, we will go through the
+                      counselling agreement before exploring what has brought
+                      you to therapy and your goals. It is an opportunity for me
+                      to start getting to know you, learning more about your
+                      background and significant moments in your life. It is
+                      also an opportunity for you to ask me questions about my
+                      way of working and what to expect from therapy.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>
+                    <p className="faq faq-header">
+                      Do I have to come once a week?
+                    </p>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="faq">
+                      In my experience, it can be beneficial to meet once a week
+                      for the first 6 weeks, to establish a solid foundation for
+                      the work. However, I recognise this not possible for
+                      everyone and am able to offer fortnightly sessions as
+                      well.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>
+                    <p className="faq faq-header">
+                      How many sessions do I need?
+                    </p>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="faq">
+                      Some clients come for only 6 sessions, whilst others
+                      continue with therapy for many years. I offer an
+                      open-ended number of sessions, and we will review how
+                      things are going every 6 weeks to assist you in deciding
+                      whether or not to continue and when the time is right to
+                      stop.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-5">
+                  <AccordionTrigger>
+                    <p className="faq faq-header">
+                      What is the difference between counselling and
+                      psychotherapy?
+                    </p>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="faq">
+                      Historically, counselling may have been seen as
+                      shorter-term, more focused work than psychotherapy.
+                      Nowadays, the terms are used interchangeably and I refer
+                      to the work I do as both counselling and psychotherapy.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+          </SideBySideContent>
+        </section>
       </main>
       <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]"></footer>
     </div>

@@ -23,7 +23,7 @@ const Navbar = () => {
           <NavLink href="/">FAQ</NavLink>
           <NavLink href="/helpful-links">Helpful Links</NavLink>
           <NavLink href="/contact">
-            <button className="btn btn-soft bg-peach-cream-50 border-peach-cream-50 text-banner-green rounded-xl hover:text-peach-cream-50 hover:bg-transparent hover:border-peach-cream-50">
+            <button className="btn btn-soft border-1 bg-peach-cream-50 border-peach-cream-50 text-banner-green rounded-xl hover:text-peach-cream-50 hover:bg-transparent hover:border-peach-cream-50">
               Contact Me
             </button>
           </NavLink>
