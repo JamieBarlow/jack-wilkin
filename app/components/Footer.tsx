@@ -9,7 +9,7 @@ const Footer = () => {
       className="bg-base-300 text-base-100 w-full"
       variation="banner"
     >
-      <footer className="flex flex-row flex-wrap justify-between gap-4 px-4 py-8">
+      <footer className="flex flex-row flex-wrap justify-between gap-x-4 gap-y-6 px-4 py-8">
         <aside className="flex flex-col flex-1">
           <NavLink href="/" className="flex flex-col">
             <p className="text-3xl font-raleway font-semibold m-0">JFW</p>
@@ -102,13 +102,16 @@ const Footer = () => {
             Helpful Links
           </Link>
         </nav>
-        <aside className="flex flex-col flex-1">
+        <aside className="flex flex-col sm:flex-row sm:flex-wrap justify-between flex-1 gap-2">
           <Link
             href="https://www.psychologytoday.com/profile/1576711"
-            className="sx-verified-seal w-2xs"
+            className="sx-verified-seal w-[16rem]"
           >
-            <img src="/BACP.png" alt="" />
+            <img src="/psychologytoday.png" alt="" />
           </Link>
+          <div className="w-[16rem]">
+            <img src="/BACP.png" alt="" />
+          </div>
         </aside>
       </footer>
     </BackgroundTexture>
