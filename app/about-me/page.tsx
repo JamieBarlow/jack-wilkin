@@ -4,7 +4,7 @@ import HeroSection from "../components/HeroSection";
 const AboutMePage = () => {
   return (
     <div className="">
-      <HeroSection>
+      <HeroSection bgUnderWave="var(--color-base-100)">
         <h1 className="my-0">About Me</h1>
       </HeroSection>
     </div>

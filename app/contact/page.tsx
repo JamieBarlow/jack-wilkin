@@ -1,11 +1,12 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
 import BackgroundTexture from "../components/BackgroundTexture";
+import IssueCard from "../components/IssueCard";
 
 const contact = () => {
   return (
     <div className="">
-      <HeroSection bgUnderWave="var(--color-base-100)">
+      <HeroSection bgUnderWave="#F6F4EE">
         <h1 className="my-0">Contact Me</h1>
       </HeroSection>
       <main className="flex flex-col items-center sm:items-start">
@@ -15,21 +16,34 @@ const contact = () => {
           size="200%"
           position="center"
         >
-          <section
-            id="aboutCounselling"
-            className="flex flex-col items-start text-base-content section-middle"
-          >
-            <div className="container-padded flex flex-col justify-center mx-auto">
+          <div className="flex flex-row flex-wrap container-padded section-middle">
+            <div className="flex flex-col mx-auto text-base-content">
               <h3 className="heading">
-                Who is counselling for and how does it help?
+                Get in touch
               </h3>
-              <p>
-                People come to counselling for all sorts of reasons. I have
-                experience working with clients experiencing a range of issues
-                including:
-              </p>
+              <div className="flex flex-row gap-2">
+                <IssueCard issue="phone" />
+                <IssueCard issue="email" className="w-fit" />
+              </div>
+              <div className="flex flex-col gap-4 [&>p]:m-1 spaced">
+                <img src="office.png" alt="Offices" />
+                <div>
+                  <p className="font-semibold">
+                    Counselling Offices
+                  </p>
+                  <p>
+                    Counselling House
+                  </p>
+                  <p>65 Bodleian Road</p>
+                  <p>Oxford OX2 1GR</p>
+                </div>
+                <img src="minimap.png" alt="Mini map of Oxford" />
+              </div>
             </div>
-          </section>
+            <div className="flex flex-col mx-auto text-base-content">
+              <h3 className="heading">Contact Form</h3>
+            </div>
+          </div>
         </BackgroundTexture>
       </main>
     </div>

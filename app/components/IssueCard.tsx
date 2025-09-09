@@ -2,6 +2,7 @@ import React from "react";
 
 interface IssueCardProps {
   issue?: string;
+  className?: string;
 }
 
 interface IssueData {
@@ -10,7 +11,7 @@ interface IssueData {
   alt: string;
 }
 
-const IssueCard = ({ issue }: IssueCardProps) => {
+const IssueCard = ({ issue, className }: IssueCardProps) => {
   let data: IssueData = {
     title: "",
     icon: "",
@@ -73,11 +74,25 @@ const IssueCard = ({ issue }: IssueCardProps) => {
         alt: "Work or study issues icon",
       };
       break;
+    case "phone":
+      data = {
+        title: "01865 638627",
+        icon: "icons/contact-phone.png",
+        alt: "Phone icon"
+      };
+      break;
+    case "email":
+      data = {
+        title: "jack@jfwcounselling.com",
+        icon: "icons/contact-email.png",
+        alt: "Email icon"
+      };
+      break;
     default:
       data = data;
   }
   return (
-    <div className="card card-lg bg-peach-cream-200/80 w-60 shadow-lg">
+    <div className={`card card-lg bg-peach-cream-200/80 w-60 shadow-lg ${className}`}>
       <figure className="px-10 pt-10">
         <div className="w-[120px] h-[120px] relative left-4 top-4">
           <svg

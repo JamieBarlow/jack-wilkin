@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
 @plugin "daisyui" {
   themes: wilkinTheme --default;
 }
@@ -254,21 +255,27 @@
   body {
     margin: 0;
   }
+
   h1 {
     @apply font-raleway text-7xl font-semibold;
   }
+
   h2 {
     @apply font-raleway text-[40px] font-normal;
   }
+
   h3 {
     @apply font-raleway text-4xl font-semibold;
   }
+
   h4 {
     @apply font-raleway text-2xl font-semibold;
   }
+
   p {
     @apply font-noto-sans text-lg font-normal;
   }
+
   p,
   h1,
   h2,
@@ -283,50 +290,55 @@
   .heading {
     @apply mb-6;
   }
+
   .section-top {
     padding-bottom: var(--section-spacing);
   }
+
   .section-middle {
     padding-block: var(--section-spacing);
   }
+
   .section-bottom {
     padding-top: var(--section-spacing);
   }
+
   .container-padded {
     @apply container mx-auto px-4;
   }
+
   .spaced {
     @apply py-8;
   }
+
   .navLink {
     @apply text-peach-cream-50 font-raleway font-semibold;
   }
+
   .btn-banner-outline {
-    @apply btn btn-outline w-fit rounded-xl border-1
-      hover:bg-peach-cream-50
-      hover:border-peach-cream-50
-      hover:text-banner-green;
+    @apply btn btn-outline w-fit rounded-xl border-1 hover:bg-peach-cream-50 hover:border-peach-cream-50 hover:text-banner-green;
   }
+
   .btn-cta {
     @apply btn btn-primary w-fit rounded-xl;
   }
+
   .box-gradient-bg-right {
-    background: linear-gradient(
-      to right,
-      transparent var(--box-gradient-stop),
-      var(--box-gradient-color) var(--box-gradient-stop)
-    );
+    background: linear-gradient(to right,
+        transparent var(--box-gradient-stop),
+        var(--box-gradient-color) var(--box-gradient-stop));
   }
+
   .box-gradient-bg-left {
-    background: linear-gradient(
-      to left,
-      transparent var(--box-gradient-stop),
-      var(--box-gradient-color) var(--box-gradient-stop)
-    );
+    background: linear-gradient(to left,
+        transparent var(--box-gradient-stop),
+        var(--box-gradient-color) var(--box-gradient-stop));
   }
+
   .faq {
     @apply my-0;
   }
+
   .faq-header {
     @apply font-semibold;
   }
@@ -338,12 +350,14 @@
     background-image: var(--texture-banner);
     background-repeat: repeat;
   }
+
   .bg-texture-abstract {
     @apply absolute inset-0 opacity-16;
     background-image: var(--texture-abstract);
     background-repeat: repeat;
     background-position: 50% 0%;
   }
+
   .bg-texture-abstract2 {
     @apply absolute inset-0 opacity-10;
     background-image: var(--texture-abstract2);
@@ -392,6 +406,7 @@
 }
 
 @media (min-width: 32rem) {
+
   /* sm */
   .bg-texture-abstract {
     background-size: 200%;
@@ -401,27 +416,34 @@
 }
 
 @media (min-width: 48rem) {
+
   /* md */
   .bg-texture-abstract {
     background-size: 200%;
     background-position: 60% -20%;
   }
 }
+
 @media (min-width: 64rem) {
+
   /* lg */
   .bg-texture-abstract {
     background-size: 200%;
     background-position: 60% 400%;
   }
 }
+
 @media (min-width: 80rem) {
+
   /* xl */
   .bg-texture-abstract {
     background-size: 200%;
     background-position: 60% 70%;
   }
 }
+
 @media (min-width: 96rem) {
+
   /* 2xl */
   .bg-texture-abstract {
     background-size: 160%;
@@ -502,6 +524,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
