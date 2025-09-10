@@ -291,6 +291,10 @@
     @apply mb-6;
   }
 
+  .text-body {
+    @apply font-noto-sans text-lg font-normal;
+  }
+
   .section-top {
     padding-bottom: var(--section-spacing);
   }
@@ -324,15 +328,19 @@
   }
 
   .box-gradient-bg-right {
-    background: linear-gradient(to right,
-        transparent var(--box-gradient-stop),
-        var(--box-gradient-color) var(--box-gradient-stop));
+    background: linear-gradient(
+      to right,
+      transparent var(--box-gradient-stop),
+      var(--box-gradient-color) var(--box-gradient-stop)
+    );
   }
 
   .box-gradient-bg-left {
-    background: linear-gradient(to left,
-        transparent var(--box-gradient-stop),
-        var(--box-gradient-color) var(--box-gradient-stop));
+    background: linear-gradient(
+      to left,
+      transparent var(--box-gradient-stop),
+      var(--box-gradient-color) var(--box-gradient-stop)
+    );
   }
 
   .faq {
@@ -393,8 +401,8 @@
   --color-muted: var(--muted);
   /* --color-secondary-foreground: var(--secondary-foreground); */
   /* --color-secondary: var(--secondary); */
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
+  /* --color-primary-foreground: var(--primary-foreground); */
+  /* --color-primary: var(--primary); */
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -406,7 +414,6 @@
 }
 
 @media (min-width: 32rem) {
-
   /* sm */
   .bg-texture-abstract {
     background-size: 200%;
@@ -416,7 +423,6 @@
 }
 
 @media (min-width: 48rem) {
-
   /* md */
   .bg-texture-abstract {
     background-size: 200%;
@@ -425,7 +431,6 @@
 }
 
 @media (min-width: 64rem) {
-
   /* lg */
   .bg-texture-abstract {
     background-size: 200%;
@@ -434,7 +439,6 @@
 }
 
 @media (min-width: 80rem) {
-
   /* xl */
   .bg-texture-abstract {
     background-size: 200%;
@@ -443,7 +447,6 @@
 }
 
 @media (min-width: 96rem) {
-
   /* 2xl */
   .bg-texture-abstract {
     background-size: 160%;
@@ -493,8 +496,8 @@
   --card-foreground: oklch(0.984 0.003 247.858);
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
+  /* --primary: oklch(0.929 0.013 255.508); */
+  /* --primary-foreground: oklch(0.208 0.042 265.755); */
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);

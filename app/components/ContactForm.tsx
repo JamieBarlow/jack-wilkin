@@ -64,99 +64,130 @@ const ContactForm = () => {
   };
 
   return (
-    <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="firstName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                First Name <RequiredField />
-              </FormLabel>
-              <FormControl>
-                <Input placeholder="First name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="lastName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                Last Name <RequiredField />
-              </FormLabel>
-              <FormControl>
-                <Input placeholder="Last name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                Email <RequiredField />
-              </FormLabel>
-              <FormControl>
-                <Input placeholder="Email" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone</FormLabel>
-              <FormControl>
-                <Input placeholder="Phone number" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                Message <RequiredField />
-              </FormLabel>
-              <FormDescription>
-                Please let me know you reason for getting in touch:
-              </FormDescription>
-              <FormControl>
-                <Textarea
-                  placeholder="Message"
-                  className="resize-none"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormDescription>
-          I aim to reply to all enquiries within 48 hours.
-        </FormDescription>
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </Button>
-        {errors.root && (
-          <div className="text-red-500">{errors.root.message}</div>
-        )}
-      </form>
-    </Form>
+    <div className="box-gradient-bg-right p-5">
+      <div className="card card-lg bg-sea-nymph-50 shadow-sm rounded-none p-8">
+        <Form {...form}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-8 text-body"
+          >
+            <div
+              id="name-fields"
+              className="flex flex-row items-start flex-wrap gap-8 mb-8"
+            >
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      First Name <RequiredField />
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="First name"
+                        className="bg-base-100"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Last Name <RequiredField />
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Last name"
+                        className="bg-base-100"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    Email <RequiredField />
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Email"
+                      className="bg-base-100"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Phone number"
+                      className="bg-base-100"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    Message <RequiredField />
+                  </FormLabel>
+                  <FormDescription>
+                    Please let me know you reason for getting in touch:
+                  </FormDescription>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Message"
+                      className="bg-base-100 resize-none"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormDescription className="mb-6">
+              I aim to reply to all enquiries within 48 hours.
+            </FormDescription>
+            <Button
+              type="submit"
+              className="text-base-100 hover:cursor-pointer"
+            >
+              {isSubmitting ? "Submitting..." : "Submit"}
+            </Button>
+            {errors.root && (
+              <div className="text-red-500">{errors.root.message}</div>
+            )}
+          </form>
+        </Form>
+      </div>
+    </div>
   );
 };
 
