@@ -64,7 +64,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="box-gradient-bg-right p-5">
+    <div className="box-gradient-bg-right py-5 pr-5">
       <div className="card card-lg bg-sea-nymph-50 shadow-sm rounded-none p-8">
         <Form {...form}>
           <form

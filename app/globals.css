@@ -371,6 +371,13 @@
     background-image: var(--texture-abstract2);
     background-repeat: repeat;
   }
+  .bg-texture-abstract3 {
+    @apply absolute inset-0 opacity-16;
+    background-image: var(--texture-abstract);
+    background-repeat: repeat;
+    background-size: 160%;
+    background-position: 40% 10%;
+  }
 }
 
 @theme inline {

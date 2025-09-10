@@ -3,6 +3,7 @@ import React from "react";
 interface IssueCardProps {
   issue?: string;
   className?: string;
+  background?: string;
 }
 
 interface IssueData {
@@ -11,7 +12,7 @@ interface IssueData {
   alt: string;
 }
 
-const IssueCard = ({ issue, className }: IssueCardProps) => {
+const IssueCard = ({ issue, className, background }: IssueCardProps) => {
   let data: IssueData = {
     title: "",
     icon: "",
@@ -93,7 +94,7 @@ const IssueCard = ({ issue, className }: IssueCardProps) => {
   }
   return (
     <div
-      className={`card card-lg bg-peach-cream-200/80 w-60 shadow-lg ${className}`}
+      className={`card card-lg ${background || `bg-peach-cream-200/80`} w-60 shadow-lg ${className}`}
     >
       <figure className="px-10 pt-10">
         <div className="w-[120px] h-[120px] relative left-4 top-4">

@@ -13,7 +13,7 @@ const contact = () => {
       <main className="flex flex-col items-center sm:items-start">
         <BackgroundTexture
           className="bg-base-100 w-full"
-          variation="abstract"
+          variation="abstract3"
           size="200%"
           position="center"
         >
@@ -21,8 +21,12 @@ const contact = () => {
             <div className="flex flex-col mx-auto text-base-content">
               <h3 className="heading">Get in touch</h3>
               <div className="flex flex-row gap-2">
-                <IssueCard issue="phone" />
-                <IssueCard issue="email" className="w-fit" />
+                <IssueCard issue="phone" background="bg-base-100" />
+                <IssueCard
+                  issue="email"
+                  background="bg-base-100"
+                  className="w-fit"
+                />
               </div>
               <div className="flex flex-col gap-4 [&>p]:m-1 spaced">
                 <img src="office.png" alt="Offices" />
@@ -35,7 +39,7 @@ const contact = () => {
                 <img src="minimap.png" alt="Mini map of Oxford" />
               </div>
             </div>
-            <div className="flex flex-col mx-auto text-base-content">
+            <div className="flex flex-col justify-start mx-auto text-base-content">
               <h3 className="heading">Contact Form</h3>
               <ContactForm />
             </div>
