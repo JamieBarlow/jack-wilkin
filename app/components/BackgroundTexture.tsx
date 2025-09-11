@@ -1,6 +1,7 @@
 import React from "react";
 
 interface BackgroundTextureProps {
+  id?: string;
   className?: string; // additional classes for the wrapper
   variation: string;
   size?: string;

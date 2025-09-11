@@ -8,9 +8,7 @@ const SideBySideContent = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={`container-padded flex flex-row flex-wrap justify-center md:justify-start items-center ${className}`}
-    >
+    <div className={`container-padded flex flex-row flex-wrap ${className}`}>
       {children}
     </div>
   );

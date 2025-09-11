@@ -22,7 +22,7 @@ export default function Home() {
           </button>
         </HeroSection>
         <section id="intro" className="text-base-content w-full">
-          <SideBySideContent className="section-top gap-10 lg:gap-16 xl:gap-60">
+          <SideBySideContent className="section-top gap-10 lg:gap-16 xl:gap-60 justify-center md:justify-start items-center">
             <div className="flex-1/2 w-full xl:max-w-xl">
               <h3 className="heading">Hello, my name is Jack.</h3>
               <p>
@@ -88,7 +88,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <SideBySideContent className="items-start section-middle spaced gap-10 lg:gap-16 xl:gap-10">
+          <SideBySideContent className="justify-center md:justify-start items-start section-middle spaced gap-10 lg:gap-16 xl:gap-10">
             <div className="max-w-lg xl:max-w-2xl box-gradient-bg-left p-5">
               <img src="/fidgetspinner.jpg" alt="Fidget spinner" />
             </div>
@@ -198,7 +198,7 @@ export default function Home() {
         className="bg-base-100 text-base-content w-full section-middle"
       >
         <h3 className="container-padded">Frequently Asked Questions</h3>
-        <SideBySideContent className="gap-10">
+        <SideBySideContent className="justify-center md:justify-start items-center gap-10">
           <div className="min-w-md max-w-[40%] self-start">
             <div className="box-gradient-bg-left p-5">
               <img src="/question.jpg" alt="FAQs image" />

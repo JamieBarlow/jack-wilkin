@@ -273,7 +273,7 @@
   }
 
   p {
-    @apply font-noto-sans text-lg font-normal;
+    @apply font-raleway text-lg font-normal;
   }
 
   p,
@@ -291,7 +291,7 @@
     @apply mb-6;
   }
 
-  .text-body {
+  .text-contactForm {
     @apply font-noto-sans text-lg font-normal;
   }
 
