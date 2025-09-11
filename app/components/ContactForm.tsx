@@ -170,7 +170,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
                   <FormControl>
                     <Textarea
                       placeholder="Message"
-                      className="bg-base-100 resize-none"
+                      className="bg-base-100 resize-none h-40"
                       {...field}
                     />
                   </FormControl>

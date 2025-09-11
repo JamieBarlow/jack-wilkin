@@ -94,9 +94,9 @@ const IssueCard = ({ issue, className, background }: IssueCardProps) => {
   }
   return (
     <div
-      className={`card card-lg ${background || `bg-peach-cream-200/80`} w-60 shadow-lg ${className}`}
+      className={`card card-sm ${background || `bg-peach-cream-200/80`} w-50 shadow-lg ${className}`}
     >
-      <figure className="px-10 pt-10">
+      <figure className="px-10 pt-4">
         <div className="w-[120px] h-[120px] relative left-4 top-4">
           <svg
             width="98"
@@ -122,7 +122,9 @@ const IssueCard = ({ issue, className, background }: IssueCardProps) => {
         </div>
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{data.title}</h2>
+        <h2 className="card-title font-noto-sans font-normal text-lg">
+          {data.title}
+        </h2>
       </div>
     </div>
   );

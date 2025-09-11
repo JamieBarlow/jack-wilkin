@@ -63,7 +63,7 @@ export default function Home() {
             </p>
             <div
               id="issueIcons"
-              className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-10 text-block"
+              className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center lg:justify-items-start gap-10 text-block"
             >
               <IssueCard issue="depression" />
               <IssueCard issue="anxiety" />
