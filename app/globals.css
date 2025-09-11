@@ -291,8 +291,8 @@
     @apply mb-6;
   }
 
-  .text-contactForm {
-    @apply font-noto-sans text-lg font-normal;
+  .text-placeholder {
+    @apply font-noto-sans text-lg font-light;
   }
 
   .section-top {
@@ -311,8 +311,8 @@
     @apply container mx-auto px-4;
   }
 
-  .spaced {
-    @apply py-8;
+  .text-block {
+    @apply py-4;
   }
 
   .navLink {
@@ -324,7 +324,7 @@
   }
 
   .btn-cta {
-    @apply btn btn-primary w-fit rounded-xl;
+    @apply btn btn-primary w-fit rounded-xl border-0;
   }
 
   .box-gradient-bg-right {

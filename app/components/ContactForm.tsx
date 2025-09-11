@@ -16,6 +16,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+interface ContactFormProps {
+  className?: string;
+}
+
 const nameField = z
   .string()
   .min(2, "Must be at least 2 characters.")
@@ -33,9 +37,11 @@ const formSchema = z.object({
 });
 
 type FormFields = z.infer<typeof formSchema>;
-const RequiredField = () => <span className="text-red-500">*</span>;
+const RequiredField = () => (
+  <span className="text-red-500 font-noto-sans text-sm">*</span>
+);
 
-const ContactForm = () => {
+const ContactForm = ({ className }: ContactFormProps) => {
   const form = useForm<FormFields>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -64,12 +70,12 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="box-gradient-bg-right py-5 pr-5">
+    <div className={`box-gradient-bg-right py-5 pr-5 ${className}`}>
       <div className="card card-lg bg-sea-nymph-50 shadow-sm rounded-none p-8">
         <Form {...form}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-8 text-contactForm"
+            className="space-y-8 text-placeholder"
           >
             <div
               id="name-fields"
@@ -177,7 +183,7 @@ const ContactForm = () => {
             </FormDescription>
             <Button
               type="submit"
-              className="text-base-100 hover:cursor-pointer"
+              className="text-md text-base-100 hover:cursor-pointer my-4"
             >
               {isSubmitting ? "Submitting..." : "Submit"}
             </Button>

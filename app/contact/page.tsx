@@ -17,8 +17,8 @@ const contact = () => {
           size="200%"
           position="center"
         >
-          <div className="flex flex-row flex-wrap container-padded section-middle">
-            <div className="flex flex-col mx-auto text-base-content">
+          <div className="flex flex-row flex-wrap container-padded section-middle gap-10 justify-center">
+            <div className="flex flex-col gap-10 text-base-content">
               <h3 className="heading">Get in touch</h3>
               <div className="flex flex-row gap-2">
                 <IssueCard issue="phone" background="bg-base-100" />
@@ -28,9 +28,9 @@ const contact = () => {
                   className="w-fit"
                 />
               </div>
-              <div className="flex flex-col gap-4 [&>p]:m-1 spaced">
+              <div className="flex flex-col gap-10 [&>p]:m-1">
                 <img src="office.png" alt="Offices" />
-                <div>
+                <div className="text-block">
                   <p className="font-semibold">Counselling Offices</p>
                   <p>Counselling House</p>
                   <p>65 Bodleian Road</p>
@@ -39,7 +39,7 @@ const contact = () => {
                 <img src="minimap.png" alt="Mini map of Oxford" />
               </div>
             </div>
-            <div className="flex flex-col justify-start mx-auto text-base-content">
+            <div className="flex flex-col text-base-content">
               <h3 className="heading">Contact Form</h3>
               <ContactForm />
             </div>

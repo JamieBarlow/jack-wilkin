@@ -14,9 +14,9 @@ export default function Home() {
     <main className="w-full">
       <div className="w-full bg-secondary">
         <HeroSection bgUnderWave="var(--color-secondary)">
-          <h1 className="my-0">JFW Oxford Counselling</h1>
+          <h1>JFW Oxford Counselling</h1>
           <h2 className="my-0">Inclusive and accessible talking therapy</h2>
-          <h2 className="my-0">in Oxford and online</h2>
+          <h2 className="my-0 mb-4">in Oxford and online</h2>
           <button className="btn-banner-outline font-raleway font-semibold text-lg">
             Contact Me
           </button>
@@ -50,9 +50,9 @@ export default function Home() {
       >
         <section
           id="aboutCounselling"
-          className="flex flex-col items-start text-base-content section-middle"
+          className="flex flex-col items-start text-base-content section-middle container-padded"
         >
-          <div className="container-padded flex flex-col justify-center mx-auto">
+          <div className="flex flex-col justify-center mx-auto">
             <h3 className="heading">
               Who is counselling for and how does it help?
             </h3>
@@ -63,7 +63,7 @@ export default function Home() {
             </p>
             <div
               id="issueIcons"
-              className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-10 spaced"
+              className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-10 text-block"
             >
               <IssueCard issue="depression" />
               <IssueCard issue="anxiety" />
@@ -74,7 +74,7 @@ export default function Home() {
               <IssueCard issue="identity" />
               <IssueCard issue="work" />
             </div>
-            <div className="spaced">
+            <div className="text-block">
               <p>
                 Counselling provides a safe, empathetic, non-judgemental space
                 to explore whatever is going on for you, with a qualified
@@ -88,7 +88,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <SideBySideContent className="justify-center md:justify-start items-start section-middle spaced gap-10 lg:gap-16 xl:gap-10">
+          <SideBySideContent className="justify-center md:justify-start items-start section-middle text-block gap-10 lg:gap-16 xl:gap-10">
             <div className="max-w-lg xl:max-w-2xl box-gradient-bg-left p-5">
               <img src="/fidgetspinner.jpg" alt="Fidget spinner" />
             </div>
@@ -156,9 +156,9 @@ export default function Home() {
         >
           <div className="container-padded flex flex-col items-center">
             <h3 className="heading text-center">Fees and availability</h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 justify-items-start">
-              <div className="">
-                <h3>Fees</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-start">
+              <div className="text-block">
+                <h3 className="heading">Fees</h3>
                 <p>Initial 30-minute consultation - Free</p>
                 <p>Ongoing sessions - £60 per 50-minute session</p>
                 <p>
@@ -170,21 +170,25 @@ export default function Home() {
                   signpost you to other low-cost counselling services.
                 </p>
               </div>
-              <div className="box-gradient-bg-right p-5">
+              <div className="box-gradient-bg-right p-5 pl-0">
                 <img src="/fees.png" alt="Fees" className="" />
               </div>
               <div className="box-gradient-bg-left p-5 order-2 lg:order-1">
                 <img src="/availability.png" alt="Availability" className="" />
               </div>
               <div className="order-1 lg:order-2">
-                <h3>Availability</h3>
-                <p>
-                  I currently work on Tuesday 3-7pm in person, and on Wednesday
-                  evenings online.
-                </p>
-                <p>Please contact me for current availability.</p>
-                <h3>Location</h3>
-                <p>TBA</p>
+                <div className="text-block">
+                  <h3 className="heading">Availability</h3>
+                  <p>
+                    I currently work on Tuesday 3-7pm in person, and on
+                    Wednesday evenings online.
+                  </p>
+                  <p>Please contact me for current availability.</p>
+                </div>
+                <div className="text-block">
+                  <h3 className="heading">Location</h3>
+                  <p>TBA</p>
+                </div>
               </div>
             </div>
           </div>
@@ -197,8 +201,8 @@ export default function Home() {
         id="faq"
         className="bg-base-100 text-base-content w-full section-middle"
       >
-        <h3 className="container-padded">Frequently Asked Questions</h3>
-        <SideBySideContent className="justify-center md:justify-start items-center gap-10">
+        <h3 className="heading container-padded">Frequently Asked Questions</h3>
+        <SideBySideContent className="justify-center md:justify-start items-center gap-10 py-4">
           <div className="min-w-md max-w-[40%] self-start">
             <div className="box-gradient-bg-left p-5">
               <img src="/question.jpg" alt="FAQs image" />

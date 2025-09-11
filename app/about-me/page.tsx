@@ -21,7 +21,7 @@ const AboutMePage = () => {
           <div className="flex flex-row flex-wrap container-padded section-middle">
             <section className="text-base-content w-full">
               <SideBySideContent className="section-top gap-10 xl:justify-between">
-                <div className="lg:w-md xl:w-full xl:max-w-2xl">
+                <div className="text-block lg:w-md xl:w-full xl:max-w-2xl">
                   <h3 className="heading">Hello, my name is Jack.</h3>
                   <p>
                     I’m a qualified counsellor providing one-to-one therapy for

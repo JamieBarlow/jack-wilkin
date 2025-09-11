@@ -11,7 +11,7 @@ const Navbar = () => {
     >
       <nav
         aria-label="Main navigation"
-        className="m-auto flex flex-row justify-between items-center p-2"
+        className="m-auto flex flex-row justify-between items-center px-4"
       >
         <NavLink href="/" className="flex flex-row gap-2.5 items-center">
           <p className="text-3xl font-raleway font-semibold">JFW</p>
