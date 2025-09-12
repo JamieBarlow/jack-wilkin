@@ -108,9 +108,9 @@ const AboutMePage = () => {
                     turpis condimentum lobortis.
                   </p>
                   <p>
-                    Class aptent taciti sociosqu ad litora torquent per conubia
-                    nostra, per inceptos himenaeos. Curabitur tempus urna at
-                    turpis condimentum lobortis.
+                    Torem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nunc vulputate libero et velit interdum, ac aliquet odio
+                    mattis.
                   </p>
                 </div>
                 <div className="flex flex-1 flex-row flex-wrap py-5 lg:max-w-1/2 gap-4">
