@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./components/accordion";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -37,7 +38,12 @@ export default function Home() {
               </p>
             </div>
             <div className="box-gradient-bg-right p-5">
-              <img src="/jack-cropped2.jpg" alt="Profile photo of Jack" />
+              <Image
+                src="/jack-cropped2.jpg"
+                width={366}
+                height={366}
+                alt="Profile photo of Jack"
+              />
             </div>
           </SideBySideContent>
         </section>
@@ -90,7 +96,12 @@ export default function Home() {
           </div>
           <SideBySideContent className="justify-center md:justify-start items-start section-middle text-block gap-10 lg:gap-16 xl:gap-10">
             <div className="max-w-lg xl:max-w-2xl box-gradient-bg-left p-5">
-              <img src="/fidgetspinner.jpg" alt="Fidget spinner" />
+              <Image
+                src="/fidgetspinner.jpg"
+                width={1280}
+                height={848}
+                alt="Fidget spinner"
+              />
             </div>
             <div className="flex-1">
               <h3 className="heading">Neurodivergent and LGBTQ+ support</h3>
@@ -171,10 +182,22 @@ export default function Home() {
                 </p>
               </div>
               <div className="box-gradient-bg-right p-5 pl-0">
-                <img src="/fees.png" alt="Fees" className="" />
+                <Image
+                  src="/fees.png"
+                  alt="Fees"
+                  width={640}
+                  height={432}
+                  className=""
+                />
               </div>
               <div className="box-gradient-bg-left p-5 order-2 lg:order-1">
-                <img src="/availability.png" alt="Availability" className="" />
+                <Image
+                  src="/availability.png"
+                  alt="Availability"
+                  width={640}
+                  height={426}
+                  className=""
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="text-block">
@@ -195,7 +218,12 @@ export default function Home() {
         </section>
       </BackgroundTexture>
       <section id="map-banner" className="bg-base-100 w-full">
-        <img src="/map-banner.png" alt="Map image of Oxford"></img>
+        <Image
+          src="/map-banner.png"
+          width={1920}
+          height={495}
+          alt="Map image of Oxford"
+        ></Image>
       </section>
       <section
         id="faq"
@@ -205,7 +233,12 @@ export default function Home() {
         <SideBySideContent className="justify-center md:justify-start items-center gap-10 py-4">
           <div className="min-w-md max-w-[40%] self-start">
             <div className="box-gradient-bg-left p-5">
-              <img src="/question.jpg" alt="FAQs image" />
+              <Image
+                src="/question.jpg"
+                width={1920}
+                height={1920}
+                alt="FAQs image"
+              />
             </div>
           </div>
           <div className="flex-1 min-w-md self-end xl:self-start">

@@ -2,6 +2,7 @@ import React from "react";
 import BackgroundTexture from "./BackgroundTexture";
 import NavLink from "./NavLink";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -107,10 +108,15 @@ const Footer = () => {
             href="https://www.psychologytoday.com/profile/1576711"
             className="sx-verified-seal w-[16rem]"
           >
-            <img src="/psychologytoday.png" alt="" />
+            <Image
+              src="/psychologytoday.png"
+              width={1744}
+              height={520}
+              alt=""
+            />
           </Link>
           <div className="w-[16rem]">
-            <img src="/BACP.png" alt="" />
+            <Image src="/BACP.png" width={940} height={420} alt="" />
           </div>
         </aside>
       </footer>

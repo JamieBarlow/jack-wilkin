@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface IssueCardProps {
   issue?: string;
@@ -10,6 +11,8 @@ interface IssueData {
   title: string;
   icon: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
 const IssueCard = ({ issue, className, background }: IssueCardProps) => {
@@ -17,76 +20,98 @@ const IssueCard = ({ issue, className, background }: IssueCardProps) => {
     title: "",
     icon: "",
     alt: "",
+    width: 0,
+    height: 0,
   };
   switch (issue) {
     case "depression":
       data = {
         title: "Depression and low mood",
-        icon: "icons/depression.png",
+        icon: "/icons/depression.png",
         alt: "Depression icon",
+        width: 67,
+        height: 66,
       };
       break;
     case "anxiety":
       data = {
         title: "Anxiety and overwhelm",
-        icon: "icons/anxiety.png",
+        icon: "/icons/anxiety.png",
         alt: "Anxiety and overwhelm icon",
+        width: 77,
+        height: 76,
       };
       break;
     case "confidence":
       data = {
         title: "Low confidence and self esteem",
-        icon: "icons/confidence.png",
+        icon: "/icons/confidence.png",
         alt: "Low confidence and self esteem icon",
+        width: 76,
+        height: 75,
       };
       break;
     case "trauma":
       data = {
         title: "Trauma",
-        icon: "icons/trauma.png",
+        icon: "/icons/trauma.png",
         alt: "Trauma icon",
+        width: 68,
+        height: 67,
       };
       break;
     case "family":
       data = {
         title: "Family and relationship issues",
-        icon: "icons/family.png",
+        icon: "/icons/family.png",
         alt: "Family and relationship issues icon",
+        width: 68,
+        height: 67,
       };
       break;
     case "grief":
       data = {
         title: "Grief and loss",
-        icon: "icons/grief.png",
+        icon: "/icons/grief.png",
         alt: "Grief and loss icon",
+        width: 76,
+        height: 75,
       };
       break;
     case "identity":
       data = {
         title: "Identity issues",
-        icon: "icons/identity.png",
+        icon: "/icons/identity.png",
         alt: "Identity issues icon",
+        width: 67,
+        height: 66,
       };
       break;
     case "work":
       data = {
         title: "Issues relating to work or study",
-        icon: "icons/work.png",
+        icon: "/icons/work.png",
         alt: "Work or study issues icon",
+        width: 61,
+        height: 60,
       };
       break;
     case "phone":
       data = {
         title: "01865 638627",
-        icon: "icons/contact-phone.png",
+        icon: "/icons/contact-phone.png",
         alt: "Phone icon",
+        width: 65,
+        height: 65,
       };
       break;
     case "email":
       data = {
         title: "jack@jfwcounselling.com",
-        icon: "icons/contact-email.png",
+        icon: "/icons/contact-email.png",
         alt: "Email icon",
+        width: 54,
+        height: 54,
       };
       break;
     default:
@@ -114,9 +139,11 @@ const IssueCard = ({ issue, className, background }: IssueCardProps) => {
               fill="#3F7B66"
             ></path>
           </svg>
-          <img
+          <Image
             src={data.icon}
             alt={data.alt}
+            width={data.width}
+            height={data.height}
             className="w-[66px] h-[66px] absolute left-4 top-4 object-contain"
           />
         </div>

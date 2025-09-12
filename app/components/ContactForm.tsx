@@ -57,12 +57,12 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
   const onSubmit: SubmitHandler<FormFields> = async (
     data,
-    e
+    _e
   ): Promise<void> => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log(data);
-    } catch (error) {
+    } catch (_error) {
       setError("root", {
         message: "Error submitting form - please refresh and try again.",
       });

@@ -6,7 +6,7 @@ interface BackgroundTextureProps {
   variation: string;
   size?: string;
   position?: string;
-  style?: {};
+  style?: React.CSSProperties;
   children?: React.ReactNode;
 }
 

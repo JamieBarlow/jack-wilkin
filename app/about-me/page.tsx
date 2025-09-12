@@ -3,6 +3,7 @@ import HeroSection from "../components/HeroSection";
 import BackgroundTexture from "../components/BackgroundTexture";
 import SideBySideContent from "../components/SideBySideContent";
 import Link from "next/link";
+import Image from "next/image";
 
 const AboutMePage = () => {
   return (
@@ -53,16 +54,23 @@ const AboutMePage = () => {
                   </button>
                 </div>
                 <div className="flex-1 flex box-gradient-bg-right p-5 max-w-md">
-                  <img src="/jack-facing.jpeg" alt="Profile photo of Jack" />
+                  <Image
+                    src="/jack-facing.jpeg"
+                    width={1200}
+                    height={1600}
+                    alt="Profile photo of Jack"
+                  />
                 </div>
               </SideBySideContent>
             </section>
           </div>
         </BackgroundTexture>
         <section id="image banner" className="w-full h-[480px] overflow-hidden">
-          <img
-            src="oxford-banner.jpg"
+          <Image
+            src="/oxford-banner.jpg"
             alt="Christchurch Meadows, Oxford"
+            width={1920}
+            height={1369}
             className="h-full w-full object-cover object-center"
           />
         </section>
@@ -107,14 +115,32 @@ const AboutMePage = () => {
                 </div>
                 <div className="flex flex-1 flex-row flex-wrap py-5 lg:max-w-1/2 gap-4">
                   <div className="flex flex-1 flex-col gap-4">
-                    <img src="/takingnotes.jpg" alt="Counsellor taking notes" />
-                    <img src="/standing-tall.jpg" alt="Standing on ledge" />
+                    <Image
+                      src="/takingnotes.jpg"
+                      alt="Counsellor taking notes"
+                      width={3872}
+                      height={2592}
+                    />
+                    <Image
+                      src="/standing-tall.jpg"
+                      alt="Standing on ledge"
+                      width={3648}
+                      height={5472}
+                    />
                   </div>
                   <div className="flex flex-1 flex-col gap-4">
-                    <img src="/dogwalk.jpg" alt="Walking dog" className="" />
-                    <img
+                    <Image
+                      src="/dogwalk.jpg"
+                      alt="Walking dog"
+                      className=""
+                      width={640}
+                      height={480}
+                    />
+                    <Image
                       src="/profile-trees.jpg"
                       alt="Walking on path with trees"
+                      width={4000}
+                      height={6000}
                     />
                   </div>
                 </div>
@@ -126,9 +152,11 @@ const AboutMePage = () => {
             >
               <div className="flex-1 order-2 md:order-1">
                 <div className="box-gradient-bg-left p-5 pr-0 h-fit w-1/2">
-                  <img
-                    src="BACP.png"
+                  <Image
+                    src="/BACP.png"
                     alt="BACP logo"
+                    width={940}
+                    height={420}
                     className="w-2xs sm:w-sm max-w-md"
                   />
                 </div>

@@ -3,6 +3,7 @@ import HeroSection from "../components/HeroSection";
 import BackgroundTexture from "../components/BackgroundTexture";
 import IssueCard from "../components/IssueCard";
 import ContactForm from "../components/ContactForm";
+import Image from "next/image";
 
 const contact = () => {
   return (
@@ -29,14 +30,24 @@ const contact = () => {
                 />
               </div>
               <div className="flex flex-col gap-10 [&>p]:m-1">
-                <img src="office.png" alt="Offices" />
+                <Image
+                  src="/office.png"
+                  alt="Offices"
+                  width={600}
+                  height={320}
+                />
                 <div className="text-block">
                   <p className="font-semibold">Counselling Offices</p>
                   <p>Counselling House</p>
                   <p>65 Bodleian Road</p>
                   <p>Oxford OX2 1GR</p>
                 </div>
-                <img src="minimap.png" alt="Mini map of Oxford" />
+                <Image
+                  src="/minimap.png"
+                  alt="Mini map of Oxford"
+                  width={610}
+                  height={251}
+                />
               </div>
             </div>
             <div className="flex flex-col text-base-content">

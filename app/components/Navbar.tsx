@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import NavLink from "./NavLink";
 import BackgroundTexture from "./BackgroundTexture";
 
