@@ -9,7 +9,7 @@ interface HeroProps {
 const HeroSection = ({ bgUnderWave, children }: HeroProps) => {
   return (
     <BackgroundTexture
-      className="bg-base-300 w-full flex flex-col"
+      className="w-full bg-base-300 flex flex-col z-10"
       variation="banner"
     >
       <section

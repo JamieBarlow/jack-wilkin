@@ -261,7 +261,7 @@
   }
 
   h2 {
-    @apply font-raleway text-[40px] font-normal;
+    @apply font-raleway text-3xl sm:text-[40px] font-normal;
   }
 
   h3 {

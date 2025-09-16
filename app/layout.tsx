@@ -37,8 +37,7 @@ export default function RootLayout({
       <body
         className={`${raleway.variable} ${notoSans.variable} ${inter.variable} antialiased *:outline`}
       >
-        <Navbar />
-        {children}
+        <Navbar children={children} />
         <Footer />
       </body>
     </html>

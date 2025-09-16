@@ -7,7 +7,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <BackgroundTexture
-      className="bg-base-300 text-base-100 w-full"
+      className="bg-base-300 text-base-100 w-full z-0"
       variation="banner"
     >
       <footer className="flex flex-row flex-wrap justify-between gap-x-4 gap-y-6 px-4 py-8">
