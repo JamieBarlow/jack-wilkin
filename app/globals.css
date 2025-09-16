@@ -257,7 +257,7 @@
   }
 
   h1 {
-    @apply font-raleway text-7xl font-semibold;
+    @apply font-raleway text-6xl sm:text-7xl font-semibold;
   }
 
   h2 {

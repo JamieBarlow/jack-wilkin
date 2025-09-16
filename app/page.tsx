@@ -17,7 +17,7 @@ export default function Home() {
         <HeroSection bgUnderWave="var(--color-secondary)">
           <h1>JFW Oxford Counselling</h1>
           <h2 className="my-0">Inclusive and accessible talking therapy</h2>
-          <h2 className="my-0 mb-4">in Oxford and online</h2>
+          <h2 className="my-0 mb-4">In Oxford and online</h2>
           <button className="btn-banner-outline font-raleway font-semibold text-lg">
             Contact Me
           </button>
@@ -227,11 +227,11 @@ export default function Home() {
       </section>
       <section
         id="faq"
-        className="bg-base-100 text-base-content w-full section-middle"
+        className="bg-base-100 text-base-content section-middle container-padded overflow-hidden"
       >
-        <h3 className="heading container-padded">Frequently Asked Questions</h3>
-        <SideBySideContent className="justify-center md:justify-start items-center gap-10 py-4">
-          <div className="min-w-md max-w-[40%] self-start">
+        <h3 className="heading">Frequently Asked Questions</h3>
+        <div className="flex flex-row flex-wrap justify-center md:justify-start items-center gap-10 py-4">
+          <div className="min-w-full sm:min-w-0 max-w-[40%] self-start">
             <div className="box-gradient-bg-left p-5">
               <Image
                 src="/question.jpg"
@@ -241,7 +241,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="flex-1 min-w-md self-end xl:self-start">
+          <div className="flex-1 self-end xl:self-start">
             <Accordion type="single" collapsible className="">
               <AccordionItem value="item-1" className="">
                 <AccordionTrigger className="">
@@ -324,7 +324,7 @@ export default function Home() {
               </AccordionItem>
             </Accordion>
           </div>
-        </SideBySideContent>
+        </div>
       </section>
     </main>
   );

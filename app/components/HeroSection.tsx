@@ -14,7 +14,7 @@ const HeroSection = ({ bgUnderWave, children }: HeroProps) => {
     >
       <section
         id="hero"
-        className="flex flex-col gap-8 items-center text-base-100 text-center mt-20 mb-0"
+        className="flex flex-col gap-8 items-center text-base-100 text-center mt-20 mb-0 container-padded"
       >
         {children}
       </section>
