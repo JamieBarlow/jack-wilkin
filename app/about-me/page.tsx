@@ -148,7 +148,7 @@ const AboutMePage = () => {
             </section>
             <section
               id="extra__qualifications"
-              className="flex flex-row flex-wrap container-padded section-middle gap-10"
+              className="flex flex-row flex-wrap container-padded section-middle gap-10 text-base-content"
             >
               <div className="flex-1 order-2 md:order-1">
                 <div className="box-gradient-bg-left p-5 pr-0 h-fit w-1/2">

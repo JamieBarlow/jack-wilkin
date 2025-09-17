@@ -33,11 +33,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="testTheme">
+    <html lang="en" data-theme="wilkinTheme">
       <body
         className={`${raleway.variable} ${notoSans.variable} ${inter.variable} antialiased *:outline`}
       >
-        <Navbar children={children} />
+        <Navbar>{children}</Navbar>
         <Footer />
       </body>
     </html>
