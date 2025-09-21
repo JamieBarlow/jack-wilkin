@@ -9,15 +9,18 @@ import {
   AccordionTrigger,
 } from "./components/accordion";
 import Image from "next/image";
+import { fetchPageEntries } from "@/utils/contentfulPage";
 
-export default function Home() {
+export default async function Home() {
+  const { header, subtitle, subtitle2 } = await fetchPageEntries("Home Page");
+
   return (
     <main className="w-full">
       <div className="w-full bg-secondary">
         <HeroSection bgUnderWave="var(--color-secondary)">
-          <h1>JFW Oxford Counselling</h1>
-          <h2 className="my-0">Inclusive and accessible talking therapy</h2>
-          <h2 className="my-0 mb-4">In Oxford and online</h2>
+          <h1>{header}</h1>
+          <h2 className="my-0">{subtitle}</h2>
+          <h2 className="my-0 mb-4">{subtitle2}</h2>
           <button className="btn-banner-outline font-raleway font-semibold text-lg">
             Contact Me
           </button>
