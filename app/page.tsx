@@ -10,9 +10,30 @@ import {
 } from "./components/accordion";
 import Image from "next/image";
 import { fetchPageEntries } from "@/utils/contentfulPage";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
+const document = {
+  nodeType: "document",
+  data: {},
+  content: [
+    {
+      nodeType: "paragraph",
+      data: {},
+      content: [
+        {
+          nodeType: "text",
+          value: "Hello world!",
+          marks: [],
+          data: {},
+        },
+      ],
+    },
+  ],
+};
 
 export default async function Home() {
-  const { header, subtitle, subtitle2 } = await fetchPageEntries("Home Page");
+  const { header, subtitle, subtitle2, sections } =
+    await fetchPageEntries("Home Page");
 
   return (
     <main className="w-full">
@@ -28,17 +49,8 @@ export default async function Home() {
         <section id="intro" className="text-base-content w-full">
           <SideBySideContent className="section-top gap-10 lg:gap-16 xl:gap-60 justify-center md:justify-start items-center">
             <div className="flex-1/2 w-full xl:max-w-xl">
-              <h3 className="heading">Hello, my name is Jack.</h3>
-              <p>
-                I’m a qualified counsellor providing one-to-one therapy for
-                adults over the age of 18. I work face to face in Oxford as well
-                as online via Zoom.
-              </p>
-              <p>
-                My approach to counselling is integrative, meaning that I draw
-                on a range of therapeutic approaches to best fit your specific
-                circumstances and goals.
-              </p>
+              <h3 className="heading">{sections[0].header}</h3>
+              <div>{documentToReactComponents(sections[0].textContent[0])}</div>
             </div>
             <div className="box-gradient-bg-right p-5">
               <Image
