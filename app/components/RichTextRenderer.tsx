@@ -4,7 +4,7 @@ import { Document } from "@contentful/rich-text-types";
 const RichTextRenderer = ({
   documents,
 }: {
-  documents: Document | Document[];
+  documents: Document | Document[] | undefined;
 }) => {
   if (Array.isArray(documents)) {
     return (
@@ -17,7 +17,9 @@ const RichTextRenderer = ({
   }
 
   // single Document
-  return <>{documentToReactComponents(documents)}</>;
+  if (documents) {
+    return <>{documentToReactComponents(documents)}</>;
+  }
 };
 
 export default RichTextRenderer;

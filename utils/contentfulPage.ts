@@ -2,12 +2,6 @@ const space = process.env.CONTENTFUL_SPACE_ID as string;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN as string;
 import * as contentful from "contentful";
 import { Document } from "@contentful/rich-text-types";
-import {
-  FieldsType,
-  Entry,
-  EntryCollection,
-  EntrySkeletonType,
-} from "contentful";
 
 const client = contentful.createClient({
   space,
@@ -56,7 +50,7 @@ interface PageFields {
   subtitle2?: string;
 }
 
-interface Section {
+export interface Section {
   fields: SectionFields;
   metadata: {};
   sys: Sys;
@@ -108,12 +102,17 @@ interface Ref {
   sys: {};
 }
 
-interface PageDataResult {
+export interface PageDataResult {
   pageHeader: string;
   subtitle?: string;
   subtitle2?: string;
-  textBlocks: (TextBlock[] | undefined)[];
-  media: (Media[] | undefined)[];
+  sections: SanitizedSection[];
+}
+
+interface SanitizedSection {
+  header?: string;
+  textContent?: Document;
+  media?: Media[];
 }
 
 export async function fetchPageEntries(
@@ -129,22 +128,27 @@ export async function fetchPageEntries(
   // Main fields data
   const fields = pageData.items[0].fields as unknown as PageFields; // reset Contentful typing for custom types
   const { pageHeader, subtitle, subtitle2 } = fields;
-  const sections = (fields.sections as Section[] | undefined) ?? [];
+  const sections = (fields.sections ?? []) as Section[];
+  console.log(sections[0].fields.header);
 
-  const orderedSections = sections.sort((a, b) => {
+  const orderedSections: Section[] = sections.sort((a, b) => {
     return a.fields.orderNumber - b.fields.orderNumber;
   });
-  const textBlocks = orderedSections.map(
-    (section) => section.fields.textBlocks
-  );
 
-  const media = orderedSections.map((section) => section.fields.media);
+  const sanitizedSections = orderedSections.map((section) => {
+    return {
+      header: section.fields.header,
+      // @ts-ignore
+      textContent: section.fields.textBlocks[0].fields.textContent,
+      media: section.fields.media,
+    };
+  });
+
   return {
     pageHeader,
     subtitle,
     subtitle2,
-    textBlocks,
-    media,
+    sections: sanitizedSections,
   };
 }
 
