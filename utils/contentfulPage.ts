@@ -135,6 +135,8 @@ export async function fetchPageEntries(
     return a.fields.orderNumber - b.fields.orderNumber;
   });
 
+  console.log(orderedSections[5]);
+
   const sanitizedSections = orderedSections.map((section) => {
     return {
       header: section.fields.header,

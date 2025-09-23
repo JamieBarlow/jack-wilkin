@@ -18,6 +18,7 @@ export default async function Home() {
     "Home Page"
   )) as unknown as PageDataResult;
   console.log(sections);
+  console.log(sections[5]);
 
   return (
     <main className="w-full">
@@ -58,8 +59,8 @@ export default async function Home() {
           className="flex flex-col items-start text-base-content section-middle container-padded"
         >
           <div className="flex flex-col justify-center mx-auto">
-            {/* <h3 className="heading">{sections[1].header}</h3> */}
-            {/* <RichTextRenderer documents={sections[1].textContent[0]} /> */}
+            <h3 className="heading">{sections[1].header}</h3>
+            <RichTextRenderer documents={sections[1].textContent} />
             <div
               id="issueIcons"
               className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center lg:justify-items-start gap-10 text-block"
@@ -74,7 +75,7 @@ export default async function Home() {
               <IssueCard issue="work" />
             </div>
             <div className="text-block">
-              {/* <RichTextRenderer documents={sections[2].textContent} /> */}
+              <RichTextRenderer documents={sections[2].textContent} />
             </div>
           </div>
           <SideBySideContent className="justify-center md:justify-start items-start section-middle text-block gap-10 lg:gap-16 xl:gap-10">
@@ -87,8 +88,8 @@ export default async function Home() {
               />
             </div>
             <div className="flex-1">
-              {/* <h3 className="heading">{sections[3].header}</h3> */}
-              {/* <RichTextRenderer documents={sections[3].textContent} /> */}
+              <h3 className="heading">{sections[3].header}</h3>
+              <RichTextRenderer documents={sections[3].textContent} />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="229"
@@ -113,9 +114,9 @@ export default async function Home() {
         className="bg-base-200 text-base-content w-full section-middle"
       >
         <div className="container-padded flex flex-col items-center">
-          {/* <h2 className="text-center">{sections[4].header}</h2> */}
+          <h2 className="text-center">{sections[4].header}</h2>
           <p className="text-center">
-            {/* <RichTextRenderer documents={sections[4].textContent} /> */}
+            <RichTextRenderer documents={sections[4].textContent} />
           </p>
           <button className="btn-cta font-raleway font-semibold text-lg my-4">
             Contact Me
@@ -133,11 +134,10 @@ export default async function Home() {
           className="text-base-content w-full section-middle flex flex-col items-start"
         >
           <div className="container-padded flex flex-col items-center">
-            {/* <h3 className="heading text-center">{sections[5].header}</h3> */}
+            <h3 className="heading text-center">{sections[5].header}</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-start">
               <div className="text-block">
                 <h3 className="heading">Fees</h3>
-                {/* <h3 className="heading">{sections[5].textContent[0].content}</h3> */}
                 <p>Initial 30-minute consultation - Free</p>
                 <p>Ongoing sessions - £60 per 50-minute session</p>
                 <p>
