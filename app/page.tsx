@@ -10,30 +10,11 @@ import {
 } from "./components/accordion";
 import Image from "next/image";
 import { fetchPageEntries } from "@/utils/contentfulPage";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
-const document = {
-  nodeType: "document",
-  data: {},
-  content: [
-    {
-      nodeType: "paragraph",
-      data: {},
-      content: [
-        {
-          nodeType: "text",
-          value: "Hello world!",
-          marks: [],
-          data: {},
-        },
-      ],
-    },
-  ],
-};
+import RichTextRenderer from "./components/RichTextRenderer";
 
 export default async function Home() {
-  const { header, subtitle, subtitle2, sections } =
-    await fetchPageEntries("Home Page");
+  // const { header, subtitle, subtitle2, sections } =
+  // await fetchPageEntries("Home Page");
 
   return (
     <main className="w-full">
@@ -50,7 +31,7 @@ export default async function Home() {
           <SideBySideContent className="section-top gap-10 lg:gap-16 xl:gap-60 justify-center md:justify-start items-center">
             <div className="flex-1/2 w-full xl:max-w-xl">
               <h3 className="heading">{sections[0].header}</h3>
-              <div>{documentToReactComponents(sections[0].textContent[0])}</div>
+              <RichTextRenderer documents={sections[0].textContent} />
             </div>
             <div className="box-gradient-bg-right p-5">
               <Image
@@ -74,14 +55,8 @@ export default async function Home() {
           className="flex flex-col items-start text-base-content section-middle container-padded"
         >
           <div className="flex flex-col justify-center mx-auto">
-            <h3 className="heading">
-              Who is counselling for and how does it help?
-            </h3>
-            <p>
-              People come to counselling for all sorts of reasons. I have
-              experience working with clients experiencing a range of issues
-              including:
-            </p>
+            <h3 className="heading">{sections[1].header}</h3>
+            <RichTextRenderer documents={sections[1].textContent[0]} />
             <div
               id="issueIcons"
               className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center lg:justify-items-start gap-10 text-block"
@@ -96,17 +71,7 @@ export default async function Home() {
               <IssueCard issue="work" />
             </div>
             <div className="text-block">
-              <p>
-                Counselling provides a safe, empathetic, non-judgemental space
-                to explore whatever is going on for you, with a qualified
-                professional who can help to guide you through that process.
-              </p>
-              <p>
-                What this looks like in practice is unique to each individual,
-                but it may involve exploring the past or a specific incident,
-                examining your relationships with others, or working to develop
-                greater self-acceptance.
-              </p>
+              <RichTextRenderer documents={sections[2].textContent} />
             </div>
           </div>
           <SideBySideContent className="justify-center md:justify-start items-start section-middle text-block gap-10 lg:gap-16 xl:gap-10">
@@ -119,22 +84,8 @@ export default async function Home() {
               />
             </div>
             <div className="flex-1">
-              <h3 className="heading">Neurodivergent and LGBTQ+ support</h3>
-              <p>
-                I also have extensive experience supporting neurodivergent
-                individuals and individuals identifying as LGBTQ+, including
-                trans and non-binary individuals.
-              </p>
-              <p>
-                Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                vulputate libero et velit interdum, ac aliquet odio mattis.
-              </p>
-              <p>
-                Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                vulputate libero et velit interdum, ac aliquet odio mattis.
-                Class aptent taciti sociosqu ad litora torquent per conubia
-                nostra, per inceptos himenaeos.
-              </p>
+              <h3 className="heading">{sections[3].header}</h3>
+              <RichTextRenderer documents={sections[3].textContent} />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="229"
@@ -159,12 +110,10 @@ export default async function Home() {
         className="bg-base-200 text-base-content w-full section-middle"
       >
         <div className="container-padded flex flex-col items-center">
-          <h2 className="heading text-center">How to get started</h2>
+          <h2 className="text-center">{sections[4].header}</h2>
           <p className="text-center">
-            Complete an enquiry form on the website or email me at
-            jackwilkin.counselling@gmail.com.
+            <RichTextRenderer documents={sections[4].textContent} />
           </p>
-          <p className="text-center">I aim to respond within 48 hours.</p>
           <button className="btn-cta font-raleway font-semibold text-lg my-4">
             Contact Me
           </button>
@@ -181,10 +130,11 @@ export default async function Home() {
           className="text-base-content w-full section-middle flex flex-col items-start"
         >
           <div className="container-padded flex flex-col items-center">
-            <h3 className="heading text-center">Fees and availability</h3>
+            <h3 className="heading text-center">{sections[5].header}</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-start">
               <div className="text-block">
                 <h3 className="heading">Fees</h3>
+                {/* <h3 className="heading">{sections[5].textContent[0].content}</h3> */}
                 <p>Initial 30-minute consultation - Free</p>
                 <p>Ongoing sessions - £60 per 50-minute session</p>
                 <p>
