@@ -9,15 +9,14 @@ import {
   AccordionTrigger,
 } from "./components/accordion";
 import Image from "next/image";
-import { fetchPageEntries } from "@/utils/contentfulPage";
+import { fetchPage } from "@/utils/contentfulPage";
+import { fetchPageSections } from "@/utils/contentfulSections";
 import RichTextRenderer from "./components/RichTextRenderer";
-import { Section, PageDataResult } from "@/utils/contentfulPage";
 
 export default async function Home() {
-  const { pageHeader, subtitle, subtitle2, sections } = (await fetchPageEntries(
-    "Home Page"
-  )) as unknown as PageDataResult;
-  console.log(sections);
+  const fields = await fetchPage("Home Page", 1);
+  const sections = await fetchPageSections(fields, 1);
+  const { pageHeader, subtitle, subtitle2 } = fields;
   console.log(sections[5]);
 
   return (
@@ -115,9 +114,9 @@ export default async function Home() {
       >
         <div className="container-padded flex flex-col items-center">
           <h2 className="text-center">{sections[4].header}</h2>
-          <p className="text-center">
+          <div className="text-center">
             <RichTextRenderer documents={sections[4].textContent} />
-          </p>
+          </div>
           <button className="btn-cta font-raleway font-semibold text-lg my-4">
             Contact Me
           </button>
@@ -137,7 +136,7 @@ export default async function Home() {
             <h3 className="heading text-center">{sections[5].header}</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-start">
               <div className="text-block">
-                <h3 className="heading">Fees</h3>
+                <h3 className="heading">{sections[5].header}</h3>
                 <p>Initial 30-minute consultation - Free</p>
                 <p>Ongoing sessions - £60 per 50-minute session</p>
                 <p>

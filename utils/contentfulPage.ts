@@ -3,12 +3,12 @@ const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN as string;
 import * as contentful from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
-const client = contentful.createClient({
+export const client = contentful.createClient({
   space,
   accessToken,
 });
 
-interface Page {
+export interface Page {
   includes: {};
   items: PageItems[];
   limit: number;
@@ -42,7 +42,7 @@ interface Sys {
   updatedAt: string;
 }
 
-interface PageFields {
+export interface PageFields {
   pageHeader: string;
   pageTitle: string;
   sections?: Section[];
@@ -115,18 +115,27 @@ interface SanitizedSection {
   media?: Media[];
 }
 
+export async function fetchPage(
+  pageTitle: string,
+  include = 10
+): Promise<PageFields> {
+  const pageData = await client.getEntries({
+    content_type: "page",
+    "fields.pageTitle[match]": pageTitle,
+    include,
+  } as any);
+  console.log("pageData:", pageData);
+  const fields = pageData.items[0].fields as unknown as PageFields; // reset Contentful typing for custom types
+  return fields as unknown as PageFields;
+}
+
+// Use only if fetching all page entries and linked items together. Otherwise, see fetchPageSections
 export async function fetchPageEntries(
   pageTitle: string
 ): Promise<PageDataResult> {
   // Fetch page data
-  const pageData = await client.getEntries<any>({
-    content_type: "page",
-    "fields.pageTitle[match]": pageTitle,
-    include: 10,
-  });
-  console.log(pageData);
+  const fields = await fetchPage(pageTitle);
   // Main fields data
-  const fields = pageData.items[0].fields as unknown as PageFields; // reset Contentful typing for custom types
   const { pageHeader, subtitle, subtitle2 } = fields;
   const sections = (fields.sections ?? []) as Section[];
   console.log(sections[0].fields.header);
@@ -155,20 +164,3 @@ export async function fetchPageEntries(
 }
 
 export default { fetchPageEntries };
-
-// Optional for fetching by individual section
-const fetchPageSections = async (page: Page) => {
-  const sectionIds =
-    page.items[0].fields.sections?.map((section) => section.sys.id) ?? [];
-  const sectionsContent = await Promise.all(
-    sectionIds.map(async (id) => {
-      const res = await client.getEntries({
-        content_type: "section",
-        "sys.id": id,
-      });
-      return res;
-    })
-  );
-  const result = sectionsContent as unknown as Section[];
-  return result;
-};
