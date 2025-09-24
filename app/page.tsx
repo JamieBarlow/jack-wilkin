@@ -2,18 +2,13 @@ import HeroSection from "./components/HeroSection";
 import IssueCard from "./components/IssueCard";
 import SideBySideContent from "./components/SideBySideContent";
 import BackgroundTexture from "./components/BackgroundTexture";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "./components/accordion";
 import Image from "next/image";
 import { fetchPage } from "@/utils/contentfulPage";
 import { fetchPageSections } from "@/utils/contentfulSections";
 import RichTextRenderer from "./components/RichTextRenderer";
 import { SanitizedSection } from "@/utils/contentfulSections";
 import FAQs from "./components/FAQs";
+import ContentfulImage from "./components/ContentfulImage";
 
 export default async function Home() {
   const pageFields = await fetchPage("Home Page", 4);
@@ -42,12 +37,7 @@ export default async function Home() {
               <RichTextRenderer documents={sections[0].textContent} />
             </div>
             <div className="box-gradient-bg-right p-5">
-              <Image
-                src="/jack-cropped2.jpg"
-                width={366}
-                height={366}
-                alt="Profile photo of Jack"
-              />
+              <ContentfulImage asset={sections[0].media?.[0]} quality={100} />
             </div>
           </SideBySideContent>
         </section>
@@ -84,12 +74,7 @@ export default async function Home() {
           </div>
           <SideBySideContent className="justify-center md:justify-start items-start section-middle text-block gap-10 lg:gap-16 xl:gap-10">
             <div className="max-w-lg xl:max-w-2xl box-gradient-bg-left p-5">
-              <Image
-                src="/fidgetspinner.jpg"
-                width={1280}
-                height={848}
-                alt="Fidget spinner"
-              />
+              <ContentfulImage asset={sections[3].media?.[0]} quality={100} />
             </div>
             <div className="flex-1">
               <h3 className="heading">{sections[3].header}</h3>
@@ -145,22 +130,10 @@ export default async function Home() {
                 <RichTextRenderer documents={sections[6].textContent} />
               </div>
               <div className="box-gradient-bg-right p-5 pl-0">
-                <Image
-                  src="/fees.png"
-                  alt="Fees"
-                  width={640}
-                  height={432}
-                  className=""
-                />
+                <ContentfulImage asset={sections[6].media?.[0]} quality={100} />
               </div>
               <div className="box-gradient-bg-left p-5 order-2 lg:order-1">
-                <Image
-                  src="/availability.png"
-                  alt="Availability"
-                  width={640}
-                  height={426}
-                  className=""
-                />
+                <ContentfulImage asset={sections[7].media?.[0]} quality={100} />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="text-block">
@@ -193,12 +166,7 @@ export default async function Home() {
           <div className="flex flex-row flex-wrap justify-center md:justify-start items-center gap-10 py-4">
             <div className="min-w-full sm:min-w-0 max-w-[40%] self-start">
               <div className="box-gradient-bg-left p-5">
-                <Image
-                  src="/question.jpg"
-                  width={1920}
-                  height={1920}
-                  alt="FAQs image"
-                />
+                <ContentfulImage asset={sections[9].media?.[0]} quality={100} />
               </div>
             </div>
             <div className="flex-1 self-end xl:self-start">

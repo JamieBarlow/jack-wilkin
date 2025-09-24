@@ -1,5 +1,6 @@
 import { client } from "./contentfulPage";
 import { fetchPage, PageFields, Media, TextBlock, FAQ } from "./contentfulPage";
+import { ContentfulAsset } from "@/app/components/ContentfulImage";
 
 export interface SanitizedFAQ {
   question: string;
@@ -9,7 +10,7 @@ export interface SanitizedFAQ {
 export interface SanitizedSection {
   header: string;
   textContent?: Document | Document[] | undefined;
-  media?: Media[] | undefined;
+  media?: ContentfulAsset[];
   faqs?: SanitizedFAQ[];
 }
 
