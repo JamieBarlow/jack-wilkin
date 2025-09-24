@@ -23,9 +23,11 @@ export interface ContentfulAsset {
 export default function ContentfulImage({
   asset,
   quality,
+  className,
 }: {
   asset?: ContentfulAsset;
   quality?: number;
+  className?: string;
 }) {
   if (!asset) return null;
   const file = asset?.fields?.file;
@@ -43,6 +45,7 @@ export default function ContentfulImage({
       width={file.details.image.width}
       height={file.details.image.height}
       loading="lazy"
+      className={className}
     />
   );
 }

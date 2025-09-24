@@ -79,7 +79,7 @@ const Navbar = ({ children }: NavbarProps) => {
             {/* Sidebar content here */}
             <div
               id="navLinks"
-              className="flex flex-col gap-10 navLink items-center"
+              className="flex flex-col gap-10 navLink items-center text-base-100"
             >
               <NavLink href="/about-me">About Me</NavLink>
               <NavLink href="/">Fees & Availability</NavLink>

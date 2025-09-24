@@ -256,6 +256,10 @@
     margin: 0;
   }
 
+  a {
+    @apply text-primary;
+  }
+
   h1 {
     @apply font-raleway text-6xl sm:text-7xl font-semibold;
   }
@@ -357,6 +361,10 @@
     @apply absolute inset-0 opacity-30;
     background-image: var(--texture-banner);
     background-repeat: repeat;
+  }
+
+  .link {
+    @apply text-base-100;
   }
 
   .bg-texture-abstract {

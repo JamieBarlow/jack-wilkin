@@ -15,7 +15,9 @@ const RichTextRenderer: React.FC<RichTextRendererProps> = ({ documents }) => {
   }
 
   if (documents) {
-    return <>{documentToReactComponents(documents)}</>;
+    return (
+      <div className="richtext">{documentToReactComponents(documents)}</div>
+    );
   }
   return [];
 };

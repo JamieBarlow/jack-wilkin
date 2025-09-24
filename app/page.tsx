@@ -17,7 +17,6 @@ export default async function Home() {
     1
   )) as unknown as SanitizedSection[];
   const { pageHeader, subtitle, subtitle2 } = pageFields;
-  console.log(sections);
 
   return (
     <main className="w-full">
