@@ -32,11 +32,14 @@ export const fetchPageSections = async (
   // console.log("Sections content:", sectionsContent);
 
   const textBlocks = sectionsContent.map((section) => {
-    const arr = section.items[0].fields.textBlocks as unknown as
-      | TextBlock[]
-      | undefined;
+    const item = section.items?.[0];
+    if (!item || !item.fields || !item.fields.textBlocks) return [];
+    const arr = item.fields.textBlocks as unknown as TextBlock[] | undefined;
     if (!arr) return [];
-    return arr.map((item) => item.fields.textContent);
+    return arr.map((item) => {
+      if (!item.fields || item.fields.textContent === undefined) return [];
+      return item.fields.textContent;
+    });
   });
   // console.log(textBlocks);
 

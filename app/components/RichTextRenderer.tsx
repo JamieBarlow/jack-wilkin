@@ -17,7 +17,7 @@ const RichTextRenderer: React.FC<RichTextRendererProps> = ({ documents }) => {
   if (documents) {
     return <>{documentToReactComponents(documents)}</>;
   }
-  return null;
+  return [];
 };
 
 export default RichTextRenderer;

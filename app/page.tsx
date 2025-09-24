@@ -22,7 +22,7 @@ export default async function Home() {
     1
   )) as unknown as SanitizedSection[];
   const { pageHeader, subtitle, subtitle2 } = pageFields;
-  console.log(sections[6].faqs);
+  console.log(sections);
 
   return (
     <main className="w-full">
@@ -141,17 +141,8 @@ export default async function Home() {
             <h3 className="heading text-center">{sections[5].header}</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-start">
               <div className="text-block">
-                <h3 className="heading">{sections[5].header}</h3>
-                <p>Initial 30-minute consultation - Free</p>
-                <p>Ongoing sessions - £60 per 50-minute session</p>
-                <p>
-                  If cost is a barrier to accessing counselling, please contact
-                  me to discuss a reduced fee.
-                </p>
-                <p>
-                  If I am unable to meet your requirements, I will be happy to
-                  signpost you to other low-cost counselling services.
-                </p>
+                <h3 className="heading">{sections[6].header}</h3>
+                <RichTextRenderer documents={sections[6].textContent} />
               </div>
               <div className="box-gradient-bg-right p-5 pl-0">
                 <Image
@@ -173,16 +164,12 @@ export default async function Home() {
               </div>
               <div className="order-1 lg:order-2">
                 <div className="text-block">
-                  <h3 className="heading">Availability</h3>
-                  <p>
-                    I currently work on Tuesday 3-7pm in person, and on
-                    Wednesday evenings online.
-                  </p>
-                  <p>Please contact me for current availability.</p>
+                  <h3 className="heading">{sections[7].header}</h3>
+                  <RichTextRenderer documents={sections[7].textContent} />
                 </div>
                 <div className="text-block">
-                  <h3 className="heading">Location</h3>
-                  <p>TBA</p>
+                  <h3 className="heading">{sections[8].header}</h3>
+                  <RichTextRenderer documents={sections[8].textContent} />
                 </div>
               </div>
             </div>
@@ -202,7 +189,7 @@ export default async function Home() {
         className="bg-base-100 text-base-content section-middle overflow-hidden"
       >
         <div className="container-padded">
-          <h3 className="heading">Frequently Asked Questions</h3>
+          <h3 className="heading">{sections[9].header}</h3>
           <div className="flex flex-row flex-wrap justify-center md:justify-start items-center gap-10 py-4">
             <div className="min-w-full sm:min-w-0 max-w-[40%] self-start">
               <div className="box-gradient-bg-left p-5">
@@ -215,7 +202,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="flex-1 self-end xl:self-start">
-              <FAQs {...sections[6]} />
+              <FAQs {...sections[9]} />
             </div>
           </div>
         </div>
