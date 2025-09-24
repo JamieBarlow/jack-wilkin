@@ -2,6 +2,7 @@ const space = process.env.CONTENTFUL_SPACE_ID as string;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN as string;
 import * as contentful from "contentful";
 import { Document } from "@contentful/rich-text-types";
+import { Doc } from "zod/v4/core";
 
 export const client = contentful.createClient({
   space,
@@ -56,16 +57,26 @@ export interface Section {
   sys: Sys;
 }
 
-interface SectionFields {
+export interface SectionFields {
   title: string;
   header?: string;
   orderNumber: number;
   page: Ref;
   media?: Media[];
   textBlocks?: TextBlock[];
+  faqs?: FAQ[];
 }
 
-interface TextBlock {
+export interface FAQ {
+  fields: {
+    question: string;
+    answer: Document;
+  };
+  metadata: {};
+  sys: {};
+}
+
+export interface TextBlock {
   fields: TextBlockFields;
   metadata: {};
   sys: {};
@@ -73,10 +84,10 @@ interface TextBlock {
 
 interface TextBlockFields {
   textBlockTitle: string;
-  textContent: Document;
+  textContent: Document | Document[] | undefined;
 }
 
-interface Media {
+export interface Media {
   fields: {
     file: {
       contentType: string;
@@ -111,7 +122,7 @@ export interface PageDataResult {
 
 interface SanitizedSection {
   header?: string;
-  textContent?: Document;
+  textContent?: Document | Document[] | undefined;
   media?: Media[];
 }
 

@@ -1,11 +1,9 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Document } from "@contentful/rich-text-types";
+interface RichTextRendererProps {
+  documents: any; // fix compatibility issue with contentful Document type
+}
 
-const RichTextRenderer = ({
-  documents,
-}: {
-  documents: Document | Document[] | undefined;
-}) => {
+const RichTextRenderer: React.FC<RichTextRendererProps> = ({ documents }) => {
   if (Array.isArray(documents)) {
     return (
       <>
@@ -16,10 +14,10 @@ const RichTextRenderer = ({
     );
   }
 
-  // single Document
   if (documents) {
     return <>{documentToReactComponents(documents)}</>;
   }
+  return null;
 };
 
 export default RichTextRenderer;

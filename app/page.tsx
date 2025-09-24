@@ -12,12 +12,16 @@ import Image from "next/image";
 import { fetchPage } from "@/utils/contentfulPage";
 import { fetchPageSections } from "@/utils/contentfulSections";
 import RichTextRenderer from "./components/RichTextRenderer";
+import { SanitizedSection } from "@/utils/contentfulSections";
 
 export default async function Home() {
-  const fields = await fetchPage("Home Page", 1);
-  const sections = await fetchPageSections(fields, 1);
-  const { pageHeader, subtitle, subtitle2 } = fields;
-  console.log(sections[5]);
+  const pageFields = await fetchPage("Home Page", 4);
+  const sections = (await fetchPageSections(
+    pageFields,
+    1
+  )) as unknown as SanitizedSection[];
+  const { pageHeader, subtitle, subtitle2 } = pageFields;
+  console.log(sections[6].faqs);
 
   return (
     <main className="w-full">
@@ -214,24 +218,21 @@ export default async function Home() {
                 <AccordionItem value="item-1" className="">
                   <AccordionTrigger className="">
                     <p className="faq faq-header">
-                      Will everything I say be kept confidential?
+                      {sections[6].faqs?.[0].question}
                     </p>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="faq">
-                      Yes, everything you share with me will be treated as
-                      strictly confidential. In rare situations I may be
-                      ethically or legally required to share information with
-                      third parties, these situations are explained in the
-                      counselling agreement which we will go through in your
-                      first session.
-                    </p>
+                    <div className="faq">
+                      <RichTextRenderer
+                        documents={sections[6].faqs?.[0].answer}
+                      />
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
                   <AccordionTrigger>
                     <p className="faq faq-header">
-                      What does the first session involve?
+                      {sections[6].faqs?.[1].question}
                     </p>
                   </AccordionTrigger>
                   <AccordionContent>
