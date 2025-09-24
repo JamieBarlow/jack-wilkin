@@ -13,6 +13,7 @@ import { fetchPage } from "@/utils/contentfulPage";
 import { fetchPageSections } from "@/utils/contentfulSections";
 import RichTextRenderer from "./components/RichTextRenderer";
 import { SanitizedSection } from "@/utils/contentfulSections";
+import FAQs from "./components/FAQs";
 
 export default async function Home() {
   const pageFields = await fetchPage("Home Page", 4);
@@ -214,89 +215,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="flex-1 self-end xl:self-start">
-              <Accordion type="single" collapsible className="">
-                <AccordionItem value="item-1" className="">
-                  <AccordionTrigger className="">
-                    <p className="faq faq-header">
-                      {sections[6].faqs?.[0].question}
-                    </p>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="faq">
-                      <RichTextRenderer
-                        documents={sections[6].faqs?.[0].answer}
-                      />
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>
-                    <p className="faq faq-header">
-                      {sections[6].faqs?.[1].question}
-                    </p>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="faq">
-                      During your initial session, we will go through the
-                      counselling agreement before exploring what has brought
-                      you to therapy and your goals. It is an opportunity for me
-                      to start getting to know you, learning more about your
-                      background and significant moments in your life. It is
-                      also an opportunity for you to ask me questions about my
-                      way of working and what to expect from therapy.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>
-                    <p className="faq faq-header">
-                      Do I have to come once a week?
-                    </p>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="faq">
-                      In my experience, it can be beneficial to meet once a week
-                      for the first 6 weeks, to establish a solid foundation for
-                      the work. However, I recognise this not possible for
-                      everyone and am able to offer fortnightly sessions as
-                      well.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-4">
-                  <AccordionTrigger>
-                    <p className="faq faq-header">
-                      How many sessions do I need?
-                    </p>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="faq">
-                      Some clients come for only 6 sessions, whilst others
-                      continue with therapy for many years. I offer an
-                      open-ended number of sessions, and we will review how
-                      things are going every 6 weeks to assist you in deciding
-                      whether or not to continue and when the time is right to
-                      stop.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-5">
-                  <AccordionTrigger>
-                    <p className="faq faq-header">
-                      What is the difference between counselling and
-                      psychotherapy?
-                    </p>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="faq">
-                      Historically, counselling may have been seen as
-                      shorter-term, more focused work than psychotherapy.
-                      Nowadays, the terms are used interchangeably and I refer
-                      to the work I do as both counselling and psychotherapy.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              <FAQs {...sections[6]} />
             </div>
           </div>
         </div>
