@@ -2,8 +2,6 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import BackgroundTexture from "../components/BackgroundTexture";
 import SideBySideContent from "../components/SideBySideContent";
-import Link from "next/link";
-import Image from "next/image";
 import { fetchPage } from "@/utils/contentfulPage";
 import { fetchPageSections } from "@/utils/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
