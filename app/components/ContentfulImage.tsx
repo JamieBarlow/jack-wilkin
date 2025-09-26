@@ -25,24 +25,28 @@ export default function ContentfulImage({
   quality,
   className,
   sizes,
+  priority,
 }: {
   asset?: ContentfulAsset;
   quality?: number;
   className?: string;
   sizes?: string;
+  priority?: boolean;
 }) {
   if (!asset) return null;
   const file = asset?.fields?.file;
   const alt = asset?.fields?.description || asset?.fields?.title || "";
+  const loading = priority ? "eager" : "lazy";
 
   return (
     <Image
+      priority={priority || false}
       loader={contentfulImageLoader}
       src={file.url}
       alt={alt}
       width={file.details.image.width}
       height={file.details.image.height}
-      loading="lazy"
+      loading={loading}
       quality={quality}
       className={className}
       sizes={sizes}

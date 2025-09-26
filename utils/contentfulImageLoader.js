@@ -20,6 +20,6 @@ export default function contentfulImageLoader({ src, width, quality = 75 }) {
   webpUrl.searchParams.set("w", width.toString());
   webpUrl.searchParams.set("q", quality.toString());
 
-  console.log(webpUrl);
+  // console.log(webpUrl);
   return webpUrl.href;
 }

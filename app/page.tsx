@@ -36,7 +36,11 @@ export default async function Home() {
               <RichTextRenderer documents={sections[0].textContent} />
             </div>
             <div className="box-gradient-bg-right p-5">
-              <ContentfulImage asset={sections[0].media?.[0]} quality={100} />
+              <ContentfulImage
+                asset={sections[0].media?.[0]}
+                quality={100}
+                priority
+              />
             </div>
           </SideBySideContent>
         </section>

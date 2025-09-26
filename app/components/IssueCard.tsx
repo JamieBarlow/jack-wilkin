@@ -142,9 +142,11 @@ const IssueCard = ({ issue, className, background }: IssueCardProps) => {
           <Image
             src={data.icon}
             alt={data.alt}
-            width={data.width}
-            height={data.height}
+            width={66}
+            height={66}
             className="w-[66px] h-[66px] absolute left-4 top-4 object-contain"
+            sizes="auto"
+            loading="lazy"
           />
         </div>
       </figure>
