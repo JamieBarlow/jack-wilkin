@@ -29,10 +29,13 @@ export default async function Home() {
             Contact Me
           </button>
         </HeroSection>
-        <section id="intro" className="text-base-content w-full">
-          <SideBySideContent className="section-top gap-10 lg:gap-16 xl:gap-60 justify-center md:justify-start items-center">
-            <div className="flex-1/2 w-full xl:max-w-xl">
-              <h3 className="heading">{sections[0].header}</h3>
+        <section
+          id="intro"
+          className="container-padded text-base-content w-full"
+        >
+          <SideBySideContent className="section-top gap-10 xl:gap-20 justify-center md:justify-between items-center">
+            <div className="flex-1/2 w-full xl:max-w-2xl">
+              <h3 className="heading mt-0">{sections[0].header}</h3>
               <RichTextRenderer documents={sections[0].textContent} />
             </div>
             <div className="box-gradient-bg-right p-5">

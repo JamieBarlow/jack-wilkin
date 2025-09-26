@@ -312,7 +312,7 @@
   }
 
   .container-padded {
-    @apply container mx-auto px-4;
+    @apply container mx-auto px-4 sm:px-16;
   }
 
   .text-block {
