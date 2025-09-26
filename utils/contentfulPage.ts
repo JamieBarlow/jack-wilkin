@@ -104,6 +104,8 @@ export interface Media {
   };
   metadata: {};
   sys: {};
+  link?: string;
+  title: string;
 }
 
 interface Ref {
@@ -134,10 +136,30 @@ export interface NavLinkFields {
   fields: {
     name: string;
     url: string;
-    isButton: boolean;
+    isButton?: boolean;
   };
   metadata: {};
   sys: {};
+}
+
+export interface FooterFields {
+  email: string;
+  footerTitle: string;
+  internalLinks: NavLinkFields[];
+  location: {
+    lat: number;
+    long: number;
+  };
+  phoneNumber: string;
+  verification: {
+    fields: {
+      image: Media;
+      link: string;
+      title: string;
+    };
+    metadata: {};
+    sys: {};
+  }[];
 }
 
 export async function fetchPage(
@@ -149,15 +171,24 @@ export async function fetchPage(
     "fields.pageTitle[match]": pageTitle,
     include,
   } as any);
-  console.log("pageData:", pageData);
   const fields = pageData.items[0].fields as unknown as PageFields; // reset Contentful typing for custom types
   return fields as unknown as PageFields;
 }
 
 export async function fetchNavLinks(include = 10): Promise<NavLinks> {
-  const linksData = await client.getEntries({ content_type: "navigation" });
-  console.log("Links data:", linksData);
+  const linksData = await client.getEntries({
+    content_type: "navigation",
+    include,
+  } as any);
   return linksData.items[0].fields as unknown as NavLinks;
+}
+
+export async function fetchFooter(include = 10): Promise<FooterFields> {
+  const footerData = await client.getEntries({
+    content_type: "footer",
+    include,
+  } as any);
+  return footerData.items[0].fields as unknown as FooterFields;
 }
 
 // Use only if fetching all page entries and linked items together. Otherwise, see fetchPageSections
