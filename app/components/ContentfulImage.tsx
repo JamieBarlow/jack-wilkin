@@ -24,28 +24,28 @@ export default function ContentfulImage({
   asset,
   quality,
   className,
+  sizes,
 }: {
   asset?: ContentfulAsset;
   quality?: number;
   className?: string;
+  sizes?: string;
 }) {
   if (!asset) return null;
   const file = asset?.fields?.file;
-  const url = contentfulImageLoader({
-    src: `https:${file.url}`,
-    width: file.details.image.width,
-    quality,
-  });
   const alt = asset?.fields?.description || asset?.fields?.title || "";
 
   return (
     <Image
-      src={url}
+      loader={contentfulImageLoader}
+      src={file.url}
       alt={alt}
       width={file.details.image.width}
       height={file.details.image.height}
       loading="lazy"
+      quality={quality}
       className={className}
+      sizes={sizes}
     />
   );
 }
