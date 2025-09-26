@@ -30,7 +30,6 @@ export const fetchPageSections = async (
       return res;
     })
   );
-  // console.log("Sections content:", sectionsContent);
 
   const textBlocks = sectionsContent.map((section) => {
     const item = section.items?.[0];
@@ -42,10 +41,8 @@ export const fetchPageSections = async (
       return item.fields.textContent;
     });
   });
-  // console.log(textBlocks);
 
   const faqs = sectionsContent.map((section) => {
-    console.log(section.items[0].fields);
     const arr = section.items[0].fields.faqs as unknown as FAQ[] | undefined;
     if (!arr) return [];
     return arr.map((item) => item.fields);

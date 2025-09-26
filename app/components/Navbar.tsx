@@ -1,6 +1,7 @@
 import React from "react";
 import NavLink from "./NavLink";
 import BackgroundTexture from "./BackgroundTexture";
+import NavLinks from "./NavLinks";
 
 interface NavbarProps {
   children?: React.ReactNode;
@@ -28,20 +29,7 @@ const Navbar = ({ children }: NavbarProps) => {
             <div className="hidden flex-none lg:block">
               <ul className="menu menu-horizontal">
                 {/* Navbar menu content here */}
-                <div
-                  id="navLinks"
-                  className="flex flex-row gap-10 navLink items-center"
-                >
-                  <NavLink href="/about-me">About Me</NavLink>
-                  <NavLink href="/">Fees & Availability</NavLink>
-                  <NavLink href="/">FAQ</NavLink>
-                  <NavLink href="/helpful-links">Helpful Links</NavLink>
-                  <NavLink href="/contact">
-                    <button className="btn btn-soft border-1 bg-base-100 border-base-100 text-base-300 rounded-xl hover:text-base-100 hover:bg-transparent hover:border-base-100">
-                      Contact Me
-                    </button>
-                  </NavLink>
-                </div>
+                <NavLinks className="flex-row" />
               </ul>
             </div>
             <div className="flex-none lg:hidden z-50 fixed top-6 right-2  bg-base-300/30">
@@ -77,20 +65,7 @@ const Navbar = ({ children }: NavbarProps) => {
           ></label>
           <ul className="menu bg-base-300 min-h-full w-80 p-4 justify-center">
             {/* Sidebar content here */}
-            <div
-              id="navLinks"
-              className="flex flex-col gap-10 navLink items-center text-base-100"
-            >
-              <NavLink href="/about-me">About Me</NavLink>
-              <NavLink href="/">Fees & Availability</NavLink>
-              <NavLink href="/">FAQ</NavLink>
-              <NavLink href="/helpful-links">Helpful Links</NavLink>
-              <NavLink href="/contact">
-                <button className="btn btn-soft border-1 bg-base-100 border-base-100 text-base-300 rounded-xl hover:text-base-100 hover:bg-transparent hover:border-base-100">
-                  Contact Me
-                </button>
-              </NavLink>
-            </div>
+            <NavLinks className="flex-col" />
           </ul>
         </div>
       </div>

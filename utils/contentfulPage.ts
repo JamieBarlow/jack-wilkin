@@ -2,7 +2,6 @@ const space = process.env.CONTENTFUL_SPACE_ID as string;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN as string;
 import * as contentful from "contentful";
 import { Document } from "@contentful/rich-text-types";
-import { Doc } from "zod/v4/core";
 
 export const client = contentful.createClient({
   space,
@@ -126,6 +125,8 @@ interface SanitizedSection {
   media?: Media[];
 }
 
+interface NavLinksFields {}
+
 export async function fetchPage(
   pageTitle: string,
   include = 10
@@ -138,6 +139,12 @@ export async function fetchPage(
   console.log("pageData:", pageData);
   const fields = pageData.items[0].fields as unknown as PageFields; // reset Contentful typing for custom types
   return fields as unknown as PageFields;
+}
+
+export async function fetchNavLinks(include = 10): Promise<NavLinksFields> {
+  const linksData = await client.getEntries({ content_type: "Navigation" });
+  console.log("Links data:", linksData);
+  return linksData;
 }
 
 // Use only if fetching all page entries and linked items together. Otherwise, see fetchPageSections
