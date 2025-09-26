@@ -125,7 +125,20 @@ interface SanitizedSection {
   media?: Media[];
 }
 
-interface NavLinksFields {}
+export interface NavLinks {
+  links: NavLinkFields[];
+  title: string;
+}
+
+export interface NavLinkFields {
+  fields: {
+    name: string;
+    url: string;
+    isButton: boolean;
+  };
+  metadata: {};
+  sys: {};
+}
 
 export async function fetchPage(
   pageTitle: string,
@@ -141,10 +154,10 @@ export async function fetchPage(
   return fields as unknown as PageFields;
 }
 
-export async function fetchNavLinks(include = 10): Promise<NavLinksFields> {
-  const linksData = await client.getEntries({ content_type: "Navigation" });
+export async function fetchNavLinks(include = 10): Promise<NavLinks> {
+  const linksData = await client.getEntries({ content_type: "navigation" });
   console.log("Links data:", linksData);
-  return linksData;
+  return linksData.items[0].fields as unknown as NavLinks;
 }
 
 // Use only if fetching all page entries and linked items together. Otherwise, see fetchPageSections
