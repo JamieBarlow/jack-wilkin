@@ -27,11 +27,14 @@ const helpfulLinks = async () => {
           size="200%"
           position="center"
         >
-          <div className="flex flex-row flex-wrap container-padded section-middle">
+          <div className="flex flex-row flex-wrap container-padded section-top">
             {sections.map((section, index) => {
               return (
-                <section key={index} className="text-base-content w-full">
-                  <div className="text-block lg:w-md xl:w-full xl:max-w-2xl">
+                <section
+                  key={index}
+                  className="text-base-content w-full xl:max-w-2xl"
+                >
+                  <div className="text-block">
                     <h3 className="heading">{section.header}</h3>
                     <RichTextRenderer documents={section.textContent} />
                   </div>
