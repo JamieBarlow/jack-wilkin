@@ -1,6 +1,7 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Document } from "@contentful/rich-text-types";
 interface RichTextRendererProps {
-  documents: any; // fix compatibility issue with contentful Document type
+  documents: Document | Document[] | undefined; // fix compatibility issue with contentful Document type
   className?: string;
 }
 

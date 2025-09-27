@@ -2,7 +2,6 @@ import React from "react";
 import BackgroundTexture from "./BackgroundTexture";
 import NavLink from "./NavLink";
 import Link from "next/link";
-import Image from "next/image";
 import ContentfulImage from "./ContentfulImage";
 
 import { fetchFooter } from "@/utils/contentfulPage";

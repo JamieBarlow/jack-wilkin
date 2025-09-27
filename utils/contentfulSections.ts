@@ -1,6 +1,7 @@
 import { client } from "./contentfulPage";
 import { fetchPage, PageFields, Media, TextBlock, FAQ } from "./contentfulPage";
 import { ContentfulAsset } from "@/app/components/ContentfulImage";
+import { Document } from "@contentful/rich-text-types";
 
 export interface SanitizedFAQ {
   question: string;

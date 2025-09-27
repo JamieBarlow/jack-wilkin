@@ -16,8 +16,8 @@ export interface ContentfulAsset {
       contentType?: string;
     };
   };
-  metadata: {};
-  sys: {};
+  metadata: object;
+  sys: object;
 }
 
 export default function ContentfulImage({

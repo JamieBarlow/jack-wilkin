@@ -1,7 +1,7 @@
 import React from "react";
 import NavLink from "./NavLink";
 import { fetchNavLinks } from "@/utils/contentfulPage";
-import type { NavLinks, NavLinkFields } from "@/utils/contentfulPage";
+import type { NavLinks } from "@/utils/contentfulPage";
 
 interface NavLinksProps {
   className?: string;
