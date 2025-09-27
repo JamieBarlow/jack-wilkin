@@ -7,14 +7,22 @@ import Image from "next/image";
 import { fetchContactDetails, fetchPage } from "@/utils/contentfulPage";
 import { fetchPageSections } from "@/utils/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
+import ContentfulImage from "../components/ContentfulImage";
 
 const contact = async () => {
   const pageFields = await fetchPage("Contact Me");
   const { pageHeader } = pageFields;
   const sections = await fetchPageSections(pageFields, 1);
   const contactDetails = await fetchContactDetails();
-  const { phoneNumber, email, location1Address, location2Address } =
-    contactDetails;
+  console.log(contactDetails);
+  const {
+    phoneNumber,
+    email,
+    location1Address,
+    location2Address,
+    location1Image,
+    location2Image,
+  } = contactDetails;
 
   return (
     <div className="">
@@ -28,10 +36,10 @@ const contact = async () => {
           size="200%"
           position="center"
         >
-          <div className="flex flex-row flex-wrap container-padded section-middle gap-10 justify-center">
-            <div className="flex flex-col gap-10 text-base-content">
+          <div className="flex flex-row flex-wrap container-padded section-middle gap-16 justify-center">
+            <div className="flex flex-1 flex-col gap-10 text-base-content">
               <h3 className="heading">{sections[0].header}</h3>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-row flex-wrap gap-6 md:justify-between lg:justify-start">
                 <IssueCard
                   issue="phone"
                   background="bg-base-100"
@@ -44,36 +52,51 @@ const contact = async () => {
                   title={email}
                 />
               </div>
-              <div className="flex flex-col gap-10 [&>p]:m-1">
-                <Image
-                  src="/office.png"
-                  alt="Offices"
-                  width={600}
-                  height={320}
-                />
-                <div className="flex flex-wrap gap-10 justify-between">
-                  <div className="flex-1 text-block order-1">
-                    <RichTextRenderer documents={location1Address} />
-                  </div>
-                  <div className="flex-1 order-2">
+              <div id="addresses" className="flex flex-col gap-10 [&>p]:m-1">
+                <div className="card bg-base-100 shadow-lg">
+                  <figure className="relative w-full h-[251px]">
                     <Image
-                      src="/minimap.png"
+                      src="/address1.jpg"
                       alt="Mini map of Oxford"
-                      width={610}
-                      height={251}
+                      fill
+                      className="object-cover"
                     />
+                  </figure>
+
+                  <div className="card-body ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
+                    <div className="flex-shrink-0">
+                      <ContentfulImage
+                        asset={location1Image}
+                        className="max-w-sm"
+                        quality={100}
+                      />
+                    </div>
+                    <div className="flex-1 px-6 pb-6">
+                      <RichTextRenderer documents={location1Address} />
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-10 justify-between">
-                  <Image
-                    src="/minimap.png"
-                    alt="Mini map of Oxford"
-                    width={610}
-                    height={251}
-                    className="max-w-[60%] xs:max-w-[70%] object-cover"
-                  />
-                  <div className="text-block">
-                    <RichTextRenderer documents={location2Address} />
+                <div className="card bg-base-100 shadow-lg">
+                  <figure className="relative w-full h-[251px]">
+                    <Image
+                      src="/address2.jpg"
+                      alt="Mini map of Oxford"
+                      fill
+                      className="object-cover"
+                    />
+                  </figure>
+
+                  <div className="card-body ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
+                    <div className="flex-shrink-0">
+                      <ContentfulImage
+                        asset={location2Image}
+                        className="max-w-sm"
+                        quality={100}
+                      />
+                    </div>
+                    <div className="flex-1 px-6 pb-6">
+                      <RichTextRenderer documents={location2Address} />
+                    </div>
                   </div>
                 </div>
               </div>

@@ -15,11 +15,11 @@ const Footer = async () => {
       className="bg-base-300 text-base-100 w-full z-0"
       variation="banner"
     >
-      <footer className="flex flex-row flex-wrap justify-between gap-x-4 gap-y-6 px-4 py-8">
+      <footer className="flex flex-row flex-wrap justify-between gap-x-4 gap-y-6 px-6 py-8">
         <aside className="flex flex-col flex-1">
           <NavLink href="/" className="flex flex-col text-base-100">
-            <p className="text-3xl font-raleway font-semibold m-0">JFW</p>
-            <p className="text-lg font-raleway font-semibold m-0">
+            <p className="text-3xl font-spectral font-medium m-0">JFW</p>
+            <p className="hidden sm:block text-xl font-spectral font-medium m-0">
               Counselling
             </p>
           </NavLink>

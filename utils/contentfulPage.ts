@@ -170,11 +170,13 @@ interface ContactDetails {
     lat: number;
   };
   location1Address: Document;
+  location1Image: Media;
   location2: {
     lon: number;
     lat: number;
   };
   location2Address: Document;
+  location2Image: Media;
   phoneNumber: string;
   title?: string;
 }
