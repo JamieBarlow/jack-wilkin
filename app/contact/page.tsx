@@ -36,10 +36,10 @@ const contact = async () => {
           size="200%"
           position="center"
         >
-          <div className="flex flex-row flex-wrap container-padded section-middle gap-16 justify-center">
-            <div className="flex flex-1 flex-col gap-10 text-base-content">
+          <div className="flex flex-row flex-wrap container-padded section-middle gap-6 justify-center">
+            <div className="flex flex-1 flex-col gap-10 text-base-content items-center sm:items-start">
               <h3 className="heading">{sections[0].header}</h3>
-              <div className="flex flex-row flex-wrap gap-6 md:justify-between lg:justify-start">
+              <div className="flex flex-row flex-wrap gap-6 md:justify-center lg:justify-start">
                 <IssueCard
                   issue="phone"
                   background="bg-base-100"
@@ -48,12 +48,15 @@ const contact = async () => {
                 <IssueCard
                   issue="email"
                   background="bg-base-100"
-                  className="w-fit"
+                  className="w-fit px-4"
                   title={email}
                 />
               </div>
-              <div id="addresses" className="flex flex-col gap-10 [&>p]:m-1">
-                <div className="card bg-base-100 shadow-lg">
+              <div
+                id="addresses"
+                className="flex flex-row flex-wrap gap-6 justify-start w-full"
+              >
+                <div className="card w-2xs bg-base-100 shadow-lg">
                   <figure className="relative w-full h-[251px]">
                     <Image
                       src="/address1.jpg"
@@ -62,21 +65,16 @@ const contact = async () => {
                       className="object-cover"
                     />
                   </figure>
-
-                  <div className="card-body ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
-                    <div className="flex-shrink-0">
-                      <ContentfulImage
-                        asset={location1Image}
-                        className="max-w-sm"
-                        quality={100}
-                      />
+                  <div className="ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
+                    <div className="relative w-full">
+                      <ContentfulImage asset={location1Image} quality={100} />
                     </div>
                     <div className="flex-1 px-6 pb-6">
                       <RichTextRenderer documents={location1Address} />
                     </div>
                   </div>
                 </div>
-                <div className="card bg-base-100 shadow-lg">
+                <div className="card w-2xs bg-base-100 shadow-lg">
                   <figure className="relative w-full h-[251px]">
                     <Image
                       src="/address2.jpg"
@@ -85,14 +83,9 @@ const contact = async () => {
                       className="object-cover"
                     />
                   </figure>
-
-                  <div className="card-body ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
-                    <div className="flex-shrink-0">
-                      <ContentfulImage
-                        asset={location2Image}
-                        className="max-w-sm"
-                        quality={100}
-                      />
+                  <div className="ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
+                    <div className="relative w-full">
+                      <ContentfulImage asset={location2Image} quality={100} />
                     </div>
                     <div className="flex-1 px-6 pb-6">
                       <RichTextRenderer documents={location2Address} />

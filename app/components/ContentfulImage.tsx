@@ -25,31 +25,39 @@ export default function ContentfulImage({
   quality,
   className,
   sizes,
-  priority,
+  priority = false,
+  fill = false,
+  objectFit,
 }: {
   asset?: ContentfulAsset;
   quality?: number;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  fill?: boolean;
+  objectFit?: string;
 }) {
   if (!asset) return null;
   const file = asset?.fields?.file;
   const alt = asset?.fields?.description || asset?.fields?.title || "";
   const loading = priority ? "eager" : "lazy";
+  const width = !fill ? file.details.image.width : undefined;
+  const height = !fill ? file.details.image.width : undefined;
 
   return (
     <Image
-      priority={priority || false}
+      priority={priority}
       loader={contentfulImageLoader}
       src={file.url}
       alt={alt}
-      width={file.details.image.width}
-      height={file.details.image.height}
+      width={width}
+      height={height}
       loading={loading}
       quality={quality}
       className={className}
       sizes={sizes}
+      fill={fill}
+      objectFit={objectFit}
     />
   );
 }
