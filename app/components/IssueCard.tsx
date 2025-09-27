@@ -5,6 +5,7 @@ interface IssueCardProps {
   issue?: string;
   className?: string;
   background?: string;
+  title?: string;
 }
 
 interface IssueData {
@@ -15,7 +16,7 @@ interface IssueData {
   height: number;
 }
 
-const IssueCard = ({ issue, className, background }: IssueCardProps) => {
+const IssueCard = ({ issue, className, background, title }: IssueCardProps) => {
   let data: IssueData = {
     title: "",
     icon: "",
@@ -98,7 +99,7 @@ const IssueCard = ({ issue, className, background }: IssueCardProps) => {
       break;
     case "phone":
       data = {
-        title: "01865 638627",
+        title: title || "",
         icon: "/icons/contact-phone.png",
         alt: "Phone icon",
         width: 65,
@@ -107,7 +108,7 @@ const IssueCard = ({ issue, className, background }: IssueCardProps) => {
       break;
     case "email":
       data = {
-        title: "jack@jfwcounselling.com",
+        title: title || "",
         icon: "/icons/contact-email.png",
         alt: "Email icon",
         width: 54,

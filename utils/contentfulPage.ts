@@ -2,6 +2,7 @@ const space = process.env.CONTENTFUL_SPACE_ID as string;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN as string;
 import * as contentful from "contentful";
 import { Document } from "@contentful/rich-text-types";
+import { id } from "zod/locales";
 
 export const client = contentful.createClient({
   space,
@@ -162,6 +163,22 @@ export interface FooterFields {
   }[];
 }
 
+interface ContactDetails {
+  email: string;
+  location1: {
+    lon: number;
+    lat: number;
+  };
+  location1Address: Document;
+  location2: {
+    lon: number;
+    lat: number;
+  };
+  location2Address: Document;
+  phoneNumber: string;
+  title?: string;
+}
+
 export async function fetchPage(
   pageTitle: string,
   include = 10
@@ -189,6 +206,16 @@ export async function fetchFooter(include = 10): Promise<FooterFields> {
     include,
   } as any);
   return footerData.items[0].fields as unknown as FooterFields;
+}
+
+export async function fetchContactDetails(
+  include = 1
+): Promise<ContactDetails> {
+  const contactData = await client.getEntries({
+    content_type: "contactDetails",
+    include,
+  } as any);
+  return contactData.items[0].fields as unknown as ContactDetails;
 }
 
 // Use only if fetching all page entries and linked items together. Otherwise, see fetchPageSections
