@@ -194,6 +194,7 @@
   --font-inter: var(--font-inter), sans-serif;
   --font-raleway: var(--font-raleway), sans-serif;
   --font-noto-sans: var(--font-noto-sans), sans-serif;
+  --font-spectral: var(--font-spectral), serif;
   /* spacing between sections */
   --section-spacing: theme(spacing.14);
   --item-spacing: theme(spacing.8);
@@ -261,15 +262,19 @@
   }
 
   h1 {
-    @apply font-raleway text-6xl sm:text-7xl font-semibold;
+    @apply font-spectral text-4xl sm:text-6xl font-medium;
+  }
+
+  h1 span.logo {
+    @apply font-spectral text-5xl sm:text-7xl font-medium;
   }
 
   h2 {
-    @apply font-raleway text-3xl sm:text-[40px] font-normal;
+    @apply font-raleway text-xl sm:text-3xl font-normal;
   }
 
   h3 {
-    @apply font-raleway text-4xl font-semibold;
+    @apply font-raleway text-2xl sm:text-3xl font-semibold;
   }
 
   h4 {
@@ -277,7 +282,7 @@
   }
 
   p {
-    @apply font-raleway text-lg font-normal;
+    @apply font-noto-sans text-base sm:text-lg font-light;
   }
 
   p,
@@ -312,15 +317,15 @@
   }
 
   .container-padded {
-    @apply container mx-auto px-4 sm:px-16;
+    @apply container mx-auto px-4 md:px-16;
   }
 
   .text-block {
-    @apply py-4;
+    @apply py-6;
   }
 
   .navLink {
-    @apply text-peach-cream-50 font-raleway font-semibold;
+    @apply text-peach-cream-50 font-raleway font-medium text-base;
   }
 
   .btn-banner-outline {

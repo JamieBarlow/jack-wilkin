@@ -17,14 +17,28 @@ export default async function Home() {
     1
   )) as unknown as SanitizedSection[];
   const { pageHeader, subtitle, subtitle2 } = pageFields;
+  const subtitleParts = subtitle2?.split("|");
 
   return (
     <main className="w-full">
       <div className="w-full bg-secondary">
         <HeroSection bgUnderWave="var(--color-secondary)">
-          <h1>{pageHeader}</h1>
-          <h2 className="my-0">{subtitle}</h2>
-          <h2 className="my-0 mb-4">{subtitle2}</h2>
+          <h1>
+            <span className="logo">{pageHeader}&nbsp;</span>
+            {subtitle}
+          </h1>
+          <h2 className="my-0 mb-4">
+            <span className="inline-block mb-2 sm:mb-4">
+              {subtitleParts?.[0].trim()}
+            </span>
+            {/* Line break on small screens */}
+            <span className="2xl:hidden">
+              <br />
+            </span>
+            {/* Show the "|" only on medium+ screens */}
+            <span className="hidden 2xl:inline"> | </span>
+            <span>{subtitleParts?.[1].trim()}</span>
+          </h2>
           <button className="btn-banner-outline font-raleway font-semibold text-lg">
             Contact Me
           </button>
@@ -60,7 +74,10 @@ export default async function Home() {
         >
           <div className="flex flex-col justify-center mx-auto">
             <h3 className="heading">{sections[1].header}</h3>
-            <RichTextRenderer documents={sections[1].textContent} />
+            <RichTextRenderer
+              documents={sections[1].textContent}
+              className="pb-6"
+            />
             <div
               id="issueIcons"
               className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center lg:justify-items-start gap-10 text-block"

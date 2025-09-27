@@ -1,16 +1,20 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 interface RichTextRendererProps {
   documents: any; // fix compatibility issue with contentful Document type
+  className?: string;
 }
 
-const RichTextRenderer: React.FC<RichTextRendererProps> = ({ documents }) => {
+const RichTextRenderer: React.FC<RichTextRendererProps> = ({
+  documents,
+  className,
+}) => {
   if (Array.isArray(documents)) {
     return (
-      <>
+      <div className={className}>
         {documents.map((doc, i) => (
           <div key={i}>{documentToReactComponents(doc)}</div>
         ))}
-      </>
+      </div>
     );
   }
 

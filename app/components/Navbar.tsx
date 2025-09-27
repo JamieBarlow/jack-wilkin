@@ -20,8 +20,8 @@ const Navbar = ({ children }: NavbarProps) => {
           <div className="navbar w-full">
             <div className="mx-2 flex-1 px-2">
               <NavLink href="/" className="flex flex-row gap-2.5 items-center">
-                <p className="text-3xl font-raleway font-semibold">JFW</p>
-                <p className="text-lg font-raleway font-semibold m-0">
+                <p className="text-3xl font-spectral font-medium">JFW</p>
+                <p className="hidden sm:block text-xl font-spectral font-medium m-0">
                   Counselling
                 </p>
               </NavLink>

@@ -14,7 +14,9 @@ const FAQs = (section: SanitizedSection) => {
       {section.faqs?.map((faq, idx) => (
         <AccordionItem value={`item-${idx + 1}`} key={idx}>
           <AccordionTrigger>
-            <p className="faq faq-header">{faq.question}</p>
+            <p className="faq faq-header hover:cursor-pointer">
+              {faq.question}
+            </p>
           </AccordionTrigger>
           <AccordionContent>
             <div className="faq">
