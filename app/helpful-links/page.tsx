@@ -1,7 +1,7 @@
 import React from "react";
-import { fetchPage } from "@/utils/contentfulPage";
-import { fetchPageSections } from "@/utils/contentfulSections";
-import { SanitizedSection } from "@/utils/contentfulSections";
+import { fetchPage } from "@/app/api/contentfulPage";
+import { fetchPageSections } from "@/app/api/contentfulSections";
+import { SanitizedSection } from "@/app/api/contentfulSections";
 import HeroSection from "../components/HeroSection";
 import BackgroundTexture from "../components/BackgroundTexture";
 import RichTextRenderer from "../components/RichTextRenderer";

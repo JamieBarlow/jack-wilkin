@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "prettiercc.cjs",
-    "utils/contentfulImageLoader.js"
+    "app/api/contentfulImageLoader.js"
   ],
   "exclude": ["node_modules"]
 }

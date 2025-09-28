@@ -36,7 +36,7 @@ const formSchema = z.object({
     .max(1000, "Message too long."),
 });
 
-type FormFields = z.infer<typeof formSchema>;
+export type FormFields = z.infer<typeof formSchema>;
 const RequiredField = () => (
   <span className="text-red-500 font-noto-sans text-sm">*</span>
 );
@@ -67,6 +67,11 @@ const ContactForm = ({ className }: ContactFormProps) => {
         message: "Error submitting form - please refresh and try again.",
       });
     }
+    const res = await fetch("/api/submit", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+    form.reset();
   };
 
   return (

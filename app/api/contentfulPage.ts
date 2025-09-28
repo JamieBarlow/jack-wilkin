@@ -2,7 +2,6 @@ const space = process.env.CONTENTFUL_JACK_SPACE_ID as string;
 const accessToken = process.env.CONTENTFUL_JACK_ACCESS_TOKEN as string;
 import * as contentful from "contentful";
 import { Document } from "@contentful/rich-text-types";
-import { id } from "zod/locales";
 
 export const client = contentful.createClient({
   space,

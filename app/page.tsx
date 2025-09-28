@@ -3,10 +3,10 @@ import IssueCard from "./components/IssueCard";
 import SideBySideContent from "./components/SideBySideContent";
 import BackgroundTexture from "./components/BackgroundTexture";
 import Image from "next/image";
-import { fetchPage } from "@/utils/contentfulPage";
-import { fetchPageSections } from "@/utils/contentfulSections";
+import { fetchPage } from "@/app/api/contentfulPage";
+import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "./components/RichTextRenderer";
-import { SanitizedSection } from "@/utils/contentfulSections";
+import { SanitizedSection } from "@/app/api/contentfulSections";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
 

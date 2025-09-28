@@ -1,5 +1,5 @@
 import Image from "next/image";
-import contentfulImageLoader from "@/utils/contentfulImageLoader";
+import contentfulImageLoader from "../api/contentfulImageLoader";
 
 export interface ContentfulAsset {
   fields: {

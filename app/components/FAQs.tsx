@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "./accordion";
 import RichTextRenderer from "./RichTextRenderer";
-import { SanitizedSection } from "@/utils/contentfulSections";
+import { SanitizedSection } from "@/app/api/contentfulSections";
 
 const FAQs = (section: SanitizedSection) => {
   return (

@@ -4,8 +4,8 @@ import BackgroundTexture from "../components/BackgroundTexture";
 import IssueCard from "../components/IssueCard";
 import ContactForm from "../components/ContactForm";
 import Image from "next/image";
-import { fetchContactDetails, fetchPage } from "@/utils/contentfulPage";
-import { fetchPageSections } from "@/utils/contentfulSections";
+import { fetchContactDetails, fetchPage } from "@/app/api/contentfulPage";
+import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
 

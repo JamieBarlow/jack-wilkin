@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 import Link from "next/link";
 import ContentfulImage from "./ContentfulImage";
 
-import { fetchFooter } from "@/utils/contentfulPage";
+import { fetchFooter } from "@/app/api/contentfulPage";
 
 const Footer = async () => {
   const footerData = await fetchFooter();
