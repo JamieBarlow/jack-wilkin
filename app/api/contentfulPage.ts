@@ -9,17 +9,17 @@ export const client = contentful.createClient({
 });
 
 export interface Page {
-  includes: {};
+  includes: object;
   items: PageItems[];
   limit: number;
   skip: number;
-  sys: {};
+  sys: object;
   total: number;
 }
 
 interface PageItems {
   fields: PageFields;
-  metadata: {};
+  metadata: object;
   sys: Sys;
 }
 
@@ -32,12 +32,12 @@ interface Sys {
     };
   };
   createdAt: string;
-  environment: {};
+  environment: object;
   id: string;
   locale: string;
   publishedVersion: number;
   revision: number;
-  space: {};
+  space: object;
   type: string;
   updatedAt: string;
 }
@@ -52,7 +52,7 @@ export interface PageFields {
 
 export interface Section {
   fields: SectionFields;
-  metadata: {};
+  metadata: object;
   sys: Sys;
 }
 
@@ -71,14 +71,14 @@ export interface FAQ {
     question: string;
     answer: Document;
   };
-  metadata: {};
-  sys: {};
+  metadata: object;
+  sys: object;
 }
 
 export interface TextBlock {
   fields: TextBlockFields;
-  metadata: {};
-  sys: {};
+  metadata: object;
+  sys: object;
 }
 
 interface TextBlockFields {
@@ -102,16 +102,16 @@ export interface Media {
     };
     title: string;
   };
-  metadata: {};
-  sys: {};
+  metadata: object;
+  sys: object;
   link?: string;
   title: string;
 }
 
 interface Ref {
   fields: PageFields | SectionFields;
-  metadata: {};
-  sys: {};
+  metadata: object;
+  sys: object;
 }
 
 export interface PageDataResult {
@@ -138,8 +138,8 @@ export interface NavLinkFields {
     url: string;
     isButton?: boolean;
   };
-  metadata: {};
-  sys: {};
+  metadata: object;
+  sys: object;
 }
 
 export interface FooterFields {
@@ -157,8 +157,8 @@ export interface FooterFields {
       link: string;
       title: string;
     };
-    metadata: {};
-    sys: {};
+    metadata: object;
+    sys: object;
   }[];
 }
 
@@ -239,8 +239,7 @@ export async function fetchPageEntries(
   const sanitizedSections = orderedSections.map((section) => {
     return {
       header: section.fields.header,
-      // @ts-ignore
-      textContent: section.fields.textBlocks[0].fields.textContent,
+      textContent: section.fields.textBlocks?.[0].fields.textContent,
       media: section.fields.media,
     };
   });
@@ -252,5 +251,3 @@ export async function fetchPageEntries(
     sections: sanitizedSections,
   };
 }
-
-export default { fetchPageEntries };
