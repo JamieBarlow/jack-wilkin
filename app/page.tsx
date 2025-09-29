@@ -72,7 +72,7 @@ export default async function Home() {
       >
         <section
           id="aboutCounselling"
-          className="flex flex-col items-start text-base-content section-middle container-padded"
+          className="flex flex-col items-start text-base-content section-middle container-padded mb-10"
         >
           <div className="flex flex-col justify-center mx-auto">
             <h3 className="heading">{sections[1].header}</h3>
@@ -101,7 +101,7 @@ export default async function Home() {
             <div className="max-w-lg xl:max-w-2xl box-gradient-bg-left p-5">
               <ContentfulImage asset={sections[3].media?.[0]} quality={100} />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 relative">
               <h3 className="heading">{sections[3].header}</h3>
               <RichTextRenderer documents={sections[3].textContent} />
               <svg
@@ -110,7 +110,7 @@ export default async function Home() {
                 height="143"
                 viewBox="0 0 229 143"
                 fill="none"
-                className="w-30 md:w-40 absolute bottom-[-30px] right-2 xl:bottom-0 xl:right-10 2xl:bottom-10 2xl:right-20"
+                className="w-30 md:w-40 absolute bottom-[-120] right-2"
               >
                 <path
                   fillRule="evenodd"
@@ -144,7 +144,7 @@ export default async function Home() {
         position="center"
       >
         <section
-          id="call-to-action"
+          id="Fees and availability"
           className="text-base-content w-full section-middle flex flex-col items-start"
         >
           <div className="container-padded flex flex-col items-center">
@@ -154,11 +154,19 @@ export default async function Home() {
                 <h3 className="heading">{sections[6].header}</h3>
                 <RichTextRenderer documents={sections[6].textContent} />
               </div>
-              <div className="box-gradient-bg-right p-5 pl-0">
-                <ContentfulImage asset={sections[6].media?.[0]} quality={100} />
+              <div className=" ">
+                <ContentfulImage
+                  asset={sections[6].media?.[0]}
+                  quality={100}
+                  className="box-gradient-bg-right p-5 pl-0"
+                />
               </div>
-              <div className="box-gradient-bg-left p-5 order-2 lg:order-1">
-                <ContentfulImage asset={sections[7].media?.[0]} quality={100} />
+              <div className="order-2 lg:order-1">
+                <ContentfulImage
+                  asset={sections[7].media?.[0]}
+                  quality={100}
+                  className="box-gradient-bg-left p-5"
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="text-block">
