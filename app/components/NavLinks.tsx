@@ -2,6 +2,8 @@ import React from "react";
 import NavLink from "./NavLink";
 import { fetchNavLinks } from "@/app/api/contentfulPage";
 import type { NavLinks } from "@/app/api/contentfulPage";
+// Disable caching for preview
+export const revalidate = 0;
 
 interface NavLinksProps {
   className?: string;

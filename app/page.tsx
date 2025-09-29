@@ -9,6 +9,8 @@ import RichTextRenderer from "./components/RichTextRenderer";
 import { SanitizedSection } from "@/app/api/contentfulSections";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
+// Disable caching for preview
+export const revalidate = 0;
 
 export default async function Home() {
   const pageFields = await fetchPage("Home Page", 4);

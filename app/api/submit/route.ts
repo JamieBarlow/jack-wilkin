@@ -2,7 +2,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import type { FormFields } from "@/app/components/ContactForm";
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const data: FormFields = await request.json();
     const { firstName, lastName, email, phone, message } = data;

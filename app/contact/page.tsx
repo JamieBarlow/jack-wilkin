@@ -8,6 +8,8 @@ import { fetchContactDetails, fetchPage } from "@/app/api/contentfulPage";
 import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
+// Disable caching for preview
+export const revalidate = 0;
 
 const contact = async () => {
   const pageFields = await fetchPage("Contact Me");
