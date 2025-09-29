@@ -2,13 +2,14 @@ import HeroSection from "./components/HeroSection";
 import IssueCard from "./components/IssueCard";
 import SideBySideContent from "./components/SideBySideContent";
 import BackgroundTexture from "./components/BackgroundTexture";
-import Image from "next/image";
 import { fetchPage } from "@/app/api/contentfulPage";
 import { fetchPageSections } from "@/app/api/contentfulSections";
+import { fetchContactDetails } from "@/app/api/contentfulPage";
 import RichTextRenderer from "./components/RichTextRenderer";
 import { SanitizedSection } from "@/app/api/contentfulSections";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
+import MapBanner from "./components/MapBanner";
 // Disable caching for preview
 export const revalidate = 0;
 
@@ -20,6 +21,9 @@ export default async function Home() {
   )) as unknown as SanitizedSection[];
   const { pageHeader, subtitle, subtitle2 } = pageFields;
   const subtitleParts = subtitle2?.split("|");
+
+  const contactDetails = await fetchContactDetails();
+  const locations = [contactDetails.location1, contactDetails.location2];
 
   return (
     <main className="w-full">
@@ -183,12 +187,7 @@ export default async function Home() {
         </section>
       </BackgroundTexture>
       <section id="map-banner" className="bg-base-100 w-full">
-        <Image
-          src="/map-banner.png"
-          width={1920}
-          height={495}
-          alt="Map image of Oxford"
-        ></Image>
+        <MapBanner locations={locations} className="w-full h-[400px]" />
       </section>
       <section
         id="faq"
