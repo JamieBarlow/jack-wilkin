@@ -3,9 +3,10 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 
-interface MapBannerProps {
+interface MapProps {
   locations: Location[];
   className?: string;
+  zoom?: number;
 }
 
 interface Location {
@@ -13,7 +14,7 @@ interface Location {
   lon: number;
 }
 
-const MapBanner = ({ locations, className }: MapBannerProps) => {
+const Map = ({ locations, className, zoom = 13 }: MapProps) => {
   const markerIcon = L.icon({
     iconUrl: "/icons/location-pin.png",
     iconSize: [32, 32],
@@ -31,7 +32,7 @@ const MapBanner = ({ locations, className }: MapBannerProps) => {
   return (
     <MapContainer
       center={[lat, lon]}
-      zoom={13}
+      zoom={zoom}
       scrollWheelZoom={false}
       className={className}
     >
@@ -56,4 +57,4 @@ const MapBanner = ({ locations, className }: MapBannerProps) => {
   );
 };
 
-export default MapBanner;
+export default Map;

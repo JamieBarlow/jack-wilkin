@@ -9,7 +9,7 @@ import RichTextRenderer from "./components/RichTextRenderer";
 import { SanitizedSection } from "@/app/api/contentfulSections";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
-import MapBanner from "./components/MapBanner";
+import Map from "./components/Map";
 import Link from "next/link";
 // Disable caching for preview
 export const revalidate = 0;
@@ -210,7 +210,7 @@ export default async function Home() {
         </section>
       </BackgroundTexture>
       <section id="map-banner" className="bg-base-100 w-full">
-        <MapBanner locations={locations} className="w-full h-[400px]" />
+        <Map locations={locations} className="w-full h-[400px]" />
       </section>
       <section
         id="faq"

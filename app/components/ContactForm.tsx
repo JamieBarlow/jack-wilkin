@@ -195,7 +195,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
               name="commsPrefs"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Communications preferences</FormLabel>
+                  <FormLabel>Preferences</FormLabel>
                   <FormDescription>
                     Please provide details of any communication preferences or
                     reasonable adjustments:

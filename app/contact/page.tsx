@@ -8,6 +8,7 @@ import { fetchContactDetails, fetchPage } from "@/app/api/contentfulPage";
 import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
+import Map from "../components/Map";
 // Disable caching for preview
 export const revalidate = 0;
 
@@ -20,9 +21,11 @@ const contact = async () => {
   const {
     phoneNumber,
     email,
+    location1,
     location1Address,
-    location2Address,
     location1Image,
+    location2,
+    location2Address,
     location2Image,
   } = contactDetails;
 
@@ -54,17 +57,16 @@ const contact = async () => {
                   title={email}
                 />
               </div>
+
               <div
                 id="addresses"
                 className="flex flex-row flex-wrap gap-6 justify-start w-full"
               >
                 <div className="card w-2xs bg-base-100 shadow-lg">
                   <figure className="relative w-full h-[251px]">
-                    <Image
-                      src="/address1.jpg"
-                      alt="Mini map of Oxford"
-                      fill
-                      className="object-cover"
+                    <Map
+                      locations={[location1]}
+                      className="w-full h-[400px] object-cover"
                     />
                   </figure>
                   <div className="ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
@@ -78,11 +80,9 @@ const contact = async () => {
                 </div>
                 <div className="card w-2xs bg-base-100 shadow-lg">
                   <figure className="relative w-full h-[251px]">
-                    <Image
-                      src="/address2.jpg"
-                      alt="Mini map of Oxford"
-                      fill
-                      className="object-cover"
+                    <Map
+                      locations={[location2]}
+                      className="w-full h-[400px] object-cover"
                     />
                   </figure>
                   <div className="ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
