@@ -68,6 +68,7 @@ const contact = async () => {
                   <figure className="relative w-full h-[251px]">
                     <Map
                       locations={[location1]}
+                      addresses={[location1Address]}
                       className="w-full h-[400px] object-cover"
                     />
                   </figure>
@@ -84,6 +85,7 @@ const contact = async () => {
                   <figure className="relative w-full h-[251px]">
                     <Map
                       locations={[location2]}
+                      addresses={[location2Address]}
                       className="w-full h-[400px] object-cover"
                     />
                   </figure>

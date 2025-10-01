@@ -25,6 +25,10 @@ export default async function Home() {
 
   const contactDetails = await fetchContactDetails();
   const locations = [contactDetails.location1, contactDetails.location2];
+  const addresses = [
+    contactDetails.location1Address,
+    contactDetails.location2Address,
+  ];
 
   return (
     <main className="w-full">
@@ -210,7 +214,11 @@ export default async function Home() {
         </section>
       </BackgroundTexture>
       <section id="map-banner" className="bg-base-100 w-full">
-        <Map locations={locations} className="w-full h-[400px]" />
+        <Map
+          locations={locations}
+          addresses={addresses}
+          className="w-full h-[400px]"
+        />
       </section>
       <section
         id="faq"
