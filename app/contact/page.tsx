@@ -49,12 +49,14 @@ const contact = async () => {
                   issue="phone"
                   background="bg-base-100"
                   title={phoneNumber}
+                  size="small"
                 />
                 <IssueCard
                   issue="email"
                   background="bg-base-100"
                   className="w-fit px-4"
                   title={email}
+                  size="small"
                 />
               </div>
 

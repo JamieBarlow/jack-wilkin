@@ -6,6 +6,7 @@ interface IssueCardProps {
   className?: string;
   background?: string;
   title?: string;
+  size?: string;
 }
 
 interface IssueData {
@@ -16,7 +17,18 @@ interface IssueData {
   height: number;
 }
 
-const IssueCard = ({ issue, className, background, title }: IssueCardProps) => {
+interface SizeData {
+  card: string;
+  text: string;
+}
+
+const IssueCard = ({
+  issue,
+  className,
+  background,
+  title,
+  size = "normal",
+}: IssueCardProps) => {
   let data: IssueData = {
     title: "",
     icon: "",
@@ -118,11 +130,30 @@ const IssueCard = ({ issue, className, background, title }: IssueCardProps) => {
     default:
       data = data;
   }
+  let currentSize: SizeData = {
+    card: "sm",
+    text: "lg",
+  };
+
+  switch (size) {
+    case "normal":
+      currentSize = {
+        card: "sm",
+        text: "lg",
+      };
+      break;
+    case "small":
+      currentSize = {
+        card: "xs",
+        text: "base",
+      };
+  }
+
   return (
     <div
-      className={`card card-sm ${background || `bg-peach-cream-200/80`} w-50 shadow-lg ${className}`}
+      className={`card card-${currentSize.card} ${background || `bg-peach-cream-200/80`} w-50 shadow-lg ${className}`}
     >
-      <figure className="px-10 pt-4">
+      <figure className="px-10 pt-2">
         <div className="w-[120px] h-[120px] relative left-4 top-4">
           <svg
             width="98"
@@ -152,7 +183,7 @@ const IssueCard = ({ issue, className, background, title }: IssueCardProps) => {
         </div>
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title font-noto-sans font-normal text-lg">
+        <h2 className={`font-noto-sans font-normal text-${currentSize.text}`}>
           {data.title}
         </h2>
       </div>
