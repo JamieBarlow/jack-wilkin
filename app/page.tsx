@@ -214,7 +214,7 @@ export default async function Home() {
       </section>
       <section
         id="faq"
-        className="bg-base-100 text-base-content section-middle overflow-hidden"
+        className="bg-base-100 text-base-content section-middle pb-40 overflow-hidden"
       >
         <div className="container-padded">
           <h3 className="heading">{sections[10].header}</h3>
