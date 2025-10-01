@@ -31,6 +31,7 @@ const formSchema = z.object({
   lastName: nameField,
   email: z.email("Please enter a valid email"),
   phone: z.string().optional(),
+  commsPrefs: z.string().max(500, "Message too long.").optional(),
   message: z
     .string()
     .min(10, "Message too short.")
@@ -50,6 +51,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
       lastName: "",
       email: "",
       phone: "",
+      commsPrefs: "",
       message: "",
     },
   });
@@ -61,11 +63,11 @@ const ContactForm = ({ className }: ContactFormProps) => {
     _e
   ): Promise<void> => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
       const res = await fetch("/api/submit", {
         method: "POST",
         body: JSON.stringify(data),
       });
+      console.log(data);
       if (!res.ok) {
         throw new Error("Server error");
       }
@@ -75,7 +77,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
       setError("root", {
         message: "Error submitting form - please refresh and try again.",
       });
-      toast("Something went wrong. Please try again.");
+      toast("Something went wrong. Please refresh and try again.");
     }
   };
 
@@ -181,6 +183,27 @@ const ContactForm = ({ className }: ContactFormProps) => {
                     <Textarea
                       placeholder="Message"
                       className="bg-base-100 resize-none h-40"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="commsPrefs"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Communications preferences</FormLabel>
+                  <FormDescription>
+                    Please provide details of any communication preferences or
+                    reasonable adjustments:
+                  </FormDescription>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Details here"
+                      className="bg-base-100 resize-none h-20"
                       {...field}
                     />
                   </FormControl>
