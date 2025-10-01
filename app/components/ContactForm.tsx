@@ -15,6 +15,7 @@ import { Textarea } from "./ui/textarea";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
 
 interface ContactFormProps {
   className?: string;
@@ -61,17 +62,21 @@ const ContactForm = ({ className }: ContactFormProps) => {
   ): Promise<void> => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(data);
+      const res = await fetch("/api/submit", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        throw new Error("Server error");
+      }
+      toast("Form submitted successfully");
+      form.reset();
     } catch (_error) {
       setError("root", {
         message: "Error submitting form - please refresh and try again.",
       });
+      toast("Something went wrong. Please try again.");
     }
-    const res = await fetch("/api/submit", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
-    form.reset();
   };
 
   return (

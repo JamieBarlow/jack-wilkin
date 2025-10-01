@@ -3,6 +3,7 @@ import { Raleway, Noto_Sans, Inter, Spectral } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Toaster } from "./components/ui/Toast";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -45,6 +46,7 @@ export default function RootLayout({
         className={`${raleway.variable} ${notoSans.variable} ${inter.variable} ${spectral.variable} antialiased *:outline`}
       >
         <Navbar>{children}</Navbar>
+        <Toaster />
         <Footer />
       </body>
     </html>
