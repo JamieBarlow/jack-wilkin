@@ -10,6 +10,7 @@ import { SanitizedSection } from "@/app/api/contentfulSections";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
 import MapBanner from "./components/MapBanner";
+import Link from "next/link";
 // Disable caching for preview
 export const revalidate = 0;
 
@@ -45,9 +46,11 @@ export default async function Home() {
             <span className="hidden 2xl:inline"> | </span>
             <span>{subtitleParts?.[1].trim()}</span>
           </h2>
-          <button className="btn-banner-outline font-raleway font-semibold text-lg">
-            Contact Me
-          </button>
+          <Link href="contact">
+            <button className="btn-banner-outline font-raleway font-semibold text-lg text-base-100 hover:text-banner-green">
+              Contact Me
+            </button>
+          </Link>
         </HeroSection>
         <section
           id="intro"
@@ -128,14 +131,14 @@ export default async function Home() {
         </section>
         <section
           id="mentoring"
-          className="text-base-content section-middle container-padded mb-10"
+          className="text-base-content container-padded mb-10"
         >
-          <div className="flex flex-row flex-wrap justify-between items-start gap-10 lg:gap-16 xl:gap-10">
-            <div className="text-block">
+          <div className="flex flex-row flex-wrap justify-between items-center gap-10 lg:gap-16 xl:gap-10">
+            <div className="text-block flex-1">
               <h3 className="heading">{sections[4].header}</h3>
               <RichTextRenderer documents={sections[4].textContent} />
             </div>
-            <div className="">
+            <div className="w-full lg:max-w-[40%]">
               <ContentfulImage
                 asset={sections[4].media?.[0]}
                 quality={100}
@@ -154,9 +157,11 @@ export default async function Home() {
           <div className="text-center">
             <RichTextRenderer documents={sections[5].textContent} />
           </div>
-          <button className="btn-cta font-raleway font-semibold text-lg my-4">
-            Contact Me
-          </button>
+          <Link href="/contact">
+            <button className="btn-cta font-raleway font-semibold text-lg my-4">
+              Contact Me
+            </button>
+          </Link>
         </div>
       </section>
       <BackgroundTexture
@@ -171,7 +176,7 @@ export default async function Home() {
         >
           <div className="container-padded flex flex-col items-center">
             <h3 className="heading text-center">{sections[6].header}</h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-start items-center">
               <div className="text-block">
                 <h3 className="heading">{sections[7].header}</h3>
                 <RichTextRenderer documents={sections[7].textContent} />
