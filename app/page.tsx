@@ -75,8 +75,8 @@ export default async function Home() {
         position="center"
       >
         <section
-          id="aboutCounselling"
-          className="flex flex-col items-start text-base-content section-middle container-padded mb-10"
+          id="counselling"
+          className="flex flex-col items-start text-base-content section-middle container-padded"
         >
           <div className="flex flex-col justify-center mx-auto">
             <h3 className="heading">{sections[1].header}</h3>
@@ -101,8 +101,8 @@ export default async function Home() {
               <RichTextRenderer documents={sections[2].textContent} />
             </div>
           </div>
-          <SideBySideContent className="justify-center md:justify-start items-start section-middle text-block gap-10 lg:gap-16 xl:gap-10">
-            <div className="max-w-lg xl:max-w-2xl box-gradient-bg-left p-5">
+          <SideBySideContent className="justify-center md:justify-start items-start section-middle gap-10 lg:gap-16 xl:gap-10">
+            <div className="w-[80%] max-w-2xl box-gradient-bg-left p-5">
               <ContentfulImage asset={sections[3].media?.[0]} quality={100} />
             </div>
             <div className="flex-1 relative">
@@ -126,15 +126,33 @@ export default async function Home() {
             </div>
           </SideBySideContent>
         </section>
+        <section
+          id="mentoring"
+          className="text-base-content section-middle container-padded mb-10"
+        >
+          <div className="flex flex-row flex-wrap justify-between items-start gap-10 lg:gap-16 xl:gap-10">
+            <div className="text-block">
+              <h3 className="heading">{sections[4].header}</h3>
+              <RichTextRenderer documents={sections[4].textContent} />
+            </div>
+            <div className="">
+              <ContentfulImage
+                asset={sections[4].media?.[0]}
+                quality={100}
+                className="box-gradient-bg-right p-5 pl-0"
+              />
+            </div>
+          </div>
+        </section>
       </BackgroundTexture>
       <section
         id="call-to-action"
         className="bg-base-200 text-base-content w-full section-middle"
       >
         <div className="container-padded flex flex-col items-center">
-          <h2 className="text-center">{sections[4].header}</h2>
+          <h2 className="text-center">{sections[5].header}</h2>
           <div className="text-center">
-            <RichTextRenderer documents={sections[4].textContent} />
+            <RichTextRenderer documents={sections[5].textContent} />
           </div>
           <button className="btn-cta font-raleway font-semibold text-lg my-4">
             Contact Me
@@ -148,38 +166,38 @@ export default async function Home() {
         position="center"
       >
         <section
-          id="Fees and availability"
+          id="fees"
           className="text-base-content w-full section-middle flex flex-col items-start"
         >
           <div className="container-padded flex flex-col items-center">
-            <h3 className="heading text-center">{sections[5].header}</h3>
+            <h3 className="heading text-center">{sections[6].header}</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-start">
               <div className="text-block">
-                <h3 className="heading">{sections[6].header}</h3>
-                <RichTextRenderer documents={sections[6].textContent} />
+                <h3 className="heading">{sections[7].header}</h3>
+                <RichTextRenderer documents={sections[7].textContent} />
               </div>
               <div className=" ">
                 <ContentfulImage
-                  asset={sections[6].media?.[0]}
+                  asset={sections[7].media?.[0]}
                   quality={100}
                   className="box-gradient-bg-right p-5 pl-0"
                 />
               </div>
               <div className="order-2 lg:order-1">
                 <ContentfulImage
-                  asset={sections[7].media?.[0]}
+                  asset={sections[8].media?.[0]}
                   quality={100}
                   className="box-gradient-bg-left p-5"
                 />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="text-block">
-                  <h3 className="heading">{sections[7].header}</h3>
-                  <RichTextRenderer documents={sections[7].textContent} />
-                </div>
-                <div className="text-block">
                   <h3 className="heading">{sections[8].header}</h3>
                   <RichTextRenderer documents={sections[8].textContent} />
+                </div>
+                <div className="text-block">
+                  <h3 className="heading">{sections[9].header}</h3>
+                  <RichTextRenderer documents={sections[9].textContent} />
                 </div>
               </div>
             </div>
@@ -194,15 +212,18 @@ export default async function Home() {
         className="bg-base-100 text-base-content section-middle overflow-hidden"
       >
         <div className="container-padded">
-          <h3 className="heading">{sections[9].header}</h3>
+          <h3 className="heading">{sections[10].header}</h3>
           <div className="flex flex-row flex-wrap justify-center md:justify-start items-center gap-10 py-4">
             <div className="min-w-full sm:min-w-0 max-w-[40%] self-start">
               <div className="box-gradient-bg-left p-5">
-                <ContentfulImage asset={sections[9].media?.[0]} quality={100} />
+                <ContentfulImage
+                  asset={sections[10].media?.[0]}
+                  quality={100}
+                />
               </div>
             </div>
             <div className="flex-1 self-end xl:self-start">
-              <FAQs {...sections[9]} />
+              <FAQs {...sections[10]} />
             </div>
           </div>
         </div>
