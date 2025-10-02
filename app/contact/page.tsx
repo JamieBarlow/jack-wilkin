@@ -41,15 +41,19 @@ const contact = async () => {
           size="200%"
           position="center"
         >
-          <div className="flex flex-row flex-wrap container-padded section-middle gap-6 justify-center">
-            <div className="flex flex-1 flex-col gap-10 text-base-content items-center sm:items-start">
+          <div className="flex flex-2 flex-row flex-wrap container-padded section-middle gap-6 justify-center">
+            <div
+              id="contact-details"
+              className="flex flex-1 flex-col gap-10 text-base-content items-center md:items-start"
+            >
               <h3 className="heading">{sections[0].header}</h3>
-              <div className="flex flex-row flex-wrap gap-6 md:justify-center lg:justify-start">
+              <div className="flex flex-row flex-wrap gap-6 justify-center sm:justify-start">
                 <IssueCard
                   issue="phone"
                   background="bg-base-100"
                   title={phoneNumber}
                   size="small"
+                  uniformSize
                 />
                 <IssueCard
                   issue="email"
@@ -57,14 +61,15 @@ const contact = async () => {
                   className="w-fit px-4"
                   title={email}
                   size="small"
+                  uniformSize
                 />
               </div>
 
               <div
                 id="addresses"
-                className="flex flex-row flex-wrap gap-6 justify-start w-full"
+                className="flex flex-row flex-wrap gap-6 w-full justify-center md:justify-start"
               >
-                <div className="card w-2xs bg-base-100 shadow-lg">
+                <div className="card w-3xs bg-base-100 shadow-lg">
                   <figure className="relative w-full h-[251px]">
                     <Map
                       locations={[location1]}
@@ -81,7 +86,7 @@ const contact = async () => {
                     </div>
                   </div>
                 </div>
-                <div className="card w-2xs bg-base-100 shadow-lg">
+                <div className="card w-3xs bg-base-100 shadow-lg">
                   <figure className="relative w-full h-[251px]">
                     <Map
                       locations={[location2]}
@@ -100,7 +105,10 @@ const contact = async () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col text-base-content">
+            <div
+              id="contact-form"
+              className="flex flex-1 flex-col text-base-content"
+            >
               <h3 className="heading">Contact Form</h3>
               <ContactForm />
             </div>

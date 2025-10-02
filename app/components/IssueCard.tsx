@@ -7,6 +7,7 @@ interface IssueCardProps {
   background?: string;
   title?: string;
   size?: string;
+  uniformSize?: boolean;
 }
 
 interface IssueData {
@@ -19,7 +20,21 @@ interface IssueData {
 
 interface SizeData {
   card: string;
+  cardPadding: string;
   text: string;
+  cardSize: {
+    width: string;
+    height: string;
+  };
+  blobSize: {
+    width: string;
+    height: string;
+  };
+  iconSize: {
+    width: number;
+    height: number;
+  };
+  iconOffset: string;
 }
 
 const IssueCard = ({
@@ -28,6 +43,7 @@ const IssueCard = ({
   background,
   title,
   size = "normal",
+  uniformSize = false,
 }: IssueCardProps) => {
   let data: IssueData = {
     title: "",
@@ -133,35 +149,79 @@ const IssueCard = ({
   let currentSize: SizeData = {
     card: "sm",
     text: "lg",
+    cardSize: {
+      width: "40",
+      height: "50",
+    },
+    cardPadding: "pt-2",
+    blobSize: {
+      width: "98",
+      height: "100",
+    },
+    iconSize: {
+      width: 66,
+      height: 66,
+    },
+    iconOffset: "left-4 top-4",
   };
 
   switch (size) {
     case "normal":
       currentSize = {
-        card: "sm",
+        card: "md",
+        cardPadding: "pt-2",
+        cardSize: {
+          width: "40",
+          height: "60",
+        },
         text: "lg",
+        blobSize: {
+          width: "98",
+          height: "100",
+        },
+        iconSize: {
+          width: 66,
+          height: 66,
+        },
+        iconOffset: "left-4 top-4",
       };
       break;
     case "small":
       currentSize = {
         card: "xs",
+        cardPadding: "pt-0",
+        cardSize: {
+          width: "40",
+          height: "50",
+        },
         text: "base",
+        blobSize: {
+          width: "79.8",
+          height: "82",
+        },
+        iconSize: {
+          width: 50,
+          height: 50,
+        },
+        iconOffset: "left-4 top-4",
       };
   }
 
   return (
     <div
-      className={`card card-${currentSize.card} ${background || `bg-peach-cream-200/80`} w-50 shadow-lg ${className}`}
+      className={`card card-${currentSize.card} ${background || `bg-peach-cream-200/80`} w-40 ${uniformSize ? "h-50" : "h-max"} shadow-lg ${className}`}
     >
-      <figure className="px-10 pt-2">
-        <div className="w-[120px] h-[120px] relative left-4 top-4">
+      <figure className={`px-10 ${currentSize.cardPadding} pt-4`}>
+        <div
+          className={`${size === "normal" ? "w-[120px] h-[120px]" : "w-[100px] h-[100px]"} relative`}
+        >
           <svg
-            width="98"
-            height="100"
+            width={currentSize.blobSize.width}
+            height={currentSize.blobSize.height}
             viewBox="0 0 98 100"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute left-[-3px] top-[3px]"
+            className=""
             preserveAspectRatio="none"
           >
             <path
@@ -174,18 +234,33 @@ const IssueCard = ({
           <Image
             src={data.icon}
             alt={data.alt}
-            width={66}
-            height={66}
-            className="w-[66px] h-[66px] absolute left-4 top-4 object-contain"
+            width={currentSize.iconSize.width}
+            height={currentSize.iconSize.height}
+            className={`absolute ${currentSize.iconOffset} object-contain`}
             sizes="auto"
             loading="lazy"
           />
         </div>
       </figure>
-      <div className="card-body items-center text-center">
-        <h2 className={`font-noto-sans font-normal text-${currentSize.text}`}>
-          {data.title}
-        </h2>
+      <div className="items-center text-center p-2 pt-0">
+        {data.title.includes("oxford") ? (
+          <>
+            <h2
+              className={`font-noto-sans font-normal text-${currentSize.text} leading-none`}
+            >
+              {data.title.split("oxford")[0]}oxford
+            </h2>
+            <h2
+              className={`font-noto-sans font-normal text-${currentSize.text} leading-none`}
+            >
+              {data.title.split("oxford")[1]}
+            </h2>
+          </>
+        ) : (
+          <h2 className={`font-noto-sans font-normal text-${currentSize.text}`}>
+            {data.title}
+          </h2>
+        )}
       </div>
     </div>
   );

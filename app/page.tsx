@@ -93,16 +93,16 @@ export default async function Home() {
             />
             <div
               id="issueIcons"
-              className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center lg:justify-items-start gap-6 text-block"
+              className="grid max-[350px]:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center lg:justify-items-start gap-8 text-block xl:w-[80%]"
             >
-              <IssueCard issue="depression" size="small" />
-              <IssueCard issue="anxiety" size="small" />
-              <IssueCard issue="confidence" size="small" />
-              <IssueCard issue="trauma" size="small" />
-              <IssueCard issue="family" size="small" />
-              <IssueCard issue="grief" size="small" />
-              <IssueCard issue="identity" size="small" />
-              <IssueCard issue="work" size="small" />
+              <IssueCard issue="depression" size="small" uniformSize />
+              <IssueCard issue="anxiety" size="small" uniformSize />
+              <IssueCard issue="confidence" size="small" uniformSize />
+              <IssueCard issue="trauma" size="small" uniformSize />
+              <IssueCard issue="family" size="small" uniformSize />
+              <IssueCard issue="grief" size="small" uniformSize />
+              <IssueCard issue="identity" size="small" uniformSize />
+              <IssueCard issue="work" size="small" uniformSize />
             </div>
             <div className="text-block">
               <RichTextRenderer documents={sections[2].textContent} />
