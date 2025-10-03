@@ -39,7 +39,7 @@ The client was introduced via my usual onboarding process:
 ## Development Challenges and Lessons :wrench:
 
 - Learned the value of setting up Next.js API routes for cleaner data handling patterns (e.g. integrating Airtable) for clear separation of component and controller logic;
-- Developed a clearer understanding of Next.js client vs. server components and the tradeoffs between server-side rendering (SSR) and static site generation (SSG). At launch the site leans on SSR to keep CMS-driven content fresh, with a roadmap to implement Incremental Static Regeneration (ISR) for faster delivery, improved cacheability, and stronger SEO. 
+- Developed a clearer understanding of Next.js client vs. server components and the tradeoffs between server-side rendering (SSR) and static site generation (SSG). To address the need for fresh CMS content, I initially disabled caching (`revalidate = 0`) and leaned on SSR, with a roadmap to move towards Incremental Static Regeneration (ISR) for faster delivery, improved cacheability, and stronger SEO. 
 - Developed a stronger understanding of content modelling and data fetching in a headless CMS + Next.js environment, including how to structure content for flexibility and scalability.  
 
 Some of the upcoming features and improvements (listed below) needed to be pushed to post-launch, since the closure of local services necessitated launching the site as early as possible. Priority was therefore initially placed on MVP features - core design and functionality such as: testing responsiveness across devices, 
