@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <h1>Website for client: JFW Counselling :closed_book:</h1>
+  <strong>By Jamie Barlow</strong>
+</div>
 
-## Getting Started
+## Purpose / Background :bulb:
 
-First, run the development server:
+A website for Jack Wilkin to advertise his counselling services, either face to face in Oxford or online. The site was launched on 02/10/25.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Jack would like to portray that he is a qualified, BACP-proved counsellor with an integrative approach, combining different therapeutic approaches to best suit the individual. He is also experienced at offering support for neurodivergent individuals and those identifying as LGBTQ+.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+He would like the website design to be clear, informative and meet accessibility standards for dyslexic / screen reader users, and so expect this to be factored into the design. He would like potential clients to be able to easily get in touch via sign up form.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The client was introduced via my usual onboarding process:
+- One-to-one meet followed by requirements gathering and exploration of potential solutions for the client;
+- Project brief/proposal and contract;
+- Intake questionnaire, shared dashboard for tracking project milestones, inspiration bank, content guidelines & brand assets, tasks due (e.g. signup to domain and other services/integrations)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Project scope and features :heavy_check_mark:
 
-To learn more about Next.js, take a look at the following resources:
+- Full Site Design: A responsive, user-centered design comprising 3-5 pages, designed and presented in Figma with opportunity for feedback and revision;
+- Content modelling and management via CMS integration (Contentful), with copy and media provided and updated by Jack, showcasing his brand and services;
+- Sign up / contact capture with Airtable integration for contact management, and automated email notification;
+- Pre-launch testing across devices and browsers to ensure responsive design and resolve any technical issues.
+- Ongoing Support: Initial handover training provided, along with ongoing maintenance, performance optimisation and technical support.
+  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies :floppy_disk:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Headless CMS (Contentful)
+- Light CRM integration (Airtable)
+- Map integration (Leaflet)
 
-## Deploy on Vercel
+## Development Challenges and Lessons :wrench:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Learned the value of setting up Next.js API routes for cleaner data handling patterns (e.g. integrating Airtable) for clear separation of component and controller logic;
+- Developed a clearer understanding of Next.js client vs. server components and the tradeoffs between server-side rendering (SSR) and static site generation (SSG). To address the need for fresh CMS content, I initially disabled caching (`revalidate = 0`) and leaned on SSR, with a roadmap to move towards Incremental Static Regeneration (ISR) for faster delivery, improved cacheability, and stronger SEO. 
+- Developed a stronger understanding of content modelling and data fetching in a headless CMS + Next.js environment, including how to structure content for flexibility and scalability.  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Some of the upcoming features and improvements (listed below) needed to be pushed to post-launch, since the closure of local services necessitated launching the site as early as possible. Priority was therefore initially placed on MVP features - core design and functionality such as: testing responsiveness across devices, 
+
+## Post-launch roadmap :hourglass:
+
+Planned enhancements post-launch include:  
+
+- Client-customisable contact form (integrated with existing Airtable DB) using Airtable form build and API;
+- SEO optimisation;
+- Further image optimisation;
+- Incremental Static Regeneration (ISR) for more efficient CMS content updates.  
+- Improved data fetching patterns;
+- Page transition and sidebar UX refinements;
