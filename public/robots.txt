@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jfwoxfordcounselling.co.uk
+
+# Sitemaps
+Sitemap: https://jfwoxfordcounselling.co.uk/sitemap.xml
