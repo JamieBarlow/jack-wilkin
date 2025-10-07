@@ -9,8 +9,9 @@ import RichTextRenderer from "./components/RichTextRenderer";
 import { SanitizedSection } from "@/app/api/contentfulSections";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
-import Map from "./components/Map";
 import Link from "next/link";
+import Map from "./components/Map";
+
 // Disable caching for preview
 export const revalidate = 0;
 

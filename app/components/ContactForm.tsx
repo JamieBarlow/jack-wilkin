@@ -67,7 +67,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
         method: "POST",
         body: JSON.stringify(data),
       });
-      console.log(data);
+      // console.log(data);
       if (!res.ok) {
         throw new Error("Server error");
       }

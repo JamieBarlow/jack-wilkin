@@ -9,6 +9,7 @@ import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
 import Map from "../components/Map";
+
 // Disable caching for preview
 export const revalidate = 0;
 
@@ -17,7 +18,7 @@ const contact = async () => {
   const { pageHeader } = pageFields;
   const sections = await fetchPageSections(pageFields, 1);
   const contactDetails = await fetchContactDetails();
-  console.log(contactDetails);
+  // console.log(contactDetails);
   const {
     phoneNumber,
     email,

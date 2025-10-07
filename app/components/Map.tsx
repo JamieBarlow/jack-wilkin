@@ -1,20 +1,25 @@
 "use client";
-import "leaflet/dist/leaflet.css";
-import dynamic from "next/dynamic";
 import RichTextRenderer from "./RichTextRenderer";
 import { Document, BLOCKS } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
-import { Icon } from "leaflet";
+import Image from "next/image";
+import "leaflet/dist/leaflet.css";
+
+import dynamic from "next/dynamic";
+
+const Marker = dynamic(
+  () =>
+    import("@adamscybot/react-leaflet-component-marker").then(
+      (mod) => mod.Marker
+    ),
+  { ssr: false }
+);
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
   { ssr: false }
 );
 const TileLayer = dynamic(
   () => import("react-leaflet").then((mod) => mod.TileLayer),
-  { ssr: false }
-);
-const Marker = dynamic(
-  () => import("react-leaflet").then((mod) => mod.Marker),
   { ssr: false }
 );
 const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
@@ -34,12 +39,22 @@ interface Location {
 }
 
 const Map = ({ locations, addresses, className, zoom = 13 }: MapProps) => {
-  const markerIcon = new Icon({
-    iconUrl: "/icons/location-pin.png",
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32],
-  });
+  // const markerIcon = new Icon({
+  //   iconUrl: "/icons/location-pin.png",
+  //   iconSize: [32, 32],
+  //   iconAnchor: [16, 32],
+  //   popupAnchor: [0, -32],
+  // });
+  const MarkerIcon = () => {
+    return (
+      <Image
+        src="/icons/location-pin.png"
+        alt="map location pin"
+        width={32}
+        height={32}
+      />
+    );
+  };
   // Get average lat and lon values from coordinate data
   let lat = locations[0].lat;
   let lon = locations[0].lon;
@@ -74,7 +89,7 @@ const Map = ({ locations, addresses, className, zoom = 13 }: MapProps) => {
         return (
           <Marker
             position={[location.lat, location.lon]}
-            icon={markerIcon}
+            icon={<MarkerIcon />}
             key={index}
           >
             <Popup keepInView>

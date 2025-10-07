@@ -228,13 +228,13 @@ export async function fetchPageEntries(
   // Main fields data
   const { pageHeader, subtitle, subtitle2 } = fields;
   const sections = (fields.sections ?? []) as Section[];
-  console.log(sections[0].fields.header);
+  // console.log(sections[0].fields.header);
 
   const orderedSections: Section[] = sections.sort((a, b) => {
     return a.fields.orderNumber - b.fields.orderNumber;
   });
 
-  console.log(orderedSections[5]);
+  // console.log(orderedSections[5]);
 
   const sanitizedSections = orderedSections.map((section) => {
     return {
