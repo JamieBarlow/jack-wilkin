@@ -5,8 +5,8 @@ import { SanitizedSection } from "@/app/api/contentfulSections";
 import HeroSection from "../components/HeroSection";
 import BackgroundTexture from "../components/BackgroundTexture";
 import RichTextRenderer from "../components/RichTextRenderer";
-// Disable caching for preview
-export const revalidate = 0;
+
+export const revalidate = 60;
 
 const helpfulLinks = async () => {
   const pageFields = await fetchPage("Helpful Links", 4);

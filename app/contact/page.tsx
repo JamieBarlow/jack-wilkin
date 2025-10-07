@@ -10,8 +10,7 @@ import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
 import Map from "../components/Map";
 
-// Disable caching for preview
-export const revalidate = 0;
+export const revalidate = 60;
 
 const contact = async () => {
   const pageFields = await fetchPage("Contact Me");

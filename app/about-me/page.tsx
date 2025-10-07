@@ -7,8 +7,8 @@ import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import { SanitizedSection } from "@/app/api/contentfulSections";
 import ContentfulImage from "../components/ContentfulImage";
-// Disable caching for preview
-export const revalidate = 0;
+
+export const revalidate = 60;
 
 const AboutMePage = async () => {
   const pageFields = await fetchPage("About Me", 4);

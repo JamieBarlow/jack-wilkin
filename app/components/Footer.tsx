@@ -3,8 +3,8 @@ import BackgroundTexture from "./BackgroundTexture";
 import NavLink from "./NavLink";
 import Link from "next/link";
 import ContentfulImage from "./ContentfulImage";
-// Disable caching for preview
-export const revalidate = 0;
+
+export const revalidate = 60;
 
 import { fetchFooter } from "@/app/api/contentfulPage";
 

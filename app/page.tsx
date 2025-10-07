@@ -12,8 +12,7 @@ import ContentfulImage from "./components/ContentfulImage";
 import Link from "next/link";
 import Map from "./components/Map";
 
-// Disable caching for preview
-export const revalidate = 0;
+export const revalidate = 60;
 
 export default async function Home() {
   const pageFields = await fetchPage("Home Page", 4);
