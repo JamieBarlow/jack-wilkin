@@ -9,8 +9,15 @@ import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
 import Map from "../components/Map";
+import { Metadata } from "next";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description:
+    "Contact details and contact form for Jack Wilkin, an Oxford-based counsellor providing inclusive, neurodivergent and LGBTQ+ affirming support.",
+};
 
 const contact = async () => {
   const pageFields = await fetchPage("Contact Me");

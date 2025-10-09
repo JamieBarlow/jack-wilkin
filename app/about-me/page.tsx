@@ -7,8 +7,15 @@ import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import { SanitizedSection } from "@/app/api/contentfulSections";
 import ContentfulImage from "../components/ContentfulImage";
+import { Metadata } from "next";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "About Me",
+  description:
+    "Learn more about Jack Wilkin, an Oxford-based counsellor providing inclusive, neurodivergent and LGBTQ+ affirming support.",
+};
 
 const AboutMePage = async () => {
   const pageFields = await fetchPage("About Me", 4);

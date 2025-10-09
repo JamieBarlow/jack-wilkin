@@ -31,9 +31,27 @@ const spectral = Spectral({
 });
 
 export const metadata: Metadata = {
-  title: "JFW Oxford Counselling",
+  title: {
+    default: "JFW Oxford Counselling",
+    template: "%s - JFW Oxford Counselling",
+  },
   description:
     "Inclusive and accessible support | Neurodivergent & LGBTQ+ affirming",
+  keywords: [
+    "Oxford counselling",
+    "counselling in Oxford",
+    "online counselling",
+    "therapy in Oxford",
+    "inclusive counselling",
+    "neurodivergent counselling",
+    "LGBTQ+ counselling",
+    "LGBTQ+ therapy",
+    "mental health support",
+    "talking therapy",
+  ],
+  icons: {
+    icon: "/icon.ico",
+  },
 };
 
 export default function RootLayout({

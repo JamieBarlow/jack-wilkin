@@ -5,8 +5,15 @@ import { SanitizedSection } from "@/app/api/contentfulSections";
 import HeroSection from "../components/HeroSection";
 import BackgroundTexture from "../components/BackgroundTexture";
 import RichTextRenderer from "../components/RichTextRenderer";
+import { Metadata } from "next";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Privacy Notice",
+  description:
+    "Privacy Notice details for Jack Wilkin, an Oxford-based counsellor providing inclusive, neurodivergent and LGBTQ+ affirming support.",
+};
 
 const privacyNotice = async () => {
   const pageFields = await fetchPage("Privacy Notice", 4);

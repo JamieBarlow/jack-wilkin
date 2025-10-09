@@ -5,6 +5,13 @@ import { SanitizedSection } from "@/app/api/contentfulSections";
 import HeroSection from "../components/HeroSection";
 import BackgroundTexture from "../components/BackgroundTexture";
 import RichTextRenderer from "../components/RichTextRenderer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Helpful Links",
+  description:
+    "Helpful local and national mental health links relating to support for crisis, addiction, eating disorders and domestic violence.",
+};
 
 export const revalidate = 60;
 

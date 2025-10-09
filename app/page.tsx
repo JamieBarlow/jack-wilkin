@@ -11,8 +11,14 @@ import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
 import Link from "next/link";
 import Map from "./components/Map";
+import { Metadata } from "next";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  description:
+    "Inclusive and accessible support. Neurodivergent & LGBTQ+ affirming counselling, in Oxford and online.",
+};
 
 export default async function Home() {
   const pageFields = await fetchPage("Home Page", 4);
