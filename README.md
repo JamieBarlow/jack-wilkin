@@ -49,7 +49,7 @@ Some of the upcoming features and improvements (listed below) needed to be pushe
 Planned enhancements post-launch include:  
 
 - [ ] Client-customisable contact form (integrated with existing Airtable DB) using Airtable form build and API;
-- [ ] SEO optimisation;
+- [x] SEO optimisation;
 - [ ] Further image optimisation;
 - [x] Incremental Static Regeneration (ISR) for more efficient CMS content updates.  
 - [ ] Improved data fetching patterns;
