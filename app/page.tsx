@@ -99,7 +99,7 @@ export default async function Home() {
             />
             <div
               id="issueIcons"
-              className="grid max-[350px]:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center lg:justify-items-start gap-8 text-block xl:w-[80%]"
+              className="grid max-[350px]:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-8 text-block"
             >
               <IssueCard issue="depression" size="small" uniformSize />
               <IssueCard issue="anxiety" size="small" uniformSize />
