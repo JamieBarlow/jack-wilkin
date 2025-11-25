@@ -13,7 +13,7 @@ import Link from "next/link";
 import Map from "./components/Map";
 import { Metadata } from "next";
 
-export const revalidate = 60;
+export const revalidate = 600;
 
 export const metadata: Metadata = {
   description:
