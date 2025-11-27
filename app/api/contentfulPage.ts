@@ -59,8 +59,6 @@ export interface Section {
 export interface SectionFields {
   title: string;
   header?: string;
-  orderNumber: number;
-  page: Ref;
   media?: Media[];
   textBlocks?: TextBlock[];
   faqs?: FAQ[];
@@ -228,15 +226,8 @@ export async function fetchPageEntries(
   // Main fields data
   const { pageHeader, subtitle, subtitle2 } = fields;
   const sections = (fields.sections ?? []) as Section[];
-  // console.log(sections[0].fields.header);
 
-  const orderedSections: Section[] = sections.sort((a, b) => {
-    return a.fields.orderNumber - b.fields.orderNumber;
-  });
-
-  // console.log(orderedSections[5]);
-
-  const sanitizedSections = orderedSections.map((section) => {
+  const sanitizedSections = sections.map((section) => {
     return {
       header: section.fields.header,
       textContent: section.fields.textBlocks?.[0].fields.textContent,

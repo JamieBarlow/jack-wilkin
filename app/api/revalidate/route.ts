@@ -9,8 +9,12 @@ export async function POST(req: Request) {
       status: 401,
     });
   }
+  //   const body = await req.json();
+  //   const contentType = body?.sys.contentType.sys.id;
+  //   console.log(contentType);
+
   revalidatePath("/");
-  console.log("revalidating...");
+  //   console.log("revalidating...");
 
   return Response.json({
     revalidated: true,
