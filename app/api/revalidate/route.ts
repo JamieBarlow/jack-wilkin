@@ -52,6 +52,33 @@ export async function POST(req: Request) {
   const contentType = body?.sys.contentType.sys.id;
   if (concepts.length === 0) {
     switch (contentType) {
+      case "page":
+        {
+          const pageId = body?.sys.id;
+          switch (pageId) {
+            case "1U10T6wYzOqKLXlgZ3AP06":
+              revalidatePath("/");
+              pathsRevalidated.push("/");
+              break;
+            case "1Rxtz0OsdLte04vd9WdoHw":
+              revalidatePath("/about-me");
+              pathsRevalidated.push("/about-me");
+              break;
+            case "7sIgzLCJ3Q0FvZwcKUvbeC":
+              revalidatePath("/contact");
+              pathsRevalidated.push("/contact");
+              break;
+            case "G11VY8zzXOvQ7ACWsVdSN":
+              revalidatePath("/helpful-links");
+              pathsRevalidated.push("/helpful-links");
+              break;
+            case "23GOgqfAiX2UlcaG2heO5K":
+              revalidatePath("/privacy-notice");
+              pathsRevalidated.push("/privacy-notice");
+              break;
+          }
+        }
+        break;
       case "faq":
         revalidatePath("/");
         pathsRevalidated.push("/");
