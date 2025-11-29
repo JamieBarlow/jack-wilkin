@@ -9,15 +9,24 @@ export async function POST(req: Request) {
       status: 401,
     });
   }
-  //   const body = await req.json();
-  //   const contentType = body?.sys.contentType.sys.id;
-  //   console.log(contentType);
+  const body = await req.json();
+  const contentType = body?.sys.contentType.sys.id;
+  console.log(contentType);
 
-  revalidatePath("/");
-  //   console.log("revalidating...");
+  switch (contentType) {
+    case "faq":
+      revalidatePath("/");
+      break;
+    case "contactDetails":
+      revalidatePath("/contact");
+      break;
+    default:
+      revalidatePath("/", "layout");
+  }
 
   return Response.json({
     revalidated: true,
     now: Date.now(),
+    pagesUpdated: contentType || null,
   });
 }
