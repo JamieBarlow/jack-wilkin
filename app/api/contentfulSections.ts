@@ -15,7 +15,6 @@ export interface SanitizedSection {
   faqs?: SanitizedFAQ[];
 }
 
-// Optional for fetching by individual section
 export const fetchPageSections = async (
   fields: PageFields,
   include: number = 10

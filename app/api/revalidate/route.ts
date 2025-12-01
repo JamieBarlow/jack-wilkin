@@ -21,6 +21,18 @@ export async function POST(req: Request) {
   const body = await req.json();
   const pathsRevalidated = [];
 
+  // Handling assets e.g. images
+  const sysType = body?.sys?.type; // Entry or Asset
+  if (sysType === "Asset") {
+    revalidatePath("/", "layout");
+    pathsRevalidated.push("all paths");
+    return Response.json({
+      revalidated: true,
+      now: Date.now(),
+      pathsRevalidated,
+    });
+  }
+
   // Handling revalidation of page(s) using taxonomy
   const concepts: Concept[] = body?.metadata?.concepts ?? [];
   const pageIds = concepts.map((c) => c.sys.id);
