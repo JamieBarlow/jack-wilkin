@@ -7,8 +7,6 @@ import BackgroundTexture from "../components/BackgroundTexture";
 import RichTextRenderer from "../components/RichTextRenderer";
 import { Metadata } from "next";
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   title: "Privacy Notice",
   description:

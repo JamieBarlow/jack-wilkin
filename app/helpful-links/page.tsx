@@ -13,8 +13,6 @@ export const metadata: Metadata = {
     "Helpful local and national mental health links relating to support for crisis, addiction, eating disorders and domestic violence.",
 };
 
-export const revalidate = 60;
-
 const helpfulLinks = async () => {
   const pageFields = await fetchPage("Helpful Links", 4);
   const sections = (await fetchPageSections(

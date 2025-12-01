@@ -4,8 +4,6 @@ import NavLink from "./NavLink";
 import Link from "next/link";
 import ContentfulImage from "./ContentfulImage";
 
-export const revalidate = 60;
-
 import { fetchFooter } from "@/app/api/contentfulPage";
 
 const Footer = async () => {

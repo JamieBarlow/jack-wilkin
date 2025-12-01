@@ -9,8 +9,6 @@ import { SanitizedSection } from "@/app/api/contentfulSections";
 import ContentfulImage from "../components/ContentfulImage";
 import { Metadata } from "next";
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   title: "About Me",
   description:

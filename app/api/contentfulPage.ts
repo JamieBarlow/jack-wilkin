@@ -2,6 +2,7 @@ const space = process.env.CONTENTFUL_JACK_SPACE_ID as string;
 const accessToken = process.env.CONTENTFUL_JACK_ACCESS_TOKEN as string;
 import * as contentful from "contentful";
 import { Document } from "@contentful/rich-text-types";
+import { cacheTag } from "next/dist/server/use-cache/cache-tag";
 
 export const client = contentful.createClient({
   space,
@@ -182,6 +183,7 @@ export async function fetchPage(
   pageTitle: string,
   include = 10
 ): Promise<PageFields> {
+  "use cache";
   const pageData = await client.getEntries({
     content_type: "page",
     "fields.pageTitle[match]": pageTitle,
@@ -192,6 +194,8 @@ export async function fetchPage(
 }
 
 export async function fetchNavLinks(include = 10): Promise<NavLinks> {
+  "use cache";
+  cacheTag("navigation");
   const linksData = await client.getEntries({
     content_type: "navigation",
     include,
@@ -200,6 +204,8 @@ export async function fetchNavLinks(include = 10): Promise<NavLinks> {
 }
 
 export async function fetchFooter(include = 10): Promise<FooterFields> {
+  "use cache";
+  cacheTag("footer");
   const footerData = await client.getEntries({
     content_type: "footer",
     include,
@@ -210,6 +216,8 @@ export async function fetchFooter(include = 10): Promise<FooterFields> {
 export async function fetchContactDetails(
   include = 1
 ): Promise<ContactDetails> {
+  "use cache";
+  cacheTag("contactDetails");
   const contactData = await client.getEntries({
     content_type: "contactDetails",
     include,
@@ -221,6 +229,7 @@ export async function fetchContactDetails(
 export async function fetchPageEntries(
   pageTitle: string
 ): Promise<PageDataResult> {
+  "use cache";
   // Fetch page data
   const fields = await fetchPage(pageTitle);
   // Main fields data

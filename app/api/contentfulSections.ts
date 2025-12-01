@@ -20,6 +20,7 @@ export const fetchPageSections = async (
   fields: PageFields,
   include: number = 10
 ): Promise<SanitizedSection[]> => {
+  "use cache";
   const sectionIds = fields.sections?.map((section) => section.sys.id) ?? [];
   const sectionsContent = await Promise.all(
     sectionIds.map(async (id) => {

@@ -13,8 +13,6 @@ import Link from "next/link";
 import Map from "./components/Map";
 import { Metadata } from "next";
 
-export const revalidate = 600;
-
 export const metadata: Metadata = {
   description:
     "Inclusive and accessible support. Neurodivergent & LGBTQ+ affirming counselling, in Oxford and online.",

@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 
 interface Concept {
   sys: {
@@ -23,28 +24,30 @@ export async function POST(req: Request) {
   // Handling revalidation of page(s) using taxonomy
   const concepts: Concept[] = body?.metadata?.concepts ?? [];
   const pageIds = concepts.map((c) => c.sys.id);
-  for (const id of pageIds) {
-    switch (id) {
-      case "homePage":
-        revalidatePath("/");
-        pathsRevalidated.push("/");
-        break;
-      case "about-me":
-        revalidatePath("/about-me");
-        pathsRevalidated.push("about-me");
-        break;
-      case "contact":
-        revalidatePath("/contact");
-        pathsRevalidated.push("/contact");
-        break;
-      case "helpful-links":
-        revalidatePath("/helpful-links");
-        pathsRevalidated.push("/helpful-links");
-        break;
-      case "privacy-notice":
-        revalidatePath("/privacy-notice");
-        pathsRevalidated.push("/privacy-notice");
-        break;
+  if (concepts.length > 0) {
+    for (const id of pageIds) {
+      switch (id) {
+        case "homePage":
+          revalidatePath("/");
+          pathsRevalidated.push("/");
+          break;
+        case "about-me":
+          revalidatePath("/about-me");
+          pathsRevalidated.push("about-me");
+          break;
+        case "contact":
+          revalidatePath("/contact");
+          pathsRevalidated.push("/contact");
+          break;
+        case "helpful-links":
+          revalidatePath("/helpful-links");
+          pathsRevalidated.push("/helpful-links");
+          break;
+        case "privacy-notice":
+          revalidatePath("/privacy-notice");
+          pathsRevalidated.push("/privacy-notice");
+          break;
+      }
     }
   }
 
@@ -76,6 +79,9 @@ export async function POST(req: Request) {
               revalidatePath("/privacy-notice");
               pathsRevalidated.push("/privacy-notice");
               break;
+            default:
+              revalidatePath("/", "layout");
+              pathsRevalidated.push("all paths");
           }
         }
         break;
@@ -86,6 +92,23 @@ export async function POST(req: Request) {
       case "contactDetails":
         revalidatePath("/contact");
         pathsRevalidated.push("/contact");
+        break;
+      // Handling common layout elements
+      case "navigation":
+        revalidateTag("navigation", "max");
+        pathsRevalidated.push("navigation layout");
+        break;
+      case "link":
+        revalidateTag("navigation", "max");
+        pathsRevalidated.push("nav links");
+        break;
+      case "footer":
+        revalidateTag("footer", "max");
+        pathsRevalidated.push("footer elements");
+        break;
+      case "contactDetails":
+        revalidateTag("contactDetails", "max");
+        pathsRevalidated.push("Contact details");
         break;
       default:
         revalidatePath("/", "layout");

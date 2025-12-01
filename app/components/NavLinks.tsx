@@ -3,8 +3,6 @@ import NavLink from "./NavLink";
 import { fetchNavLinks } from "@/app/api/contentfulPage";
 import type { NavLinks } from "@/app/api/contentfulPage";
 
-export const revalidate = 60;
-
 interface NavLinksProps {
   className?: string;
 }
