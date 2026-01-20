@@ -2,32 +2,28 @@
 import RichTextRenderer from "../RichTextRenderer";
 import { Document, BLOCKS } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
-// import "leaflet/dist/leaflet.css";
-// import * as L from "leaflet";
-// import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-// import { useEffect, cache } from "react";
-import { Map as Mapbox, MapProps } from "react-map-gl/mapbox";
+// import Map from "react-map-gl/mapbox";
+import dynamic from "next/dynamic";
 import "mapbox-gl/dist/mapbox-gl.css";
+const Mapbox = dynamic(() => import("react-map-gl/mapbox").then((m) => m.Map), {
+  ssr: false,
+});
 
-// export interface MapProps {
-//   locations: Location[];
-//   addresses: Document[];
-//   className?: string;
-//   zoom?: number;
-//   width?: number;
-//   height?: number;
-// }
+export interface MapProps {
+  locations: Location[];
+  addresses: Document[];
+  className?: string;
+  zoom?: number;
+  width?: number;
+  height?: number;
+}
 
 interface Location {
   lat: number;
   lon: number;
 }
 
-interface Props extends MapProps {
-  locations: Location[];
-}
-
-const Map = ({ locations, ...mapProps }: Props) => {
+const Map = ({ locations, addresses }: MapProps) => {
   // Get average (centre) lat and lon values from coordinate data
   let lat = locations[0].lat;
   let lon = locations[0].lon;
@@ -37,77 +33,20 @@ const Map = ({ locations, ...mapProps }: Props) => {
   }
   return (
     <Mapbox
-      mapboxAccessToken=""
+      key="mapbox-instance"
+      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
       initialViewState={{
         longitude: lon,
         latitude: lat,
-        zoom: 3.5,
+        zoom: 12,
       }}
-      style={{ width: 600, height: 400 }}
+      style={{ width: "100%", height: 400 }}
       mapStyle="mapbox://styles/mapbox/streets-v9"
     />
   );
 };
 
-// const Map = ({ locations, addresses, className, zoom = 13 }: MapProps) => {
-//   // const markerIcon = new Icon({
-//   //   iconUrl: "/icons/location-pin.png",
-//   //   iconSize: [32, 32],
-//   //   iconAnchor: [16, 32],
-//   //   popupAnchor: [0, -32],
-//   // });
-
-//   // const MarkerIcon = L.icon({
-//   //   iconUrl: "/icons/location-pin.png",
-//   //   iconSize: [32, 32],
-//   //   iconAnchor: [16, 32],
-//   //   popupAnchor: [0, -32],
-//   // });
-
-//   useEffect(() => {
-//     delete (L.Icon.Default.prototype as any)._getIconUrl;
-//     L.Icon.Default.mergeOptions({
-//       iconRetinaUrl: "leaflet/images/marker-icon-2x.png",
-//       iconUrl: "leaflet/images/marker-icon.png",
-//       shadowUrl: "leaflet/images/marker-shadow.png",
-//     });
-//   }, []);
-
-//   // const MarkerIcon = () => {
-//   //   return (
-//   //     <Image
-//   //       src="/icons/location-pin.png"
-//   //       alt="map location pin"
-//   //       width={32}
-//   //       height={32}
-//   //     />
-//   //   );
-//   // };
-
-//   // Styling for RichTextRenderer
-//   const Text: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-//     <p className="text-xs leading-0.5">{children}</p>
-//   );
-//   const options: Options = {
-//     renderNode: {
-//       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
-//     },
-//     renderText: (text) => text.replace("!", "?"),
-//   };
-
-//   return (
-//     <MapContainer
-//       center={[lat + 0.002, lon]}
-//       zoom={zoom}
-//       scrollWheelZoom={false}
-//       className={className}
-//       style={{ height: "100%", width: "100%" }}
-//     >
-//       <TileLayer
-//         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-//       />
-//       {locations.map((location, index) => {
+// {locations.map((location, index) => {
 //         return (
 //           <Marker
 //             position={[location.lat, location.lon]}
@@ -123,8 +62,16 @@ const Map = ({ locations, ...mapProps }: Props) => {
 //           </Marker>
 //         );
 //       })}
-//     </MapContainer>
-//   );
-// };
 
-// export default Map;
+//   // Styling for RichTextRenderer
+//   const Text: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+//     <p className="text-xs leading-0.5">{children}</p>
+//   );
+//   const options: Options = {
+//     renderNode: {
+//       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+//     },
+//     renderText: (text) => text.replace("!", "?"),
+//   };
+
+export default Map;

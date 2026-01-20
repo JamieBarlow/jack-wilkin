@@ -8,7 +8,7 @@ import { fetchContactDetails, fetchPage } from "@/app/api/contentfulPage";
 import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
-import Map from "../components/Map";
+import Map from "../components/map/Map";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

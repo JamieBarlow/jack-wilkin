@@ -10,8 +10,8 @@ import { SanitizedSection } from "@/app/api/contentfulSections";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
 import Link from "next/link";
-import Map from "./components/Map";
-import MapCaller from "./components/map/LazyMap";
+import Map from "./components/map/Map";
+// import MapCaller from "./components/map/LazyMap";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default async function Home() {
   const pageFields = await fetchPage("Home Page", 4);
   const sections = (await fetchPageSections(
     pageFields,
-    1
+    1,
   )) as unknown as SanitizedSection[];
   const { pageHeader, subtitle, subtitle2 } = pageFields;
   const subtitleParts = subtitle2?.split("|");
@@ -219,7 +219,7 @@ export default async function Home() {
         </section>
       </BackgroundTexture>
       <section id="map-banner" className="bg-base-100 w-full">
-        <MapCaller
+        <Map
           locations={locations}
           addresses={addresses}
           className="w-full h-[400px]"
