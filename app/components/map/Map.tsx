@@ -2,12 +2,14 @@
 import RichTextRenderer from "../RichTextRenderer";
 import { Document, BLOCKS } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
-// import Map from "react-map-gl/mapbox";
-import dynamic from "next/dynamic";
+
+// import dynamic from "next/dynamic";
 import "mapbox-gl/dist/mapbox-gl.css";
-const Mapbox = dynamic(() => import("react-map-gl/mapbox").then((m) => m.Map), {
-  ssr: false,
-});
+// const Mapbox = dynamic(() => import("react-map-gl/mapbox").then((m) => m.Map), {
+//   ssr: false,
+// });
+import { useState } from "react";
+import { Map as Mapbox, Marker, Popup } from "react-map-gl/mapbox";
 
 export interface MapProps {
   locations: Location[];
@@ -24,6 +26,8 @@ interface Location {
 }
 
 const Map = ({ locations, addresses }: MapProps) => {
+  const [showPopup, setShowPopup] = useState<boolean>(true);
+
   // Get average (centre) lat and lon values from coordinate data
   let lat = locations[0].lat;
   let lon = locations[0].lon;
@@ -31,6 +35,7 @@ const Map = ({ locations, addresses }: MapProps) => {
     lat = locations.reduce((sum, loc) => sum + loc.lat, 0) / locations.length;
     lon = locations.reduce((sum, loc) => sum + loc.lon, 0) / locations.length;
   }
+
   return (
     <Mapbox
       key="mapbox-instance"
@@ -42,7 +47,30 @@ const Map = ({ locations, addresses }: MapProps) => {
       }}
       style={{ width: "100%", height: 400 }}
       mapStyle="mapbox://styles/mapbox/streets-v9"
-    />
+    >
+      {locations.map((location, index) => {
+        return (
+          <Marker
+            key={index}
+            latitude={location.lat}
+            longitude={location.lon}
+            anchor="bottom"
+            color="rgba(232, 95, 92, 1)"
+          ></Marker>
+        );
+      })}
+      {showPopup && (
+        <Popup
+          offset={25}
+          longitude={locations[0].lon}
+          latitude={locations[0].lat}
+          closeButton
+        >
+          You are here
+        </Popup>
+      )}
+      ;
+    </Mapbox>
   );
 };
 
