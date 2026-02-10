@@ -8,7 +8,8 @@ import { fetchContactDetails, fetchPage } from "@/app/api/contentfulPage";
 import { fetchPageSections } from "@/app/api/contentfulSections";
 import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
-import Map from "../components/map/Map";
+// import Map from "../components/map/Map";
+import LazyMap from "../components/map/LazyMap";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -74,7 +75,7 @@ const contact = async () => {
                 >
                   <div className="card w-3xs bg-base-100 shadow-lg">
                     <figure className="relative w-full h-[251px]">
-                      <Map
+                      <LazyMap
                         locations={[location1]}
                         addresses={[location1Address]}
                         className="w-full h-[400px] object-cover"
@@ -91,7 +92,7 @@ const contact = async () => {
                   </div>
                   <div className="card w-3xs bg-base-100 shadow-lg">
                     <figure className="relative w-full h-[251px]">
-                      <Map
+                      <LazyMap
                         locations={[location2]}
                         addresses={[location2Address]}
                         className="w-full h-[400px] object-cover"

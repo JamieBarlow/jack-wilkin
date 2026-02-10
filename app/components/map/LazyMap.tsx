@@ -1,6 +1,6 @@
-// "use client";
-// import dynamic from "next/dynamic";
-// import { MapProps } from "./Map";
+"use client";
+import dynamic from "next/dynamic";
+export default dynamic(() => import("./Map"), { ssr: false });
 
 // const DynamicMap = dynamic(() => import("./Map"), {
 //   ssr: false,
