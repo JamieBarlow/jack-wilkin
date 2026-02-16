@@ -1,4 +1,4 @@
-export default function ContentSkeleton() {
+export default function LoadingContent() {
   return (
     <div className="w-full">
       <div className="text-base-100 px-6 py-8 min-h-screen bg-secondary">

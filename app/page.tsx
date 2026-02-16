@@ -7,11 +7,11 @@ import RichTextRenderer from "./components/RichTextRenderer";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
 import Link from "next/link";
-import LazyMap from "./components/map/LazyMap";
+import LazyMapLarge from "./components/map/LazyMapLarge";
 import { Metadata } from "next";
 import { Suspense } from "react";
 import type { PageFields } from "@/app/api/contentfulPage";
-import ContentSkeleton from "./components/ContentSkeleton";
+import LoadingContent from "./components/LoadingContent";
 import { fetchPageData } from "@/lib/fetchPageData";
 
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default async function Home() {
           </Link>
         </HeroSection>
       </div>
-      <Suspense fallback={<ContentSkeleton />}>
+      <Suspense fallback={<LoadingContent />}>
         <PageContent pageFields={pageFields} />
       </Suspense>
     </main>
@@ -219,7 +219,7 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
       </section>
       {contactDetails && (
         <section id="map-banner" className="bg-base-100 w-full">
-          <LazyMap
+          <LazyMapLarge
             locations={[contactDetails.location1, contactDetails.location2]}
             addresses={[
               contactDetails.location1Address,

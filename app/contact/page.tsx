@@ -5,10 +5,10 @@ import ContactForm from "../components/ContactForm";
 import { fetchPage, PageFields } from "@/app/api/contentfulPage";
 import RichTextRenderer from "../components/RichTextRenderer";
 import ContentfulImage from "../components/ContentfulImage";
-import LazyMap from "../components/map/LazyMap";
+import LazyMapSmall from "../components/map/LazyMapSmall";
 import { Metadata } from "next";
 import { fetchPageData } from "@/lib/fetchPageData";
-import ContentSkeleton from "../components/ContentSkeleton";
+import LoadingContent from "../components/LoadingContent";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default async function Contact() {
       <HeroSection bgUnderWave="#F6F4EE">
         <h1 className="my-0">{pageHeader}</h1>
       </HeroSection>
-      <Suspense fallback={<ContentSkeleton />}>
+      <Suspense fallback={<LoadingContent />}>
         <PageContent pageFields={pageFields} />
       </Suspense>
     </div>
@@ -76,7 +76,7 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
                 >
                   <div className="card w-3xs bg-base-100 shadow-lg">
                     <figure className="relative w-full h-[251px]">
-                      <LazyMap
+                      <LazyMapSmall
                         locations={[contactDetails.location1]}
                         addresses={[contactDetails.location1Address]}
                         className="w-full h-[400px] object-cover"
@@ -97,30 +97,26 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
                     </div>
                   </div>
                   <div className="card w-3xs bg-base-100 shadow-lg">
-                    {contactDetails && (
-                      <figure className="relative w-full h-[251px]">
-                        <LazyMap
-                          locations={[contactDetails.location2]}
-                          addresses={[contactDetails.location2Address]}
-                          className="w-full h-[400px] object-cover"
+                    <figure className="relative w-full h-[251px]">
+                      <LazyMapSmall
+                        locations={[contactDetails.location2]}
+                        addresses={[contactDetails.location2Address]}
+                        className="w-full h-[400px] object-cover"
+                      />
+                    </figure>
+                    <div className="ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
+                      <div className="relative w-full">
+                        <ContentfulImage
+                          asset={contactDetails.location2Image}
+                          quality={100}
                         />
-                      </figure>
-                    )}
-                    {contactDetails && (
-                      <div className="ps-0 py-0 flex flex-col md:flex-row flex-wrap flex-1 gap-6">
-                        <div className="relative w-full">
-                          <ContentfulImage
-                            asset={contactDetails.location2Image}
-                            quality={100}
-                          />
-                        </div>
-                        <div className="flex-1 px-6 pb-6">
-                          <RichTextRenderer
-                            documents={contactDetails.location2Address}
-                          />
-                        </div>
                       </div>
-                    )}
+                      <div className="flex-1 px-6 pb-6">
+                        <RichTextRenderer
+                          documents={contactDetails.location2Address}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
