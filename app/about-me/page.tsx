@@ -15,13 +15,14 @@ export const metadata: Metadata = {
     "Learn more about Jack Wilkin, an Oxford-based counsellor providing inclusive, neurodivergent and LGBTQ+ affirming support.",
 };
 
-const AboutMePage = async () => {
+export default async function AboutMePage() {
+  // Sequential data fetch (sections data dependent on pageFields)
   const pageFields = await fetchPage("About Me", 4);
+  const { pageHeader } = pageFields;
   const sections = (await fetchPageSections(
     pageFields,
-    1
+    1,
   )) as unknown as SanitizedSection[];
-  const { pageHeader } = pageFields;
 
   return (
     <div>
@@ -77,6 +78,4 @@ const AboutMePage = async () => {
       </main>
     </div>
   );
-};
-
-export default AboutMePage;
+}

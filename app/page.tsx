@@ -3,19 +3,16 @@ import IssueCard from "./components/IssueCard";
 import SideBySideContent from "./components/SideBySideContent";
 import BackgroundTexture from "./components/BackgroundTexture";
 import { fetchPage } from "@/app/api/contentfulPage";
-import { fetchPageSections } from "@/app/api/contentfulSections";
-import { fetchContactDetails } from "@/app/api/contentfulPage";
 import RichTextRenderer from "./components/RichTextRenderer";
-import { SanitizedSection } from "@/app/api/contentfulSections";
 import FAQs from "./components/FAQs";
 import ContentfulImage from "./components/ContentfulImage";
 import Link from "next/link";
-// import Map from "./components/map/Map";
 import LazyMap from "./components/map/LazyMap";
 import { Metadata } from "next";
 import { Suspense } from "react";
 import type { PageFields } from "@/app/api/contentfulPage";
 import ContentSkeleton from "./components/ContentSkeleton";
+import { fetchPageData } from "@/lib/fetchPageData";
 
 export const metadata: Metadata = {
   description:
@@ -63,19 +60,7 @@ export default async function Home() {
 }
 
 async function PageContent({ pageFields }: { pageFields: PageFields }) {
-  // Parallel fetch with graceful degradation; each fetch can fail independently without breaking the page
-  const [sectionsResult, contactDetailsResult] = await Promise.allSettled([
-    fetchPageSections(pageFields, 1),
-    fetchContactDetails(),
-  ]);
-  const sections =
-    sectionsResult.status === "fulfilled"
-      ? (sectionsResult.value as unknown as SanitizedSection[])
-      : [];
-  const contactDetails =
-    contactDetailsResult.status === "fulfilled"
-      ? contactDetailsResult.value
-      : null;
+  const { sections, contactDetails } = await fetchPageData(pageFields);
 
   return (
     <>
