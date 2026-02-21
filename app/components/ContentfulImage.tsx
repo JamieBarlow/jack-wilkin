@@ -22,31 +22,34 @@ export interface ContentfulAsset {
 
 export default function ContentfulImage({
   asset,
-  quality,
+  quality = 75,
   className,
   sizes,
-  priority = false,
+  preload = false,
+  loading = "lazy",
   fill = false,
   objectFit,
+  fetchPriority = "low",
 }: {
   asset?: ContentfulAsset;
   quality?: number;
   className?: string;
   sizes?: string;
-  priority?: boolean;
+  loading?: "eager" | "lazy" | undefined;
+  preload?: boolean;
   fill?: boolean;
   objectFit?: string;
+  fetchPriority?: "low" | "high" | "auto" | undefined;
 }) {
   if (!asset) return null;
   const file = asset?.fields?.file;
   const alt = asset?.fields?.description || asset?.fields?.title || "";
-  const loading = priority ? "eager" : "lazy";
   const width = !fill ? file.details.image.width : undefined;
   const height = !fill ? file.details.image.width : undefined;
 
   return (
     <Image
-      priority={priority}
+      preload={preload}
       loader={contentfulImageLoader}
       src={file.url}
       alt={alt}
@@ -58,6 +61,7 @@ export default function ContentfulImage({
       sizes={sizes}
       fill={fill}
       objectFit={objectFit}
+      fetchPriority={fetchPriority}
     />
   );
 }

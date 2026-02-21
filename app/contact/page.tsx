@@ -86,7 +86,6 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
                       <div className="relative w-full">
                         <ContentfulImage
                           asset={contactDetails.location1Image}
-                          quality={100}
                         />
                       </div>
                       <div className="flex-1 px-6 pb-6">
@@ -108,7 +107,6 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
                       <div className="relative w-full">
                         <ContentfulImage
                           asset={contactDetails.location2Image}
-                          quality={100}
                         />
                       </div>
                       <div className="flex-1 px-6 pb-6">

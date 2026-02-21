@@ -72,11 +72,7 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
               <RichTextRenderer documents={sections[0].textContent} />
             </div>
             <div className="box-gradient-bg-right p-5">
-              <ContentfulImage
-                asset={sections[0].media?.[0]}
-                quality={100}
-                priority
-              />
+              <ContentfulImage asset={sections[0].media?.[0]} loading="eager" />
             </div>
           </SideBySideContent>
         </div>
@@ -114,7 +110,7 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
             </div>
             <SideBySideContent className="justify-center md:justify-start items-start section-middle gap-10 lg:gap-16 xl:gap-10">
               <div className="w-[80%] max-w-2xl box-gradient-bg-left p-5">
-                <ContentfulImage asset={sections[3].media?.[0]} quality={100} />
+                <ContentfulImage asset={sections[3].media?.[0]} />
               </div>
               <div className="flex-1 relative">
                 <h3 className="heading">{sections[3].header}</h3>
@@ -149,8 +145,7 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
               <div className="w-full lg:max-w-[40%]">
                 <ContentfulImage
                   asset={sections[4].media?.[0]}
-                  quality={100}
-                  className="box-gradient-bg-right p-5 pl-0"
+                  className="box-gradient-bg-right p-5 pl-0 w-20"
                 />
               </div>
             </div>
@@ -191,14 +186,12 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
                 <div className=" ">
                   <ContentfulImage
                     asset={sections[7].media?.[0]}
-                    quality={100}
                     className="box-gradient-bg-right p-5 pl-0"
                   />
                 </div>
                 <div className="order-2 lg:order-1">
                   <ContentfulImage
                     asset={sections[8].media?.[0]}
-                    quality={100}
                     className="box-gradient-bg-left p-5"
                   />
                 </div>
@@ -238,10 +231,7 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
           <div className="flex flex-row flex-wrap justify-center md:justify-start items-center gap-10 py-4">
             <div className="min-w-full sm:min-w-0 max-w-[40%] self-start">
               <div className="box-gradient-bg-left p-5">
-                <ContentfulImage
-                  asset={sections[10].media?.[0]}
-                  quality={100}
-                />
+                <ContentfulImage asset={sections[10].media?.[0]} />
               </div>
             </div>
             <div className="flex-1 self-end xl:self-start">

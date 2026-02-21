@@ -50,7 +50,7 @@ export default async function AboutMePage() {
                 <div className="flex-1 flex box-gradient-bg-right p-5 pl-0 max-w-md">
                   <ContentfulImage
                     asset={sections[0].media?.[0]}
-                    quality={100}
+                    loading="eager"
                   />
                 </div>
               </SideBySideContent>
@@ -64,7 +64,6 @@ export default async function AboutMePage() {
               <div className="w-full lg:max-w-[40%] order-2 lg:order-1">
                 <ContentfulImage
                   asset={sections[1].media?.[0]}
-                  quality={100}
                   className="box-gradient-bg-left p-5"
                 />
               </div>
