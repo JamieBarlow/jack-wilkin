@@ -72,7 +72,11 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
               <RichTextRenderer documents={sections[0].textContent} />
             </div>
             <div className="box-gradient-bg-right p-5">
-              <ContentfulImage asset={sections[0].media?.[0]} loading="eager" />
+              <ContentfulImage
+                asset={sections[0].media?.[0]}
+                loading="eager"
+                sizes="(max-width: 30rem) calc(86.25vw - 31px), 33vw"
+              />
             </div>
           </SideBySideContent>
         </div>
@@ -109,7 +113,7 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
               </div>
             </div>
             <SideBySideContent className="justify-center md:justify-start items-start section-middle gap-10 lg:gap-16 xl:gap-10">
-              <div className="w-[80%] max-w-2xl box-gradient-bg-left p-5">
+              <div className="lg:max-w-[40%] xl:max-w-[50%] box-gradient-bg-left p-5">
                 <ContentfulImage asset={sections[3].media?.[0]} />
               </div>
               <div className="flex-1 relative">
@@ -142,10 +146,10 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
                 <h3 className="heading">{sections[4].header}</h3>
                 <RichTextRenderer documents={sections[4].textContent} />
               </div>
-              <div className="w-full lg:max-w-[40%]">
+              <div className="w-full lg:max-w-[40%] xl:max-w-[50%]">
                 <ContentfulImage
                   asset={sections[4].media?.[0]}
-                  className="box-gradient-bg-right p-5 pl-0 w-20"
+                  className="box-gradient-bg-right p-5 pl-0"
                 />
               </div>
             </div>

@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       },
     ],
     qualities: [25, 50, 75, 100],
+    formats: ["image/avif", "image/webp"],
   },
   cacheComponents: true,
   async headers() {

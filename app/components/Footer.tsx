@@ -105,11 +105,11 @@ const Footer = async () => {
                 className="sx-verified-seal w-[16rem]"
                 key={index}
               >
-                <ContentfulImage asset={img.fields.image} quality={100} />
+                <ContentfulImage asset={img.fields.image} sizes="16rem" />
               </Link>
             ) : (
               <div className="w-[16rem]" key={index}>
-                <ContentfulImage asset={img.fields.image} quality={100} />
+                <ContentfulImage asset={img.fields.image} sizes="16rem" />
               </div>
             );
           })}

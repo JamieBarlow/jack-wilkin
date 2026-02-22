@@ -51,6 +51,7 @@ export default async function AboutMePage() {
                   <ContentfulImage
                     asset={sections[0].media?.[0]}
                     loading="eager"
+                    sizes="(max-width: 30rem) calc(86.25vw - 31px), 33vw"
                   />
                 </div>
               </SideBySideContent>
