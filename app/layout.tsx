@@ -61,6 +61,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="wilkinTheme">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/backgrounds/banner-texture.webp"
+          fetchPriority="high"
+        />
+      </head>
       <body
         className={`${raleway.variable} ${notoSans.variable} ${inter.variable} ${spectral.variable} antialiased *:outline`}
       >

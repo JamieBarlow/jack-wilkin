@@ -199,9 +199,9 @@
   --section-spacing: theme(spacing.14);
   --item-spacing: theme(spacing.8);
   /* bg texture */
-  --texture-banner: url("/backgrounds/banner-texture.png");
-  --texture-abstract: url("/backgrounds/abstract-texture-minimal.png");
-  --texture-abstract2: url("/backgrounds/abstract-texture2.png");
+  --texture-banner: url("/backgrounds/banner-texture.webp");
+  --texture-abstract: url("/backgrounds/abstract-texture-minimal.webp");
+  --texture-abstract2: url("/backgrounds/abstract-texture2.webp");
   /* box gradients */
   --box-gradient-color: var(--color-edgewater-200);
   --box-gradient-stop: 50%;
