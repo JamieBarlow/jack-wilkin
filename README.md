@@ -48,9 +48,8 @@ Some of the upcoming features and improvements (listed below) needed to be pushe
 
 Planned enhancements post-launch include:  
 
-- [ ] Client-customisable contact form (integrated with existing Airtable DB) using Airtable form build and API;
+- [ ] Client-customisable contact form (integrated with existing Airtable DB) using Airtable form build and API (on hold);
 - [x] SEO optimisation;
-- [ ] Further image optimisation;
+- [x] Further image optimisation (<link rel="preload"> in document head for LCP background images, eager loading for important images, lazy loading default. WebP conversion and compressed images with responsive sizes properties);
 - [x] Incremental Static Regeneration (ISR) for more efficient CMS content updates.  
-- [ ] Improved data fetching patterns;
-- [ ] Page transition and sidebar UX refinements;
+- [x] Improved data fetching patterns (Parallel data fetching with graceful degradation, abstracted data fetching for pages, suspense boundaries / loading skeletons at component and page level);
