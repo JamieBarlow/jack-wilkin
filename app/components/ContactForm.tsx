@@ -16,9 +16,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-
+import { ContactFormFields } from "../api/contentfulContactForm";
 interface ContactFormProps {
   className?: string;
+  fields: ContactFormFields;
 }
 
 const nameField = z
@@ -43,7 +44,7 @@ const RequiredField = () => (
   <span className="text-red-500 font-noto-sans text-sm">*</span>
 );
 
-const ContactForm = ({ className }: ContactFormProps) => {
+const ContactForm = ({ className, fields }: ContactFormProps) => {
   const form = useForm<FormFields>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -60,7 +61,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
   const onSubmit: SubmitHandler<FormFields> = async (
     data,
-    _e
+    _e,
   ): Promise<void> => {
     try {
       const res = await fetch("/api/submit", {
@@ -176,9 +177,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
                   <FormLabel>
                     Message <RequiredField />
                   </FormLabel>
-                  <FormDescription>
-                    Please let me know you reason for getting in touch:
-                  </FormDescription>
+                  <FormDescription>{fields.messageLabel}</FormDescription>
                   <FormControl>
                     <Textarea
                       placeholder="Message"
@@ -196,10 +195,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Preferences</FormLabel>
-                  <FormDescription>
-                    Please provide details of any communication preferences or
-                    reasonable adjustments:
-                  </FormDescription>
+                  <FormDescription>{fields.preferencesLabel}</FormDescription>
                   <FormControl>
                     <Textarea
                       placeholder="Details here"
@@ -212,13 +208,13 @@ const ContactForm = ({ className }: ContactFormProps) => {
               )}
             />
             <FormDescription className="mb-6">
-              I aim to reply to all enquiries within 48 hours.
+              {fields.preSubmitLabel}
             </FormDescription>
             <Button
               type="submit"
               className="text-md text-base-100 hover:cursor-pointer my-4"
             >
-              {isSubmitting ? "Submitting..." : "Submit"}
+              {isSubmitting ? "Submitting..." : `${fields.submitButtonLabel}`}
             </Button>
             {errors.root && (
               <div className="text-red-500">{errors.root.message}</div>

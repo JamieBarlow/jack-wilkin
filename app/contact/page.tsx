@@ -10,6 +10,10 @@ import { Metadata } from "next";
 import { fetchPageData } from "@/lib/fetchPageData";
 import LoadingContent from "../components/LoadingContent";
 import { Suspense } from "react";
+import {
+  ContactFormFields,
+  fetchContactForm,
+} from "../api/contentfulContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Me",
@@ -17,9 +21,17 @@ export const metadata: Metadata = {
     "Contact details and contact form for Jack Wilkin, an Oxford-based counsellor providing inclusive, neurodivergent and LGBTQ+ affirming support.",
 };
 
+interface PageContentFields {
+  pageFields: PageFields;
+  formFields: ContactFormFields;
+}
+
 export default async function Contact() {
   // Fetch header / primary page content
-  const pageFields = await fetchPage("Contact Me");
+  const [pageFields, contactFormFields] = await Promise.all([
+    fetchPage("Contact Me"),
+    fetchContactForm(),
+  ]);
   const { pageHeader } = pageFields;
 
   return (
@@ -28,13 +40,13 @@ export default async function Contact() {
         <h1 className="my-0">{pageHeader}</h1>
       </HeroSection>
       <Suspense fallback={<LoadingContent />}>
-        <PageContent pageFields={pageFields} />
+        <PageContent pageFields={pageFields} formFields={contactFormFields} />
       </Suspense>
     </div>
   );
 }
 
-async function PageContent({ pageFields }: { pageFields: PageFields }) {
+async function PageContent({ pageFields, formFields }: PageContentFields) {
   const { sections, contactDetails } = await fetchPageData(pageFields);
 
   return (
@@ -127,7 +139,7 @@ async function PageContent({ pageFields }: { pageFields: PageFields }) {
             <h3 className="heading text-base-content text-center pb-6">
               Contact Form
             </h3>
-            <ContactForm />
+            <ContactForm fields={formFields} />
           </section>
         </div>
       </BackgroundTexture>

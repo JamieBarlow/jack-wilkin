@@ -3,6 +3,7 @@ const accessToken = process.env.CONTENTFUL_JACK_ACCESS_TOKEN as string;
 import * as contentful from "contentful";
 import { Document } from "@contentful/rich-text-types";
 import { cacheTag } from "next/dist/server/use-cache/cache-tag";
+import { ContactFormFields } from "./contentfulContactForm";
 
 export const client = contentful.createClient({
   space,
@@ -49,6 +50,7 @@ export interface PageFields {
   sections?: Section[];
   subtitle?: string;
   subtitle2?: string;
+  formFields?: ContactFormFields;
 }
 
 export interface Section {
