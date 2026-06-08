@@ -59,6 +59,10 @@ export async function POST(req: Request) {
           revalidatePath("/privacy-notice");
           pathsRevalidated.push("/privacy-notice");
           break;
+        case "training":
+          revalidatePath("/training");
+          pathsRevalidated.push("/training");
+          break;
       }
     }
   }
@@ -91,6 +95,10 @@ export async function POST(req: Request) {
               revalidatePath("/privacy-notice");
               pathsRevalidated.push("/privacy-notice");
               break;
+            case "6ppUDm6n0JRiQoOs5T7js8":
+              revalidatePath("/training");
+              pathsRevalidated.push("/training");
+              break;
             default:
               revalidatePath("/", "layout");
               pathsRevalidated.push("all paths");
@@ -113,6 +121,10 @@ export async function POST(req: Request) {
       case "link":
         revalidateTag("navigation", "max");
         pathsRevalidated.push("nav links");
+        break;
+      case "section":
+        revalidateTag("section", "max");
+        pathsRevalidated.push("section elements");
         break;
       case "footer":
         revalidateTag("footer", "max");

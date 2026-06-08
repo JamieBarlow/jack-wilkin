@@ -181,9 +181,10 @@ interface ContactDetails {
 
 export async function fetchPage(
   pageTitle: string,
-  include = 10
+  include = 10,
 ): Promise<PageFields> {
   "use cache";
+  cacheTag("section");
   const pageData = await client.getEntries({
     content_type: "page",
     "fields.pageTitle[match]": pageTitle,
@@ -214,7 +215,7 @@ export async function fetchFooter(include = 10): Promise<FooterFields> {
 }
 
 export async function fetchContactDetails(
-  include = 1
+  include = 1,
 ): Promise<ContactDetails> {
   "use cache";
   cacheTag("contactDetails");
@@ -227,7 +228,7 @@ export async function fetchContactDetails(
 
 // Use only if fetching all page entries and linked items together. Otherwise, see fetchPageSections
 export async function fetchPageEntries(
-  pageTitle: string
+  pageTitle: string,
 ): Promise<PageDataResult> {
   "use cache";
   // Fetch page data
